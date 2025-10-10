@@ -67,7 +67,6 @@ class Solution:
 print(Solution().findRepeatDocument([2, 3, 1, 0, 2, 5, 3]))
 print(Solution().findRepeatDocument([2, 3, 1, 0, 4, 5]))
 print(Solution().findRepeatDocument([2, 3, 1, 0, 4, 5, 6, 5, 5]))
-
 ```
  */
 #include <iostream>
