@@ -47,7 +47,8 @@ public:
 };
 int main()
 {
-    cout << Solution().countGoodStrings(3, 3, 1, 1) << endl;
-    cout << Solution().countGoodStrings(2, 3, 1, 2) << endl;
+    Solution s;
+    cout << s.countGoodStrings(3, 3, 1, 1) << endl;
+    cout << s.countGoodStrings(2, 3, 1, 2) << endl;
     return 0;
 }
