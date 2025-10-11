@@ -20,6 +20,7 @@
 解释：好字符串为 "00" ，"11" ，"000" ，"110" 和 "011" 。
 */
 #include <iostream>
+#include <vector>
 using namespace std;
 class Solution
 {
@@ -27,10 +28,24 @@ public:
     int countGoodStrings(int low, int high, int zero, int one)
     {
         //递推法
-        
+        vector<int> dp(high + 1, 0);
+        dp[0] = 1;
+        for (int i = 1; i <= high; i++)
+        {
+            if (i >= zero) dp[i] = (dp[i] + dp[i - zero]) % (1000000007);
+            if (i >= one) dp[i] = (dp[i] + dp[i - one]) % (1000000007);
+        }
+        int result = 0;
+        for (int i = low; i <= high; i++)
+        {
+            result = (result + dp[i]) % (1000000007);
+        }
+        return result;
     }
 };
 int main()
 {
+    cout << Solution().countGoodStrings(3, 3, 1, 1) << endl;
+    cout << Solution().countGoodStrings(2, 3, 1, 2) << endl;
     return 0;
 }
