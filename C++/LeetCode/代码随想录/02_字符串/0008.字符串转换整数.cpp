@@ -58,6 +58,7 @@ public:
                 return INT_MIN;
         }
         cout << num * sign << endl;
+        cout << endl;
         return num * sign;
     }
 };
