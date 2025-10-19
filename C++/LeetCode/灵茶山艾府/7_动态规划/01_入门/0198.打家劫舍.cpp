@@ -30,7 +30,6 @@ public:
             return nums[0];
         // dp[i]:表示不触动警报装置的情况下,从(0,...,i)房屋偷窃到的最高金额为dp[i]
         vector<int> dp(nums.size());
-        // 初始化
         dp[0] = nums[0];
         dp[1] = max(nums[1], nums[0]);
         // 递推公式 dp[i]=max(dp[i-1],dp[i-2]+nums[i])
