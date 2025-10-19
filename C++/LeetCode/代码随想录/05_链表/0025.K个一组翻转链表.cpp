@@ -9,7 +9,7 @@ k 是一个正整数，它的值小于或等于链表的长度。如果节点总
 输入：head = [1,2,3,4,5], k = 3
 输出：[3,2,1,4,5]
 */
-#include "../../include/ListNode.h"
+#include "ListNode.h"
 class Solution
 {
 public:
@@ -25,7 +25,7 @@ public:
         if (count == k)
         {
             cur = reverseKGroup(cur, k);
-            while (count-- > 0)
+            while (--count > 0)
             {
                 ListNode *tmp = head->next;
                 head->next = cur;

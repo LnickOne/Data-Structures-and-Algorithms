@@ -8,8 +8,7 @@
 输入：head = [1,2]
 输出：false
 */
-#include "../../include/utils.h"
-#include "../../include/ListNode.h"
+#include "ListNode.h"
 class Solution
 {
 public:

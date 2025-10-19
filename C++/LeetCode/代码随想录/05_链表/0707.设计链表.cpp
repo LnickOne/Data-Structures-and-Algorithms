@@ -27,8 +27,7 @@ myLinkedList.get(1);              // 返回 2
 myLinkedList.deleteAtIndex(1);    // 现在，链表变为 1->3
 myLinkedList.get(1);              // 返回 3
 */
-#include "../../include/utils.h"
-#include "../../include/ListNode.h"
+#include "ListNode.h"
 class MyLinkedList
 {
 public:

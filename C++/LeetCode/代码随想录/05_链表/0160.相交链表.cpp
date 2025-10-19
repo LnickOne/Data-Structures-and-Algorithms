@@ -25,8 +25,7 @@
 由于这两个链表不相交，所以 intersectVal 必须为 0，而 skipA 和 skipB 可以是任意值。
 这两个链表不相交，因此返回 null 。
 */
-#include "../../include/utils.h"
-#include "../../include/ListNode.h"
+#include "ListNode.h"
 class Solution
 {
 public:

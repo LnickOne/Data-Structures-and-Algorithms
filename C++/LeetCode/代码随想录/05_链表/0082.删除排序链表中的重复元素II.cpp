@@ -7,7 +7,7 @@
 输入：head = [1,1,1,2,3]
 输出：[2,3]
 */
-#include "../../include/ListNode.h"
+#include "ListNode.h"
 class Solution
 {
 public:

@@ -10,7 +10,7 @@
 输入：l1 = [], l2 = [0]
 输出：[0]
 */
-#include "../../include/ListNode.h"
+#include "ListNode.h"
 class Solution
 {
 public:

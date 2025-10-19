@@ -10,8 +10,7 @@
 输入: head = [2,1,3,5,6,4,7]
 输出: [2,3,6,7,1,5,4]
 */
-#include "../../include/utils.h"
-#include "../../include/ListNode.h"
+#include "ListNode.h"
 class Solution
 {
 public:

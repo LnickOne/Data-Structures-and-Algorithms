@@ -21,8 +21,7 @@
 -105 <= Node.val <= 105
 pos 为 -1 或者链表中的一个 有效索引 。
 */
-#include "../../include/utils.h"
-#include "../../include/ListNode.h"
+#include "ListNode.h"
 class Solution
 {
 public:

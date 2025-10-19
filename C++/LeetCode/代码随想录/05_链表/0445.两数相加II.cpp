@@ -12,8 +12,7 @@
 输入：l1 = [0], l2 = [0]
 输出：[0]
 */
-#include "../../include/utils.h"
-#include "../../include/ListNode.h"
+#include "ListNode.h"
 class Solution
 {
 public:

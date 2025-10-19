@@ -13,19 +13,21 @@
 输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 输出：[8,9,9,9,0,0,0,1]
  */
-#include "../../include/ListNode.h"
-#include "../../include/utils.h"
+#include "ListNode.h"
 
-class Solution {
+class Solution
+{
 public:
-  ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+  ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
+  {
     ListNode *dummy = new ListNode(0);
     ListNode *cur = dummy;
     int sum;       //   两数之和
     int quotient;  // 商数
     int remainder; // 余数
     int carry = 0; // 进位
-    while (l1 && l2) {
+    while (l1 && l2)
+    {
       sum = l1->val + l2->val + carry;
       quotient = sum / 10;                      // 商数
       remainder = sum % 10;                     // 余数
@@ -36,7 +38,8 @@ public:
       l1 = l1->next;
       l2 = l2->next;
     }
-    while (l1) {
+    while (l1)
+    {
       sum = l1->val + carry;
       quotient = sum / 10;
       remainder = sum % 10;
@@ -46,7 +49,8 @@ public:
       cur = cur->next;
       l1 = l1->next;
     }
-    while (l2) {
+    while (l2)
+    {
       sum = l2->val + carry;
       quotient = sum / 10;
       remainder = sum % 10;
@@ -56,16 +60,17 @@ public:
       cur = cur->next;
       l2 = l2->next;
     }
-    if (carry != 0) {
-      ListNode *node =
-          new ListNode(carry); // carry不为0则说明还有进位,将carry作为新节点的值
+    if (carry != 0)
+    {
+      ListNode *node = new ListNode(carry); // carry不为0则说明还有进位,将carry作为新节点的值
       cur->next = node;
       cur = cur->next;
     }
     return dummy->next;
   }
 };
-int main() {
+int main()
+{
   Solution s;
   ListNode *l1 = createListNode({2, 4, 3});
   ListNode *l2 = createListNode({5, 6, 4});

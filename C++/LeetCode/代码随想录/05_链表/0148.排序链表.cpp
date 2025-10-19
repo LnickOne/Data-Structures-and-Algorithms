@@ -7,8 +7,7 @@
 输入：head = [-1,5,3,4,0]
 输出：[-1,0,3,4,5]
  */
-#include "../../include/ListNode.h"
-#include "../../include/LeetCode.h"
+#include "ListNode.h"
 class Solution
 {
 public:

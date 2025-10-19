@@ -8,7 +8,7 @@
 输入：head = [5], left = 1, right = 1
 输出：[5]
 */
-#include "../../include/ListNode.h"
+#include "ListNode.h"
 class Solution
 {
 public:

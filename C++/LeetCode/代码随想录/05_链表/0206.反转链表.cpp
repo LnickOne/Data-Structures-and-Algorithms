@@ -10,8 +10,7 @@
 输入：head = []
 输出：[]
 */
-#include "../../include/utils.h"
-#include "../../include/ListNode.h"
+#include "ListNode.h"
 class Solution
 {
 public:

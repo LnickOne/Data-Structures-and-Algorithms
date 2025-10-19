@@ -9,7 +9,7 @@
 输入：head = [7,7,7,7], val = 7
 输出：[]
 */
-#include "../../include/utils.h"
+#include "ListNode.h"
 #include "../../include/ListNode.h"
 class Solution
 {

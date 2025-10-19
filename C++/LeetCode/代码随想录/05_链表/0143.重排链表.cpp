@@ -11,8 +11,7 @@ L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
 输入：head = [1,2,3,4,5]
 输出：[1,5,2,4,3]
 */
-#include "../../include/utils.h"
-#include "../../include/ListNode.h"
+#include "ListNode.h"
 class Solution
 {
 public:
