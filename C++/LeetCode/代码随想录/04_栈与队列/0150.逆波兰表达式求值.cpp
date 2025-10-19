@@ -26,7 +26,7 @@ class Solution
 public:
     int evalRPN(vector<string> &tokens)
     {
-        long result;
+        long long result;
         stack<long> stack;
         for (const string &str : tokens)
         {
