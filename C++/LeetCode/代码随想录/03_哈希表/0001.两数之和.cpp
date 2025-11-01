@@ -21,7 +21,7 @@ public:
     {
         unordered_map<int, int> map;
         int key, value;
-        for (int i = 0; i < nums.size(); ++i)
+        for (int i = 0; i < nums.size(); i += 1)
         {
             key = nums[i];
             value = i;
@@ -29,7 +29,7 @@ public:
             const auto &iterator = map.find(target - key);
             if (iterator != map.end())
                 return {iterator->second, i};
-            map[key] = value; 
+            map[key] = value;
         }
         return {};
     }

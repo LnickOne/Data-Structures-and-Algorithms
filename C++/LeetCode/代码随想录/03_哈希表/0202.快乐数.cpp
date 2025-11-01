@@ -1,9 +1,3 @@
-#include <iostream>
-#include <unordered_set>
-#include <vector>
-#include <cmath>
-#include <string>
-using namespace std;
 /*
 编写一个算法来判断一个数 n 是不是快乐数。
 「快乐数」 定义为：
@@ -23,6 +17,12 @@ using namespace std;
 输入：n = 2
 输出：false
 */
+#include <iostream>
+#include <unordered_set>
+#include <vector>
+#include <cmath>
+#include <string>
+using namespace std;
 class Solution
 {
 public:

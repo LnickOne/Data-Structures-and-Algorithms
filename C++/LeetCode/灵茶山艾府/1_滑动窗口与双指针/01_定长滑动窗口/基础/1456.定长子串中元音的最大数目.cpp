@@ -49,7 +49,7 @@ public:
             {'o', 1},
             {'u', 1},
         };
-        for (int i = 0; i < k; ++i)
+        for (int i = 0; i < k; i += 1)
         {
             if (chMap.find(s[i]) != chMap.end()) // 计算第一个窗口的元音字母的总数
             {

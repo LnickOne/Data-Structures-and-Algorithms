@@ -24,7 +24,7 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
 */
 #include <vector>
 #include <algorithm>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 class Solution
 {
@@ -44,9 +44,9 @@ public:
             {
                 int sum = nums[i] + nums[left] + nums[right];
                 if (sum < 0)
-                    left++;
+                    left += 1;
                 else if (sum > 0)
-                    right--;
+                    right -= 1;
                 else if (sum == 0)
                 {
                     path = {nums[i], nums[left], nums[right]};
@@ -54,12 +54,12 @@ public:
                     path.clear();
                     // 取到第一个结果后 继续对b和c去重 防止取到相同的元组结果
                     while (left < right && nums[left] == nums[left + 1]) // 用left指针和他前一个指针做对比，即对元素b去重
-                        left++;
+                        left+=1;
                     while (left < right && nums[right] == nums[right - 1]) // 用right指针和他前一个指针做对比，即对元素c去重
-                        right--;
+                        right-=1;
                     // 找到答案后，双指针同时收缩
-                    left++;
-                    right--;
+                    left+=1;
+                    right-=1;
                 }
             }
         }

@@ -5,8 +5,10 @@ using namespace std;
 /*
 01背包的核心思想
 一维数组遍历
-for(int i = 0; i < weight.size(); i++) { // 遍历物品
-    for(int j = backpack_capacity; j >= weight[i]; j--) { //遍历背包容量 01背包是从背包的容量开始倒序遍历
+for(int i = 0; i < weight.size(); i++) // 遍历物品
+{
+    for(int j = backpack_capacity; j >= weight[i]; j--)//遍历背包容量 01背包是从背包的容量开始倒序遍历
+    {
         dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);
     }
 }

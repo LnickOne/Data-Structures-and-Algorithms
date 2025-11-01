@@ -25,7 +25,7 @@ public:
         int diff;
         int sum;
         vector<int> diff_nums;
-        unordered_map<int, int> map; 
+        unordered_map<int, int> map;
         int result = nums[0] + nums[1] + nums[2];
         for (int i = 0; i < nums.size(); ++i)
         {
@@ -40,9 +40,9 @@ public:
                 diff_nums.push_back(diff);
                 map[diff] = sum;
                 if (sum < target)
-                    left++;
+                    left += 1;
                 if (sum > target)
-                    right--;
+                    right -= 1;
                 if (sum == target)
                     return sum;
                 result = abs(result - target) < abs(sum - target) ? result : sum;
@@ -60,6 +60,5 @@ int main()
     Solution s;
     int result = s.threeSumClosest(nums, target);
     cout << result << endl;
-
     return 0;
 }

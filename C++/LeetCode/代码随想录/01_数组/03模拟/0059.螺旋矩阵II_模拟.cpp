@@ -26,7 +26,7 @@ public:
             for (row = start_row; row < n - offset; ++row) // 右边从上往下遍历
             {
                 result[row][col] = count;
-                ++count;
+                count += 1;
             }
             for (; col > start_col; --col) // 下边从右往左遍历
             {

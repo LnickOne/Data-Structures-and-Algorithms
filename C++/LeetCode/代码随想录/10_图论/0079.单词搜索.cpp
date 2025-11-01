@@ -1,8 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
 /*
 给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。
 如果 word 存在于网格中，返回 true ；否则，返回 false 。
@@ -15,6 +12,9 @@ using namespace std;
 输入：board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
 输出：false
 */
+#include <string>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:
@@ -38,7 +38,6 @@ public:
         return false;
     }
     bool isExist = false;
-
     vector<vector<int>> di = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     void dfs(vector<vector<char>> &board, int index, string &word, int i, int j)
     {
