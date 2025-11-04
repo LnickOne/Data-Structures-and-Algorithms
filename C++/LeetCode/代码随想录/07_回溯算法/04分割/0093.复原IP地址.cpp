@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
 /*
 有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 '.' 分隔。
 例如："0.1.2.201" 和 "192.168.1.1" 是 有效 IP 地址，但是 "0.011.255.245"、"192.168.1.312" 和 "192.168@1.1" 是 无效 IP 地址。
@@ -18,6 +13,11 @@ using namespace std;
 输入：s = "101023"
 输出：["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","101.0.2.3"]
 */
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:
@@ -26,7 +26,7 @@ public:
         vector<string> result;
         string path;
         backtracking(0, 0, s, path, result);
-        for (auto i : result)
+        for (auto &i : result)
             cout << i << endl;
         return result;
     }

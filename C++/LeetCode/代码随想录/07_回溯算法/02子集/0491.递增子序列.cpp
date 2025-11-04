@@ -23,7 +23,6 @@ public:
     vector<vector<int>> findSubsequences(vector<int> &nums)
     {
         // sort(nums.begin(), nums.end());//不可以排序 如果是递增子序列 原来的顺序会被破坏 比如[4,7,6,7]排序会产生4677的递增子序列是不符合的
-
         if (nums.empty())
             return {};
         vector<vector<int>> result;
