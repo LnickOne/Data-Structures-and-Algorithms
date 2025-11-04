@@ -1,27 +1,13 @@
-> 题目难度: 简单
-
-> [原题链接](https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/)
-
-> 今天继续更新剑指 offer 系列, 这道题能帮助我们更好地理解二分查找, 很值得一做. 另外基于它还能解决一些进阶问题, 例如[面试题 10.03. 搜索旋转数组](https://leetcode-cn.com/problems/search-rotate-array-lcci/), 在最后面我也会说下那道题的思路, 也有对应的题解链接, 感兴趣的同学也可以自己试试哦
-
-> 若无意外, 每天**晚上 6 点 45 分**准时更新, 中间可能会穿插一些周赛题解. 大家在我的公众号"每日精选算法题"中的聊天框中回复 **offer** 就能看到该系列当前已经更新的文章了
-
-> 大家有什么想法建议和反馈的话欢迎随时交流, 包括但不限于公众号聊天框/知乎私信评论等等~
-
+题目难度: 简单
+[原题链接](https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/)
 ## 题目描述
-
-把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组  `[3,4,5,1,2]` 为 `[1,2,3,4,5]` 的一个旋转，该数组的最小值为 1。
-
+把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。
+例如，数组  `[3,4,5,1,2]` 为 `[1,2,3,4,5]` 的一个旋转，该数组的最小值为 1。
 ## 题目样例
-
 ### 示例 1
-
 #### 输入
-
 [3,4,5,1,2]
-
 #### 输出
-
 1
 
 ### 示例 2
@@ -109,17 +95,3 @@ class Solution:
 - 对于这个进阶问题, 我也在 leetcode 上发布了一篇题解: [进阶问题题解](https://leetcode-cn.com/problems/search-rotate-array-lcci/solution/fen-cheng-liang-duan-you-xu-shu-zu-jin-xing-er-fen/), 里面有实现的代码, 感兴趣的同学也可以去看看~
 
 ---
-
-> 大家可以在下面这些地方找到我~😊
-
-> [我的知乎专栏](https://zhuanlan.zhihu.com/c_1242508721932464128)
-
-> [我的 CSDN](https://me.csdn.net/zjulyx1993)
-
-> [我的 Leetcode](https://leetcode-cn.com/u/suibianfahui/)
-
-> [我的牛客网博客](https://blog.nowcoder.net/zjulyx)
-
-> 我的公众号: 每日精选算法题, 欢迎大家扫码关注~😊
-
-![每日精选算法题 - 微信扫一扫关注我](https://mmbiz.qpic.cn/mmbiz_jpg/1KjZicMlYPMgZWmoL4eYcs6UcfmvsetDWME2YJyaCp9oT9z3U573FWENBNhyOByxYI0epew6O37hiaOhdh90QeJg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
