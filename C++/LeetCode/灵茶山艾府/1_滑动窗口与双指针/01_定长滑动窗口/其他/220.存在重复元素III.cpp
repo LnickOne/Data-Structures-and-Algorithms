@@ -60,7 +60,6 @@ int main()
   indexDiff = 2;
   valueDiff = 3;
   result = s.containsNearbyAlmostDuplicate(nums, indexDiff, valueDiff);
-  cout << result;
-  cout << endl;
+  cout << result << endl;
   return 0;
 }
