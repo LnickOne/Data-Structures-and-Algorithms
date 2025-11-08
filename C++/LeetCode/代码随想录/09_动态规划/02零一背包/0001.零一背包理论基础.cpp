@@ -5,9 +5,9 @@ using namespace std;
 /*
 01背包的核心思想
 一维数组遍历
-for(int i = 0; i < weight.size(); i++) // 遍历物品
+for(int i = 0; i < weight.size(); i+=1) // 遍历物品
 {
-    for(int j = backpack_capacity; j >= weight[i]; j--)//遍历背包容量 01背包是从背包的容量开始倒序遍历
+    for(int j = backpack_capacity; j >= weight[i]; j-=1)//遍历背包容量 01背包是从背包的容量开始倒序遍历
     {
         dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);
     }
@@ -37,6 +37,8 @@ public:
      2. 确定递推关系
      一. 不放物品i，背包容量为j所能装的最大价值是dp[j],因此是d[j]
      二. 放物品i，背包容量为j所能装的最大价值是容量j的背包减去物品i的重量的所能获取的最大价值,再加上物品i的价值,即dp[j-weight[i]],加上value[i]
+     dp[j-weight[i]]表示：容量为j-weight[i]的背包,所背的物品价值可以最大为dp[j-weight[i]]。
+     value[i]表示物品i的价值,即放入物品i的价值为value[i]。
      dp[j] = max(dp[j], dp[j - weight[i]] + value[i]) 两者取最大值
      3. 确定初始值
      关于初始化,一定要和dp数组的定义吻合,否则到递推公式的时候就会越来越乱。
@@ -102,21 +104,20 @@ public:
         5. 举例推导dp数组
         */
         vector<vector<int>> dp(weight.size(), vector<int>(backpack_capacity + 1)); // 创建一个二维dp数组,i表示物品的个数,j表示背包容量
-        for (int i = 0; i < weight.size(); i+=1)                                    // 初始化dp[i][j]数组
+        for (int i = 0; i < weight.size(); i += 1)                                 // 初始化dp[i][j]数组
         {
             dp[i][0] = 0; // 如果背包容量j为0的话,即dp[i][0],无论是选取哪些物品,背包价值总和一定为0。
         }
-        for (int j = 0; j <= backpack_capacity; j+=1) // dp[0][j],即：i为0,存放物品0的时候,各个容量的背包所能存放的最大价值。
+        for (int j = 0; j <= backpack_capacity; j += 1) // dp[0][j],即：i为0,存放物品0的时候,各个容量的背包所能存放的最大价值。
         {
             if (j >= weight[0]) // 如果背包容量装的下物品0,那么背包所能存放的最大价值就初始化为物品0的价值
             {
                 dp[0][j] = values[0];
             }
         }
-
-        for (int i = 1; i < weight.size(); i+=1)
+        for (int i = 1; i < weight.size(); i += 1)
         {
-            for (int j = 0; j <= backpack_capacity; j+=1)
+            for (int j = 0; j <= backpack_capacity; j += 1)
             {
                 if (j >= weight[i]) // 如果背包容量装的下物品i,就取一个最大值
                 {
@@ -129,9 +130,9 @@ public:
             }
         }
         cout << "二维数组dp[i][j]" << " " << endl;
-        for (int i = 0; i < weight.size(); i+=1)
+        for (int i = 0; i < weight.size(); i += 1)
         {
-            for (int j = 0; j <= backpack_capacity; j+=1)
+            for (int j = 0; j <= backpack_capacity; j += 1)
             {
                 cout << dp[i][j] << " ";
             }
