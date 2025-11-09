@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <unordered_map>
-using namespace std;
 /*
 给定两个字符串 s 和 t ，判断它们是否是同构的。
 如果 s 中的字符可以按某种映射关系替换得到 t ，那么这两个字符串是同构的。
@@ -18,6 +12,12 @@ using namespace std;
 输入：s = "paper", t = "title"
 输出：true
 */
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <unordered_map>
+using namespace std;
 class Solution
 {
 public:

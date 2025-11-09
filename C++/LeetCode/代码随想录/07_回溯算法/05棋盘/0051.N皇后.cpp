@@ -45,7 +45,6 @@ public:
             }
         }
     }
-
     bool isValid(int row, int col, int n, vector<string> &chessboard) // 检查同行，同列，45度角，135度角是否有皇后
     {
         // 检查同列是否有皇后，即检查在当前列 col 的上方（之前的行）是否已经放置了皇后

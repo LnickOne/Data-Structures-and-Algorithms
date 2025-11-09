@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <unordered_map>
-using namespace std;
 /*
 DNA序列 由一系列核苷酸组成，缩写为 'A', 'C', 'G' 和 'T'.。
 例如，"ACGAATTCCG" 是一个 DNA序列 。
@@ -16,7 +10,12 @@ DNA序列 由一系列核苷酸组成，缩写为 'A', 'C', 'G' 和 'T'.。
 输入：s = "AAAAAAAAAAAAA"
 输出：["AAAAAAAAAA"]
 */
-
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <unordered_map>
+using namespace std;
 class Solution
 {
 public:
