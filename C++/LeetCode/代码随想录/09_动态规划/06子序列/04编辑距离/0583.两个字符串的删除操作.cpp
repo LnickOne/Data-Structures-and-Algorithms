@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <algorithm>
-using namespace std;
 /*
 给定两个单词 word1 和 word2 ，返回使得word1和word2相同所需的最小步数。
 每步 可以删除任意一个字符串中的一个字符。
@@ -13,6 +9,10 @@ using namespace std;
 输入：word1 = "leetcode", word2 = "etco"
 输出：4
  */
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:

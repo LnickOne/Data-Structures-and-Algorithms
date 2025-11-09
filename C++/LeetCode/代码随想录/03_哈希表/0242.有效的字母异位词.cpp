@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <unordered_map>
-using namespace std;
 /*
 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
 示例 1:
@@ -13,7 +7,12 @@ using namespace std;
 输入: s = "rat", t = "car"
 输出: false
 */
-
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <unordered_map>
+using namespace std;
 class Solution
 {
 public:

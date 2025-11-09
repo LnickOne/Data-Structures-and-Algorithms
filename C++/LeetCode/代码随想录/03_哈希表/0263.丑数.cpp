@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <unordered_map>
-using namespace std;
 /*
 丑数 就是只包含质因数 2、3 和 5 的 正 整数。
 给你一个整数 n ，请你判断 n 是否为 丑数 。如果是，返回 true ；否则，返回 false 。
@@ -19,7 +14,11 @@ using namespace std;
 输出：false
 解释：14 不是丑数，因为它包含了另外一个质因数 7 。
 */
-
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <unordered_map>
+using namespace std;
 class Solution
 {
 public:

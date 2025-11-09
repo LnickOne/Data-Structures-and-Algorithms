@@ -1,8 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <algorithm>
-#include <cstdint>
-using namespace std;
 /*
 给你两个字符串 s 和 t ，统计并返回在 s 的 子序列 中 t 出现的个数
 示例 1：
@@ -24,6 +19,11 @@ babgbag
 babgbag
 babgbag
  */
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <cstdint>
+using namespace std;
 class Solution
 {
 public:

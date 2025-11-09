@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
 /*
 给定两个字符串s1 和 s2，返回 使两个字符串相等所需删除字符的 ASCII 值的最小和 。
 示例 1:
@@ -18,6 +14,10 @@ using namespace std;
 结束时，两个字符串都等于 "let"，结果即为 100+101+101+101 = 403 。
 如果改为将两个字符串转换为 "lee" 或 "eet"，我们会得到 433 或 417 的结果，比答案更大。
 */
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:
