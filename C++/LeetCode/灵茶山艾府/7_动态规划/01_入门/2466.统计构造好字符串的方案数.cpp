@@ -50,5 +50,6 @@ int main()
     Solution s;
     cout << s.countGoodStrings(3, 3, 1, 1) << endl;
     cout << s.countGoodStrings(2, 3, 1, 2) << endl;
+    cout << s.countGoodStrings(4, 4, 1, 3) << endl;
     return 0;
 }
