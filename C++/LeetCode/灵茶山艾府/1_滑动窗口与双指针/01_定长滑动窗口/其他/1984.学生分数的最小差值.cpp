@@ -43,10 +43,10 @@ public:
 };
 int main()
 {
-    vector<int> nums = {9, 4, 1, 7};
-    int k = 2;
     Solution s;
-    cout << s.minimumDifference(nums, k) << endl;
+    vector<int> nums1 = {9, 4, 1, 7};
+    int k = 2;
+    cout << s.minimumDifference(nums1, k) << endl;
     vector<int> nums2 = {90};
     k = 1;
     cout << s.minimumDifference(nums2, k) << endl;

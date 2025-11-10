@@ -122,3 +122,6 @@ class CQueue:
    3. 显然压入 `O(N)`, 弹出 `O(1)`
 
 --- */
+
+#include <stack>
+using namespace std;

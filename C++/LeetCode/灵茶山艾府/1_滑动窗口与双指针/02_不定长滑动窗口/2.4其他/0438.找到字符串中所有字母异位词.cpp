@@ -22,12 +22,10 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-
 using namespace std;
 class Solution
 {
 public:
-  // 方法二：不定长滑动窗口
   vector<int> findAnagrams(string s, string p)
   {
     if (p.size() > s.size())

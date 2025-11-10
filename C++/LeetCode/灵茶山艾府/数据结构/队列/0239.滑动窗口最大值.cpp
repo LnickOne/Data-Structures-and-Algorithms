@@ -1,9 +1,3 @@
-#include <algorithm>
-#include <deque>
-#include <iostream>
-#include <stack>
-#include <vector>
-using namespace std;
 /*
 给你一个整数数组 nums，有一个大小为 k
 的滑动窗口从数组的最左侧移动到数组的最右侧。 你只可以看到在滑动窗口内的 k
@@ -23,6 +17,12 @@ using namespace std;
 输入：nums = [1], k = 1
 输出：[1]
 */
+#include <algorithm>
+#include <deque>
+#include <iostream>
+#include <stack>
+#include <vector>
+using namespace std;
 class Solution
 {
 public:

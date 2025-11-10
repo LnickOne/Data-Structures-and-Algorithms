@@ -25,7 +25,6 @@ using namespace std;
 class Solution
 {
 public:
-  // 定长滑动窗口
   vector<int> findAnagrams(string s, string p)
   {
     if (p.size() > s.size())

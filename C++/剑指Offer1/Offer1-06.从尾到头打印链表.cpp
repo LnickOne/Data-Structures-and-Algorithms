@@ -1,25 +1,18 @@
-> 题目难度: 简单
+/* 题目难度: 简单
 
-> [原题链接](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
+[原题链接](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
 
 ## 题目描述
-
 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
 
 0 <= 链表长度 <= 10000
 
-## 题目样例
-
-### 示例
-
-#### 输入
-
+题目样例
+示例
+输入
 head = [1,3,2]
-
-#### 输出
-
+输出
 [2,3,1]
-
 ## 题目思考
 
 1. 如果限制只能用递归来做, 或者只能用迭代来做, 你能想到哪些方案?
@@ -38,29 +31,6 @@ head = [1,3,2]
   - 链表中每个节点只需要遍历一遍
 - 空间复杂度 `O(1)`
   - 只需要几个变量
-
-#### 代码
-
-```python{cmd="python"}
-from typing import List
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-class Solution:
-    def reversePrint(self, head: ListNode) -> List[int]:
-        # 方法1: 正向遍历, 然后数组翻转
-        result = []
-        while head:
-            result.append(head.val)
-            head = head.next
-        return result[::-1]
-# 测试用例
-head = ListNode(1)
-head.next = ListNode(3)
-head.next.next = ListNode(2)
-print(Solution().reversePrint(head))
-```
 
 ### 方案 2
 
@@ -120,22 +90,4 @@ class Solution:
 - 空间复杂度 `O(N)`
   - 使用了一个长度为 N 的栈
 
-#### 代码
-
-```python
-class Solution:
-    def reversePrint(self, head: ListNode) -> List[int]:
-        # 方法3: 使用辅助栈
-        stack = []
-        while head:
-            # 先按顺序加入栈中
-            stack.append(head)
-            head = head.next
-        res = []
-        while stack:
-            # 按照栈的pop顺序加入结果中
-            res.append(stack.pop().val)
-        return res
-```
-
----
+ */
