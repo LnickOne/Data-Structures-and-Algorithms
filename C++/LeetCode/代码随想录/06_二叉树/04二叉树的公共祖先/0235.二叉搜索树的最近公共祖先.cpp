@@ -18,8 +18,8 @@ class Solution
 public:
     TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
     {
-        return inOrder(root, p, q);   // 用中序遍历，因为二叉搜索树的中序遍历是有序的，所以可以判断p和q的大小关系，
         return postOrder(root, p, q); // 用后序遍历，也可以找到p和q的最近公共祖先，但是需要判断p和q是否在左子树和右子树中
+        return inOrder(root, p, q);   // 用中序遍历，因为二叉搜索树的中序遍历是有序的，所以可以判断p和q的大小关系，
     }
 
     TreeNode *postOrder(TreeNode *root, TreeNode *p, TreeNode *q)

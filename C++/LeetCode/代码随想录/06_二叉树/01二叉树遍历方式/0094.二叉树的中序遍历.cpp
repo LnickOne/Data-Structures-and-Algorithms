@@ -27,6 +27,6 @@ int main()
     for (auto &i : result)
         cout << i << " ";
     cout << endl;
-    delete root; // 释放二叉树内存
+    delete root;
     return 0;
 }

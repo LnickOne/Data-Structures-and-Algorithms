@@ -15,7 +15,7 @@ using namespace std;
 class Solution
 {
 public:
-    vector<string> generateParenthesis(const int &n)
+    vector<string> generateParenthesis(int n)
     {
         if (n == 0)
             return {};
@@ -24,18 +24,18 @@ public:
         backtracking(n, 0, 0, path, result);
         return result;
     }
-    void backtracking(const int &start, int left, int right, string &path, vector<string> &result)
+    void backtracking(int n, int left, int right, string &path, vector<string> &result)
     {
-        if (path.size() == start * 2)
+        if (path.size() == n * 2)
         {
             result.push_back(path);
             return;
         }
-        if (left < start)
+        if (left < n)
         {
             left += 1;
             path += "(";
-            backtracking(start, left, right, path, result);
+            backtracking(n, left, right, path, result);
             path.pop_back();
             left -= 1;
         }
@@ -43,7 +43,7 @@ public:
         {
             right += 1;
             path += ")";
-            backtracking(start, left, right, path, result);
+            backtracking(n, left, right, path, result);
             path.pop_back();
             right -= 1;
         }
