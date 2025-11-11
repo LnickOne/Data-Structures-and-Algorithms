@@ -14,7 +14,8 @@
 解释：
 等于字母 'k' 的字符在 s 中占到的百分比是 0% ，所以返回 0 。
 */
-#include "../../include/utils.h"
+#include <iostream>
+using namespace std;
 class Solution
 {
 public:
@@ -29,7 +30,8 @@ public:
         return count * 100 / s.size();
     }
 };
-int main() {
+int main()
+{
     string s = "foobar";
     char letter = 'o';
     Solution solution;

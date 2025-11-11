@@ -57,7 +57,9 @@ public:
       {
         int j = documents[i];
         if (documents[i] == documents[j])
+        {
           return documents[i];
+        }
         documents[i] = documents[j];
         documents[j] = j;
       }

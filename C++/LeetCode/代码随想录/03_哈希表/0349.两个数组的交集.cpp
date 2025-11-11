@@ -1,10 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <unordered_set>
-#include <unordered_map>
-using namespace std;
 /*
 给定两个数组 nums1 和 nums2 ，返回 它们的交集。
 输出结果中的每个元素一定是 唯一 的。我们可以 不考虑输出结果的顺序 。
@@ -16,6 +9,14 @@ using namespace std;
 输出：[9,4]
 解释：[4,9] 也是可通过的
 */
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <unordered_set>
+#include <unordered_map>
+using namespace std;
+
 class Solution
 {
 public:

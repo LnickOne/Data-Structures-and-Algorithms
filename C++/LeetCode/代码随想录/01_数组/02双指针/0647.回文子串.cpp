@@ -11,7 +11,9 @@
 输出：6
 解释：6个回文子串: "a", "a", "a", "aa", "aa", "aaa"
 */
-#include "../../../include/utils.h"
+#include <vector>
+#include <iostream>
+using namespace std;
 class Solution
 {
 public:

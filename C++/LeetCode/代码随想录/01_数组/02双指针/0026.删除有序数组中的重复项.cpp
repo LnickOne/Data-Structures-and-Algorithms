@@ -7,7 +7,9 @@
 nums 的其余元素与 nums 的大小不重要。
 返回 k 。
 */
-#include "../../../include/utils.h"
+#include <vector>
+#include <iostream>
+using namespace std;
 class Solution
 {
 public:

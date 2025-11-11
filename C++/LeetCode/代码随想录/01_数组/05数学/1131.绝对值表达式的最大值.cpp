@@ -12,7 +12,9 @@
 2 <= arr1.length == arr2.length <= 40000
 -10^6 <= arr1[i], arr2[i] <= 10^6
 */
-#include "../../../include/LeetCode.h"
+#include <vector>
+#include <iostream>
+using namespace std;
 class Solution
 {
 public:

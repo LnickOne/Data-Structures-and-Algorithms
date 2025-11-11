@@ -29,7 +29,10 @@ public:
   string minWindow(string s, string t)
   {
     if (t.size() > s.size())
+    {
       return "";
+    }
+
     string result = "";
     unordered_map<char, int> t_map;
     unordered_map<char, int> match_map;

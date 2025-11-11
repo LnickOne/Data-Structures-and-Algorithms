@@ -23,7 +23,9 @@
 1 <= num <= 10^4
 num 每一位上的数字都是 6 或者 9 。
 */
-#include "../../../include/utils.h"
+#include <vector>
+#include <iostream>
+using namespace std;
 class Solution
 {
 public:

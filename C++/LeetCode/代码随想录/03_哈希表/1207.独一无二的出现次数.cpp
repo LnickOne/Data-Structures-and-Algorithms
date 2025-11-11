@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <unordered_map>
-using namespace std;
 /*
 给你一个整数数组 arr，如果每个数的出现次数都是独一无二的，就返回 true；否则返回 false。
 示例 1：
@@ -17,6 +11,13 @@ using namespace std;
 输入：arr = [-3,0,1,-3,1,1,1,-3,10,0]
 输出：true
 */
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <unordered_map>
+using namespace std;
+
 class Solution
 {
 public:

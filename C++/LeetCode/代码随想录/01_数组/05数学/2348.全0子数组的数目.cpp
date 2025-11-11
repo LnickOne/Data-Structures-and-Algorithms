@@ -25,7 +25,9 @@
 输出：0
 解释：没有全 0 子数组，所以我们返回 0 。
 */
-#include "../../../include/utils.h"
+#include <vector>
+#include <iostream>
+using namespace std;
 class Solution
 {
 public:

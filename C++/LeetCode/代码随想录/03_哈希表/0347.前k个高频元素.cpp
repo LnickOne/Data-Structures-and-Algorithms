@@ -1,10 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-#include <map>
-#include <queue>
-#include <algorithm>
-using namespace std;
 /*
 给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。
 你可以按 任意顺序 返回答案。
@@ -15,6 +8,14 @@ using namespace std;
 输入: nums = [1], k = 1
 输出: [1]
 */
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <map>
+#include <queue>
+#include <algorithm>
+using namespace std;
+
 class Solution
 {
 public:

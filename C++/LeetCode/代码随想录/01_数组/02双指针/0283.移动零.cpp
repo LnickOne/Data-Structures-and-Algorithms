@@ -8,7 +8,9 @@
 输入: nums = [0]
 输出: [0]
 */
-#include "../../../include/utils.h"
+#include <vector>
+#include <iostream>
+using namespace std;
 class Solution
 {
 public:

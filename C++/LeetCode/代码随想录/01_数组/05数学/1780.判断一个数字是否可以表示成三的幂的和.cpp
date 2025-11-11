@@ -13,8 +13,9 @@
 输入：n = 21
 输出：false
 */
-
-#include "../../../include/utils.h"
+#include <vector>
+#include <iostream>
+using namespace std;
 class Solution
 {
 public:

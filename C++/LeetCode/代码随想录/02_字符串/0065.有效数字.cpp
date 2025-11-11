@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
 /*
 给定一个字符串 s ，返回 s 是否是一个 有效数字。
 例如，下面的都是有效数字："2", "0089", "-0.1", "+3.14", "4.", "-.9", "2e10", "-90E3", "3e+7", "+6e-1", "53.5e93", "-123.456e789"，
@@ -27,6 +22,11 @@ using namespace std;
 输入：s = "."
 输出：false
 */
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:

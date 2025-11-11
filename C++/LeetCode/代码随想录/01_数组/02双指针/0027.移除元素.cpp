@@ -9,7 +9,9 @@
 输入：nums = [-7,-3,2,3,11]
 输出：[4,9,9,49,121]
 */
-#include "../../../include/utils.h"
+#include <vector>
+#include <iostream>
+using namespace std;
 class Solution
 {
 public:

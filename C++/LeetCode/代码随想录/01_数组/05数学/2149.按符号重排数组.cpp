@@ -1,4 +1,3 @@
-#include "../include/LeetCode.h"
 /*
 给你一个下标从 0 开始的整数数组 nums ，数组长度为 偶数 ，由数目 相等 的正整数和负整数组成。
 你需要返回满足下述条件的数组 nums：
@@ -25,6 +24,9 @@ nums.length 是 偶数
 1 <= |nums[i]| <= 105
 nums 由 相等 数量的正整数和负整数组成
 */
+#include <vector>
+#include <iostream>
+using namespace std;
 class Solution
 {
 public:

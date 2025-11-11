@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
 /*
 如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。
 则可以认为该短语是一个 回文串 。
@@ -21,6 +17,10 @@ using namespace std;
 解释：在移除非字母数字字符之后，s 是一个空字符串 "" 。
 由于空字符串正着反着读都一样，所以是回文串。
 */
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:

@@ -19,8 +19,11 @@
 解释：出现三次的最长特殊子字符串是 "a" ：子字符串 "abcaba"、"abcaba" 和 "abcaba"。
 可以证明最大长度是 1 。
 */
-#include "../../../include/utils.h"
-
+#include <vector>
+#include <iostream>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:

@@ -1,7 +1,3 @@
-#include <iostream>
-#include <stack>
-#include <vector>
-using namespace std;
 /*
 给你一个字符串数组 tokens ，表示一个根据 逆波兰表示法 表示的算术表达式。
 请你计算该表达式。返回一个表示表达式值的整数。
@@ -21,12 +17,16 @@ using namespace std;
 输出：6
 解释：该算式转化为常见的中缀算术表达式为：(4 + (13 / 5)) = 6
 */
+#include <iostream>
+#include <stack>
+#include <vector>
+using namespace std;
 class Solution
 {
 public:
     int evalRPN(vector<string> &tokens)
     {
-        long long result;
+        long result;
         stack<long> stack;
         for (const string &str : tokens)
         {
