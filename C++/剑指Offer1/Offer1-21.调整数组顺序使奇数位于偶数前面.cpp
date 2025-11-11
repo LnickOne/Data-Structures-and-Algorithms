@@ -67,11 +67,11 @@ class Solution:
         res = [0] * len(nums)
         for n in nums:
             if n & 1:
-                # 当前是奇数, 存到新数组奇数下标处, 同时下标右移
+#当前是奇数, 存到新数组奇数下标处, 同时下标右移
                 res[odd] = n
                 odd += 1
             else:
-                # 当前是偶数, 存到新数组偶数下标处, 同时下标左移
+#当前是偶数, 存到新数组偶数下标处, 同时下标左移
                 res[even] = n
                 even -= 1
         return res
@@ -107,13 +107,13 @@ class Solution:
         i, j = 0, len(nums) - 1
         while i < j:
             while i < j and nums[i] & 1:
-                # 如果当前本身就是奇数, 继续往后找
+#如果当前本身就是奇数, 继续往后找
                 i += 1
             while i < j and nums[j] & 1 == 0:
-                # 如果当前本身就是偶数, 继续往前找
+#如果当前本身就是偶数, 继续往前找
                 j -= 1
             if i < j:
-                # 找到一对不满足条件的奇偶数, 交换它们位置
+#找到一对不满足条件的奇偶数, 交换它们位置
                 nums[i], nums[j] = nums[j], nums[i]
             i += 1
             j -= 1
@@ -121,17 +121,3 @@ class Solution:
 ```
 
 ---
-
-> 大家可以在下面这些地方找到我~😊
-
-> [我的知乎专栏](https://zhuanlan.zhihu.com/c_1242508721932464128)
-
-> [我的 CSDN](https://me.csdn.net/zjulyx1993)
-
-> [我的 Leetcode](https://leetcode-cn.com/u/suibianfahui/)
-
-> [我的牛客网博客](https://blog.nowcoder.net/zjulyx)
-
-> 我的公众号: 每日精选算法题, 欢迎大家扫码关注~😊
-
-![每日精选算法题 - 微信扫一扫关注我](https://mmbiz.qpic.cn/mmbiz_jpg/1KjZicMlYPMgZWmoL4eYcs6UcfmvsetDWME2YJyaCp9oT9z3U573FWENBNhyOByxYI0epew6O37hiaOhdh90QeJg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)

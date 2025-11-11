@@ -1,10 +1,6 @@
-> 题目难度: 中等
+/* > 题目难度: 中等
 
 > [原题链接](https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/)
-
-> 今天继续更新剑指 offer 系列, 这道题相比上道题数据规模大了不少. 虽说还可以使用昨天的解法, 但效率比较低, 特别是数据规模大了之后会导致乘积特别大, 这也是影响效率的一个因素. 所以今天就来一种更优的解法
-
-> 老样子**晚上 6 点 45 分**准时更新公众号 **每日精选算法题**, 大家记得关注哦~ 另外在公众号里回复 **offer** 就能看到剑指 offer 系列当前连载的所有文章了
 
 ## 题目描述
 
@@ -102,17 +98,4 @@ class Solution:
 ```
 
 ---
-
-> 大家可以在下面这些地方找到我~😊
-
-> [我的知乎专栏](https://zhuanlan.zhihu.com/c_1242508721932464128)
-
-> [我的 CSDN](https://me.csdn.net/zjulyx1993)
-
-> [我的 Leetcode](https://leetcode-cn.com/u/suibianfahui/)
-
-> [我的牛客网博客](https://blog.nowcoder.net/zjulyx)
-
-> 我的公众号: 每日精选算法题, 欢迎大家扫码关注~😊
-
-![每日精选算法题 - 微信扫一扫关注我](https://mmbiz.qpic.cn/mmbiz_jpg/1KjZicMlYPMgZWmoL4eYcs6UcfmvsetDWME2YJyaCp9oT9z3U573FWENBNhyOByxYI0epew6O37hiaOhdh90QeJg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+ */

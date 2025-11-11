@@ -1,4 +1,4 @@
-题目难度: 简单
+/* 题目难度: 简单
 [原题链接](https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/)
 ## 题目描述
 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。
@@ -57,28 +57,6 @@
 - 空间复杂度 `O(1)`
   - 只需要几个变量即可
 
-### 代码
-
-```python
-class Solution:
-    def minArray(self, numbers: List[int]) -> int:
-        # 简单二分, 当m=e时无脑直接e-1...
-        # 最后返回跳出循环后的numbers[s]
-        # 注意m<e时要把e设为m, 因为最小值可能就是m
-        s, e = 0, len(numbers) - 1
-        while s < e:
-            m = (s + e) >> 1
-            if numbers[m] < numbers[e]:
-                # m可能是最小值, 不能排除它
-                e = m
-            elif numbers[m] > numbers[e]:
-                # m一定不是最小值, 排除它
-                s = m + 1
-            else:
-                # 退化的情况
-                e -= 1
-        return numbers[s]
-```
 
 ## 进阶问题思路
 
@@ -95,3 +73,4 @@ class Solution:
 - 对于这个进阶问题, 我也在 leetcode 上发布了一篇题解: [进阶问题题解](https://leetcode-cn.com/problems/search-rotate-array-lcci/solution/fen-cheng-liang-duan-you-xu-shu-zu-jin-xing-er-fen/), 里面有实现的代码, 感兴趣的同学也可以去看看~
 
 ---
+ */

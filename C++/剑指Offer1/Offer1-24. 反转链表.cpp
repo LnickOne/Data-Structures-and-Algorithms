@@ -50,21 +50,21 @@
 ```python
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
-        # 方法1: 迭代, 双指针
+#方法1 : 迭代, 双指针
         if not head:
-            # 链表为空的话直接返回空
+#链表为空的话直接返回空
             return head
         pre, cur = head, head.next
-        # 首先head变成了翻转后的末尾, 所以其next要置为空
+#首先head变成了翻转后的末尾, 所以其next要置为空
         head.next = None
         while cur:
-            # 先存下cur的下一个节点
+#先存下cur的下一个节点
             nex = cur.next
-            # cur的下一个节点指向pre, 完成当前节点指向的反转
+#cur的下一个节点指向pre, 完成当前节点指向的反转
             cur.next = pre
-            # 更新pre和cur, 分别按照原链表顺序往后移动一位
+#更新pre和cur, 分别按照原链表顺序往后移动一位
             pre, cur = cur, nex
-        # 最终cur就是空, 而pre则是反转后的开头节点
+#最终cur就是空, 而pre则是反转后的开头节点
         return pre
 ```
 
@@ -88,22 +88,22 @@ class Solution:
 ```python
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
-        # 方法2: 递归版本1 - 返回反转后的头和尾
+#方法2 : 递归版本1 - 返回反转后的头和尾
         def reverse(head):
             if not head:
-                # 空节点, 反转后的头和尾仍为空
+#空节点, 反转后的头和尾仍为空
                 return (None, None)
             if not head.next:
-                # 只有单独一个节点, 反转后的头和尾仍为自身
+#只有单独一个节点, 反转后的头和尾仍为自身
                 return (head, head)
             nextHead, nextTail = reverse(head.next)
-            # 将nextTail指向head, head指向空即可
+#将nextTail指向head, head指向空即可
             head.next = None
             nextTail.next = head
-            # 新的链表头仍为原来的nextHead, 尾则变了, 变成head
+#新的链表头仍为原来的nextHead, 尾则变了, 变成head
             return (nextHead, head)
 
-        # 最后返回反转链表的头即可
+#最后返回反转链表的头即可
         return reverse(head)[0]
 ```
 
@@ -127,31 +127,17 @@ class Solution:
 ```python
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
-        # 方法3: 递归版本2 - 只需要返回反转后的链表头
+#方法3 : 递归版本2 - 只需要返回反转后的链表头
         if not head or not head.next:
-            # 空节点或者只有自身一个节点, 直接返回自身即可
+#空节点或者只有自身一个节点, 直接返回自身即可
             return head
         nextHead = self.reverseList(head.next)
-        # head.next就是方法2的nextTail
+#head.next就是方法2的nextTail
         head.next.next = head
-        # 注意此处必须先反转指向, 再将head.next置为空
+#注意此处必须先反转指向, 再将head.next置为空
         head.next = None
-        # 新的链表头仍为原来的nextHead
+#新的链表头仍为原来的nextHead
         return nextHead
 ```
 
 ---
-
-> 大家可以在下面这些地方找到我~😊
-
-> [我的知乎专栏](https://zhuanlan.zhihu.com/c_1242508721932464128)
-
-> [我的 CSDN](https://me.csdn.net/zjulyx1993)
-
-> [我的 Leetcode](https://leetcode-cn.com/u/suibianfahui/)
-
-> [我的牛客网博客](https://blog.nowcoder.net/zjulyx)
-
-> 我的公众号: 每日精选算法题, 欢迎大家扫码关注~😊
-
-![每日精选算法题 - 微信扫一扫关注我](https://mmbiz.qpic.cn/mmbiz_jpg/1KjZicMlYPMgZWmoL4eYcs6UcfmvsetDWME2YJyaCp9oT9z3U573FWENBNhyOByxYI0epew6O37hiaOhdh90QeJg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)

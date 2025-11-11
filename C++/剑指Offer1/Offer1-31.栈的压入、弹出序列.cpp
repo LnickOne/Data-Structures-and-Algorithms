@@ -78,16 +78,16 @@ false
 ```python
 class Solution:
     def validateStackSequences(self, pushed: List[int],popped: List[int]) -> bool:
-        # 方法1: 利用栈模拟, 额外使用一个指针存储当前弹出序列位置
+#方法1 : 利用栈模拟, 额外使用一个指针存储当前弹出序列位置
         stack = []
         j = 0
         for p in pushed:
             stack.append(p)
             while stack and j < len(popped) and stack[-1] == popped[j]:
-                # 当前栈顶恰好等于当前弹出序列对应的元素, 栈弹出, 指针后移
+#当前栈顶恰好等于当前弹出序列对应的元素, 栈弹出, 指针后移
                 stack.pop()
                 j += 1
-        # 如果栈为空则说明这两个序列有效
+#如果栈为空则说明这两个序列有效
         return not stack
 ```
 
@@ -113,33 +113,19 @@ class Solution:
 class Solution:
     def validateStackSequences(self, pushed: List[int],
                                popped: List[int]) -> bool:
-        # 方法2: O(1)空间, 将pushed本身当作栈, 用一个下标表示当前栈顶, 双指针
+#方法2 : O(1) 空间, 将pushed本身当作栈, 用一个下标表示当前栈顶, 双指针
         topindex, j = -1, 0
         for i in range(len(pushed)):
-            # 压入新元素, 所以需要先将栈顶指针后移一位, 然后赋值
+#压入新元素, 所以需要先将栈顶指针后移一位, 然后赋值
             topindex += 1
             pushed[topindex] = pushed[i]
             while j < len(popped) and topindex >= 0 and pushed[
                     topindex] == popped[j]:
-                # 当前栈顶恰好等于当前弹出序列对应的元素, 栈顶指针前移, 弹出队列指针后移
+#当前栈顶恰好等于当前弹出序列对应的元素, 栈顶指针前移, 弹出队列指针后移
                 topindex -= 1
                 j += 1
-        # 如果栈顶指针为-1, 说明栈为空, 也即这两个序列有效
+#如果栈顶指针为 - 1, 说明栈为空, 也即这两个序列有效
         return topindex == -1
 ```
 
 ---
-
-> 大家可以在下面这些地方找到我~😊
-
-> [我的知乎专栏](https://zhuanlan.zhihu.com/c_1242508721932464128)
-
-> [我的 CSDN](https://me.csdn.net/zjulyx1993)
-
-> [我的 Leetcode](https://leetcode-cn.com/u/suibianfahui/)
-
-> [我的牛客网博客](https://blog.nowcoder.net/zjulyx)
-
-> 我的公众号: 每日精选算法题, 欢迎大家扫码关注~😊
-
-![每日精选算法题 - 微信扫一扫关注我](https://mmbiz.qpic.cn/mmbiz_jpg/1KjZicMlYPMgZWmoL4eYcs6UcfmvsetDWME2YJyaCp9oT9z3U573FWENBNhyOByxYI0epew6O37hiaOhdh90QeJg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)

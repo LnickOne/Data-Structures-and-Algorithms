@@ -53,26 +53,26 @@ matrix = [[1,2,3],[4,5,6],[7,8,9]]
 ```python
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        # 方法1: 模拟整个过程, 逐个点遍历
+#方法1 : 模拟整个过程, 逐个点遍历
         if not matrix:
             return []
-        # 存储转向关系
+#存储转向关系
         directions = {
-            # 向上, 那么顺时针转向后应该向右
+#向上, 那么顺时针转向后应该向右
             'u': 'r',
             'd': 'l',
             'l': 'u',
             'r': 'd',
         }
-        # 存储当前方向的下个点与当前点的关系
+#存储当前方向的下个点与当前点的关系
         delta = {
-            # 向上, 那么下个点的行号要-1, 列号不变, 下面几个类似
+#向上, 那么下个点的行号要 - 1, 列号不变, 下面几个类似
             'u': (-1, 0),
             'd': (1, 0),
             'l': (0, -1),
             'r': (0, 1),
         }
-        # 初始向右
+#初始向右
         curDirection = 'r'
         rows, cols = len(matrix), len(matrix[0])
         n = rows * cols
@@ -80,16 +80,16 @@ class Solution:
         v = set()
         res = []
         while len(res) < n:
-            # 将当前点加入结果中
+#将当前点加入结果中
             res.append(matrix[r][c])
             v.add((r, c))
-            # 尝试按照当前方向获取下个点
+#尝试按照当前方向获取下个点
             rr, cc = r + delta[curDirection][0], c + delta[curDirection][1]
             if (rr, cc) not in v and 0 <= rr < rows and 0 <= cc < cols:
-                # 下个点有效且未被遍历, 直接用它
+#下个点有效且未被遍历, 直接用它
                 r, c = rr, cc
             else:
-                # 否则需要转向, 下个点也要按照新的方向获得
+#否则需要转向, 下个点也要按照新的方向获得
                 curDirection = directions[curDirection]
                 r += delta[curDirection][0]
                 c += delta[curDirection][1]
@@ -121,7 +121,7 @@ class Solution:
 ```python
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        # 方法2: 按层遍历, 剥洋葱
+#方法2 : 按层遍历, 剥洋葱
         res = []
         if not matrix:
             return res
@@ -131,32 +131,18 @@ class Solution:
             sr = sc = i
             er = rows - sr - 1
             ec = cols - sc - 1
-            # 向右
+#向右
             res.extend(matrix[sr][sc:ec + 1])
-            # 向下, 注意此时右边端点(sr, ec)已经用过了, 所以从(sr+1, ec)开始
+#向下, 注意此时右边端点(sr, ec) 已经用过了, 所以从(sr + 1, ec) 开始
             res.extend(matrix[r][ec] for r in range(sr + 1, er + 1))
             if sr != er:
-                # 向左, 只有终点行和起点行不同时才进行, 否则就重复了
+#向左, 只有终点行和起点行不同时才进行, 否则就重复了
                 res.extend(matrix[er][sc:ec][::-1])
             if sc != ec:
-                # 向上, 只有终点列和起点列不同时才进行, 否则就重复了
+#向上, 只有终点列和起点列不同时才进行, 否则就重复了
                 res.extend(matrix[r][sc] for r in range(er - 1, sr, -1))
             i += 1
         return res
 ```
 
 ---
-
-> 大家可以在下面这些地方找到我~😊
-
-> [我的知乎专栏](https://zhuanlan.zhihu.com/c_1242508721932464128)
-
-> [我的 CSDN](https://me.csdn.net/zjulyx1993)
-
-> [我的 Leetcode](https://leetcode-cn.com/u/suibianfahui/)
-
-> [我的牛客网博客](https://blog.nowcoder.net/zjulyx)
-
-> 我的公众号: 每日精选算法题, 欢迎大家扫码关注~😊
-
-![每日精选算法题 - 微信扫一扫关注我](https://mmbiz.qpic.cn/mmbiz_jpg/1KjZicMlYPMgZWmoL4eYcs6UcfmvsetDWME2YJyaCp9oT9z3U573FWENBNhyOByxYI0epew6O37hiaOhdh90QeJg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)

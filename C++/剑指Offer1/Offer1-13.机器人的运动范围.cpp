@@ -1,15 +1,6 @@
-> 题目难度: 中等
-
+/* > 题目难度: 中等
 > [原题链接](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)
-
-> 今天继续更新剑指 offer 系列, 这道题有至少三种解法, 很适合扩展思路
-
-> 老样子**晚上 6 点 45 分**准时跟大家见面, 大家在我的公众号"每日精选算法题"中的聊天框中回复 **offer** 就能看到剑指 offer 系列当前连载的所有文章了
-
-> 大家有什么想法建议和反馈的话欢迎随时交流, 包括但不限于公众号聊天框/知乎私信评论等等~
-
 ## 题目描述
-
 地上有一个 m 行 n 列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于 k 的格子。例如，当 k 为 18 时，机器人能够进入方格 [35, 37] ，因为 3+5+3+7=18。但它不能进入方格 [35, 38]，因为 3+5+3+8=19。请问该机器人能够到达多少个格子？
 
 - 1 <= n,m <= 100
@@ -65,38 +56,6 @@ m = 3, n = 1, k = 0
 - 空间复杂度 `O(MN)`
   - visit 集合的空间消耗
 
-#### 代码
-
-```python
-class Solution:
-    def movingCount(self, m: int, n: int, k: int) -> int:
-        # 方法1: 经典BFS, 队列+visit集合
-        q = [(0, 0)]
-        v = set(q)
-
-        def getSum(x):
-            # 求数位和, 即循环累加模10的结果然后除以10即可
-            res = 0
-            while x:
-                res += x % 10
-                x //= 10
-            return res
-            # 注意: 这里也可以将数字转换成字符串, 然后逐位字符转int求sum
-            # return sum([int(c) for c in str(x)])
-
-        def isValid(r, c):
-            # 判断某个下标是否有效: 是否在方格内/行列数位和是否不大于k/是否被访问过
-            return 0 <= r < m and 0 <= c < n and getSum(r) + getSum(c) <= k and (r, c) not in v
-
-        for point in q:
-            r, c = point
-            # 遍历四个方向的邻居
-            for rr, cc in ((r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)):
-                if isValid(rr, cc):
-                    # 如果邻居有效的话, 将其加入BFS的queue里继续遍历
-                    q.append((rr, cc))
-                    v.add((rr, cc))
-        return len(v)
 ```
 
 ### 方案 2
@@ -119,39 +78,6 @@ class Solution:
   - 每个点被访问之后就会被加入 visit 集合, 只会被访问有限次, 所以时间复杂度就是点的个数`O(MN)`
 - 空间复杂度 `O(MN)`
   - visit 集合的空间消耗
-
-#### 代码
-
-```python
-class Solution:
-    def movingCount(self, m: int, n: int, k: int) -> int:
-        # 方法2: 经典DFS, 递归+visit集合
-        v = {(0, 0)}
-
-        def getSum(x):
-            # 求数位和, 即循环累加模10的结果然后除以10即可
-            res = 0
-            while x:
-                res += x % 10
-                x //= 10
-            return res
-            # 注意: 这里也可以将数字转换成字符串, 然后逐位字符转int求sum
-            # return sum([int(c) for c in str(x)])
-
-        def isValid(r, c):
-            # 判断某个下标是否有效: 是否在方格内/行列数位和是否不大于k/是否被访问过
-            return 0 <= r < m and 0 <= c < n and getSum(r) + getSum(c) <= k and (r, c) not in v
-
-        def dfs(r, c):
-            for rr, cc in ((r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)):
-                if isValid(rr, cc):
-                    # 如果邻居有效的话, 将其加入集合中, 递归调用dfs该邻居
-                    v.add((rr, cc))
-                    dfs(rr, cc)
-        # 初始从起点开始dfs
-        dfs(0, 0)
-        return len(v)
-```
 
 ### 方案 3
 
@@ -181,51 +107,5 @@ class Solution:
 - 空间复杂度 `O(MN)`
   - dp 字典/集合的空间消耗
 
-#### 代码
-
-```python
-class Solution:
-    def movingCount(self, m: int, n: int, k: int) -> int:
-        # 方法3: DP
-        # 如果rc数位和大于k, dp[r,c] = False
-        # 否则dp[r,c] = dp[r-1,c] or dp[r,c-1]
-        # 这里使用集合代替该bool字典, 初始元素是起点下标
-        dp = {(0, 0)}
-        # 另一个优化: 缓存数位和结果, 避免重复计算
-        memo = {}
-
-        def getSum(x):
-            # 求数位和, 即循环累加模10的结果然后除以10即可
-            if x not in memo:
-                res = 0
-                cur = x
-                while cur:
-                    res += cur % 10
-                    cur //= 10
-                memo[x] = res
-                # 注意: 这里也可以将数字转换成字符串, 然后逐位字符转int求sum
-                # memo[x] = sum([int(c) for c in str(x)])
-            return memo[x]
-
-        for r in range(m):
-            for c in range(n):
-                if getSum(r) + getSum(c) <= k and ((r-1, c) in dp or (r, c-1) in dp):
-                    dp.add((r, c))
-        return len(dp)
-```
-
----
-
-> 大家可以在下面这些地方找到我~😊
-
-> [我的知乎专栏](https://zhuanlan.zhihu.com/c_1242508721932464128)
-
-> [我的 CSDN](https://me.csdn.net/zjulyx1993)
-
-> [我的 Leetcode](https://leetcode-cn.com/u/suibianfahui/)
-
-> [我的牛客网博客](https://blog.nowcoder.net/zjulyx)
-
-> 我的公众号: 每日精选算法题, 欢迎大家扫码关注~😊
-
-![每日精选算法题 - 微信扫一扫关注我](https://mmbiz.qpic.cn/mmbiz_jpg/1KjZicMlYPMgZWmoL4eYcs6UcfmvsetDWME2YJyaCp9oT9z3U573FWENBNhyOByxYI0epew6O37hiaOhdh90QeJg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+####
+ */

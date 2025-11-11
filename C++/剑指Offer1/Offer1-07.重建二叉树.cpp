@@ -54,7 +54,9 @@ public:
     TreeNode *deduceTree(vector<int> &preorder, vector<int> &inorder)
     {
         if (preorder.empty() || inorder.empty())
+        {
             return nullptr;
+        }
         TreeNode *root = new TreeNode(preorder.front());
         int root_index;
         for (int i = 0; i < inorder.size(); i++)
