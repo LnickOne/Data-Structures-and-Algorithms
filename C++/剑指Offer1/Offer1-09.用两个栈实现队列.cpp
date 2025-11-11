@@ -77,34 +77,6 @@
 - 空间复杂度 `O(N)`
   - 使用了两个栈 */
 
-/* ```python
-class CQueue:
-
-    def __init__(self):
-        # 存较新的尾部插入数字
-        self.stackIn = []
-        # 存较老的逆序数字
-        self.stackOut = []
-
-    def appendTail(self, value: int) -> None:
-        # 直接压入stackIn
-        self.stackIn.append(value)
-
-    def deleteHead(self) -> int:
-        if self.stackOut:
-            # stackOut还有数字, 直接pop
-            return self.stackOut.pop()
-        if not self.stackIn:
-            # stackIn也没有数字, 队列为空
-            return -1
-        while self.stackIn:
-            # 将stackIn的数字倒序导入stackOut中
-            self.stackOut.append(self.stackIn.pop())
-
-        # 弹出stackOut
-        return self.stackOut.pop()
-``` */
-
 /* ## 思考题答案
 
 1. 如何用到两个栈?
@@ -125,3 +97,44 @@ class CQueue:
 
 #include <stack>
 using namespace std;
+
+class CQueue
+{
+public:
+  // 栈是先进后出   1,2,3,4
+  // 队列是先进先出 1,2,3,4
+  // 所以用栈模拟队列，即是要取栈的先进的元素(1)，它是在栈底部
+  stack<int> stack_in;
+  stack<int> stack_out;
+
+  CQueue()
+  {
+  }
+
+  void appendTail(int value)
+  {
+    stack_in.push(value);
+  }
+
+  int deleteHead()
+  {
+    if (stack_in.empty() && stack_out.empty())
+    {
+      return -1;
+    }
+    int result;
+    if (stack_out.empty())
+    {
+      while (!stack_in.empty())
+      {
+        int element = stack_in.top();
+        stack_out.push(element);
+        stack_in.pop();
+      }
+    }
+    int element = stack_out.top();
+    result = element;
+    stack_out.pop();
+    return result;
+  }
+};
