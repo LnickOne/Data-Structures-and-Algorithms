@@ -44,8 +44,7 @@ int main()
     int result = s.fourSumCount(nums1, nums2, nums3, nums4);
     cout << result << endl;
     vector<int> nums5 = {1, 2}, nums6 = {-2, -1}, nums7 = {-1, 2}, nums8 = {0, 2};
-    Solution s2;
-    int result2 = s2.fourSumCount(nums5, nums6, nums7, nums8);
+    int result2 = s.fourSumCount(nums5, nums6, nums7, nums8);
     cout << result2 << endl;
     return 0;
 }

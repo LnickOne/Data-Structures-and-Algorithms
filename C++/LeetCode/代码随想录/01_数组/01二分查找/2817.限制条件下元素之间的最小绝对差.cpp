@@ -25,10 +25,6 @@
 它们下标距离满足至少为 3 ，差值绝对值为最小值 3 。
 3 是最优解。
 
-提示：
-1 <= nums.length <= 105
-1 <= nums[i] <= 109
-0 <= x < nums.length
 */
 #include <iostream>
 #include <vector>

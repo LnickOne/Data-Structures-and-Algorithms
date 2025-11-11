@@ -24,11 +24,11 @@ public:
         dummy->next = head;
         ListNode *slow = dummy;
         ListNode *fast = dummy;
-        n++;
+        n += 1;
         while (fast && n > 0)
         {
             fast = fast->next;
-            n--;
+            n -= 1;
         }
         // 添加 n 有效性检查
         if (n > 0)
@@ -50,7 +50,7 @@ public:
         }
         // 释放 dummy 节点
         ListNode *result = dummy->next;
-        delete dummy;
+        delete dummy; 
         return result;
     }
 

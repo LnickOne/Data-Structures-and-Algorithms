@@ -14,7 +14,6 @@
 #include <algorithm>
 #include <unordered_map>
 using namespace std;
-
 class Solution
 {
 public:
@@ -32,12 +31,16 @@ public:
     {
         string str1;
         for (string str : result)
+        {
             str1 += str;
+        }
         unordered_map<char, int> map;
-        for (char ch : str1)
+        for (char &ch : str1)
+        {
             map[ch]++;
+        }
         result.clear();
-        for (char ch : str2)
+        for (char &ch : str2)
         {
             if (map[ch] > 0)
             {
