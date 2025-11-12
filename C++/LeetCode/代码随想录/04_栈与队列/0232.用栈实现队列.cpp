@@ -6,7 +6,7 @@ class MyQueue
 private:
     // 栈是先进后出
     // 队列是先进先出
-    // 4 3 2 1
+    // 1 2 3 4
     // 要取到队列的1元素，需要将栈里的元素全部导入到另一个栈中，再取栈顶元素
     stack<int> stack_in;
     stack<int> stack_out;
