@@ -56,9 +56,13 @@ public:
       cntMap[nums[i]] += 1;
       cntMap[nums[i - k]] -= 1;
       if (cntMap[nums[i - k]] == 0)
+      {
         cntMap.erase(nums[i - k]);
+      }
       if (cntMap.size() >= m)
+      {
         result = max(result, sum);
+      }
     }
     return result;
   }
