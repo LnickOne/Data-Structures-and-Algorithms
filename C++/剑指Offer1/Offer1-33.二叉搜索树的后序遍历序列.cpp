@@ -23,7 +23,9 @@ public:
         实现方式为遍历，当遇到 ≤postorder[right] 的节点则跳出；则可通过 p=right 判断是否为二叉搜索树。
         */
         if (left >= right)
+        {
             return true;
+        }
         int i = left;
         while (postorder[i] < postorder[right])
             i++;

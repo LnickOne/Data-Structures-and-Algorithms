@@ -26,7 +26,9 @@ public:
                     queue.push(node->right);
             }
             if (odd == false)
+            {
                 reverse(path.begin(), path.end());
+            }
             result.push_back(path);
             path.clear();
             odd = !odd;

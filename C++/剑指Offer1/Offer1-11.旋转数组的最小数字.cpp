@@ -46,8 +46,8 @@
 #### 实现
 
 - 经典二分查找的变种
-- 定义开头下标和结尾下标 s 和 e
-- 计算中间下标 m, 根据中间值与末尾值的关系来二分区间, 具体关系和上面分析完全一致
+- 定义开头下标和结尾下标 left 和 right
+- 计算中间下标 mid, 根据中间值与末尾值的关系来二分区间, 具体关系和上面分析完全一致
 - 下面代码对必要步骤都有解释, 方便大家理解
 
 ### 复杂度
@@ -56,8 +56,6 @@
   - 大部分情况下 O(logN) 时间就能二分出结果, 最差情况会退化成`O(N)` (数组元素都相等时)
 - 空间复杂度 `O(1)`
   - 只需要几个变量即可
-
-
 ## 进阶问题思路
 
 - 看到这里, 相信大家已经掌握了求旋转数组中最小数字的方法
@@ -67,10 +65,51 @@
 
 - 注意进阶问题里说的是旋转多次, 但其实**旋转一次和旋转多次没有任何区别, 最终还是只有一个旋转点, 以及不多于 2 个的有序区间**
 - 基于这一点, 我们就可以在这两个有序区间内利用经典二分查找来找目标值, 所以问题就转化为了如何找分界点
-- 而**分界点一定是最小数字, 且其上一个值要大于它**. 这样就可以用本题的思路, 判断 e 是不是分界点即可: 是的话直接退出循环, 否则继续二分找包含最小数字的区间.
-  - **注意**: 这里必须用 e 来判断分界点, 是因为用 m 的话可能会在退化情况时漏掉正确分界点, 例如`[2,2,2,1,2]`这个例子, 分界点是 1, 但是 m 始终不会达到 1, 而 e 则总能
+- 而**分界点一定是最小数字, 且其上一个值要大于它**. 这样就可以用本题的思路, 判断 left 是不是分界点即可: 是的话直接退出循环, 否则继续二分找包含最小数字的区间.
+  - **注意**: 这里必须用 left 来判断分界点, 是因为用 mid 的话可能会在退化情况时漏掉正确分界点, 例如`[2,2,2,1,2]`这个例子, 分界点是 1, 但是 mid 始终不会达到 1, 而 left 则总能
 - 另外注意如果前半段找到了就没必要找后半段了, 因为要求的是最小下标
-- 对于这个进阶问题, 我也在 leetcode 上发布了一篇题解: [进阶问题题解](https://leetcode-cn.com/problems/search-rotate-array-lcci/solution/fen-cheng-liang-duan-you-xu-shu-zu-jin-xing-er-fen/), 里面有实现的代码, 感兴趣的同学也可以去看看~
-
----
+- 对于这个进阶问题, [进阶问题题解](https://leetcode-cn.com/problems/search-rotate-array-lcci/solution/fen-cheng-liang-duan-you-xu-shu-zu-jin-xing-er-fen/) 
  */
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Solution
+{
+public:
+  int minArray(vector<int> &numbers)
+  {
+    // 二分查找, 注意这里是找分界点, 而不是找目标值
+    int left = 0;
+    int right = numbers.size() - 1;
+    while (left <= right)
+    {
+      int mid = left + (right - left) / 2;
+      if (numbers[mid] < numbers[right])
+      {
+        // 说明mid到right是有序的, 分界点一定在mid之前, 所以可以直接排除mid到right这一段
+        right = mid - 1;
+      }
+      else if (numbers[mid] > numbers[right])
+      {
+        // 说明mid到right是无序的, 分界点一定在mid之后, 所以可以直接排除left到mid这一段
+        left = mid + 1;
+      }
+      else
+      {
+        // 说明mid和right指向的数字相等, 无法判断有序无序, 只能退化成逐个遍历, 这里选择right-1
+        right -= 1;
+      }
+    }
+    return numbers[left];
+  }
+};
+
+int main()
+{
+  vector<int> numbers = {2, 2, 2, 0, 1};
+  Solution s;
+  int res = s.minArray(numbers);
+  cout << res << endl;
+  return 0;
+}

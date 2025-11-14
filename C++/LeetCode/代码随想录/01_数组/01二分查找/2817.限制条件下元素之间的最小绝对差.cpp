@@ -28,14 +28,30 @@
 */
 #include <iostream>
 #include <vector>
+#include <climits>
 using namespace std;
 class Solution
 {
 public:
     int minAbsoluteDifference(vector<int> &nums, int x)
     {
+        int result = INT_MAX;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            for (int j = i + x; j < nums.size(); j++)
+            {
+                result = min(result, abs(nums[i] - nums[j]));
+            }
+        }
+        return result;
     }
 };
-int main() {
+int main()
+{
+    vector<int> nums = {4, 3, 2, 4};
+    int x = 2;
+    Solution s;
+    int res = s.minAbsoluteDifference(nums, x);
+    cout << res << endl;
     return 0;
 }
