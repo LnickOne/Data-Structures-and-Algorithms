@@ -15,6 +15,14 @@ class ListNode:
         self.next = next
 
 
+def printListNode(head):
+    temp = head
+    while temp:
+        print(temp.val, end=" ")
+        temp = temp.next
+    print()
+
+
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         dummy = ListNode()
@@ -31,5 +39,12 @@ class Solution:
         slow.next = slow.next.next
         return dummy.next
 
+
+printListNode(
+    Solution().removeNthFromEnd(
+        ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5))))), 2
+    )
+)
+printListNode(Solution().removeNthFromEnd(ListNode(1), 1))
 
 # @lc code=end
