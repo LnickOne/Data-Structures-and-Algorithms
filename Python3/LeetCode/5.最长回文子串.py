@@ -29,13 +29,11 @@ class Solution:
         return result
 
 
-if __name__ == "__main__":
-    s = Solution()
-    print(s.longestPalindrome("babad"))  # Output: "bab"
-    print(s.longestPalindrome("cbbd"))  # Output: "bb"
-    print(s.longestPalindrome("a"))  # Output: "a"
-    print(s.longestPalindrome("ac"))  # Output: "a"
-    print(s.longestPalindrome("aacabdkacaa"))  # Output: "aca"
+print(Solution().longestPalindrome("babad"))  # Output: "bab"
+print(Solution().longestPalindrome("cbbd"))  # Output: "bb"
+print(Solution().longestPalindrome("a"))  # Output: "a"
+print(Solution().longestPalindrome("ac"))  # Output: "a"
+print(Solution().longestPalindrome("aacabdkacaa"))  # Output: "aca"
 
 
 # @lc code=end

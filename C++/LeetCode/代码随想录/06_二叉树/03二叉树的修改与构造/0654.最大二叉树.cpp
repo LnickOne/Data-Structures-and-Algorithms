@@ -1,8 +1,3 @@
-#include "../BinaryTree.h"
-#include <vector>
-#include <climits>
-#include <algorithm>
-using namespace std;
 /*
 给定一个不重复的整数数组 nums 。 最大二叉树 可以用下面的算法从 nums 递归地构建:
 创建一个根节点，其值为 nums 中的最大值。
@@ -25,6 +20,11 @@ using namespace std;
 输入：nums = [3,2,1]
 输出：[3,null,2,null,1]
 */
+#include "../BinaryTree.h"
+#include <vector>
+#include <climits>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:

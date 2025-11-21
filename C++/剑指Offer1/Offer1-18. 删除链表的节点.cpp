@@ -1,4 +1,4 @@
-> 题目难度: 简单
+/* > 题目难度: 简单
 
 > [原题链接](https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/)
 
@@ -133,3 +133,4 @@ class Solution:
 ```
 
 ---
+ */

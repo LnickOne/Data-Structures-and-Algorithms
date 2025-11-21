@@ -46,5 +46,11 @@ int main()
     Solution s;
     string result = s.longestCommonPrefix(strs);
     cout << result << endl;
+    vector<string> strs2 = {"dog", "racecar", "car"};
+    result = s.longestCommonPrefix(strs2);
+    cout << result << endl;
+    vector<string> strs3 = {"interspecies", "interstellar", "interstate"};
+    result = s.longestCommonPrefix(strs3);
+    cout << result << endl;
     return 0;
 }

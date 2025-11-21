@@ -1,6 +1,6 @@
 /*
 给定一个长度为4的整数数组 cards 。你有 4 张卡片，每张卡片上都包含一个范围在 [1,9] 的数字。
-您应该使用运算符 ['+', '-', '*', '/'] 和括号 '(' 和 ')' 
+您应该使用运算符 ['+', '-', '*', '/'] 和括号 '(' 和 ')'
 将这些卡片上的数字排列成数学表达式，以获得值24。
 
 你须遵守以下规则:
@@ -25,7 +25,9 @@
 输出: false
 
 */
-#include "../../../include/utils.h"
+#include <iostream>
+#include <vector>
+using namespace std;
 class Solution
 {
 public:

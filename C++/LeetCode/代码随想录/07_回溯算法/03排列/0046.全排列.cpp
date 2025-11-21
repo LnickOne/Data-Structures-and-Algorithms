@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
 /*
 给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
 示例 1：
@@ -15,6 +10,11 @@ using namespace std;
 输入：nums = [1]
 输出：[[1]]
 */
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:

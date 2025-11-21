@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
 /*
 n 位格雷码序列 是一个由 2n 个整数组成的序列，其中：
 每个整数都在范围 [0, 2n - 1] 内（含 0 和 2n - 1）
@@ -29,6 +24,9 @@ n 位格雷码序列 是一个由 2n 个整数组成的序列，其中：
 输入：n = 1
 输出：[0,1]
 */
+#include <iostream>
+#include <vector>
+using namespace std;
 class Solution
 {
 public:

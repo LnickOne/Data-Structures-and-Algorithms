@@ -22,6 +22,7 @@ class Solution:
                 result += map[s[i]]
         return result
 
+
 print(Solution().romanToInt("III"))
 print(Solution().romanToInt("IV"))
 print(Solution().romanToInt("IX"))

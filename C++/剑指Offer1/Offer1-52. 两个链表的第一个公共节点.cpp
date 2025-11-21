@@ -1,8 +1,6 @@
-> 题目难度: 简单
+/* > 题目难度: 简单
 
 > [原题链接](https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/)
-
-> 今天继续更新剑指 offer 系列, 老样子**晚上 6 点 45 分**准时更新公众号 **每日精选算法题**, 大家记得关注哦~ 另外在公众号里回复 **offer** 就能看到剑指 offer 系列当前连载的所有文章了
 
 ## 题目描述
 
@@ -57,3 +55,4 @@ class Solution:
 ```
 
 ---
+ */

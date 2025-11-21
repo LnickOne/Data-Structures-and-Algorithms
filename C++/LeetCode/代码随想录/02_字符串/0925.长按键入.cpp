@@ -28,8 +28,8 @@ public:
         {
             if (name[i] == typed[j]) // 相同则同时向后匹配
             {
-                i++;
-                j++;
+                i += 1;
+                j += 1;
             }
             if (name[i] != typed[j]) // 不相同
             {
@@ -37,11 +37,11 @@ public:
                     return false;
                 // j跨越重复项，向后移动，同时防止j越界
                 while (j < typed.size() && typed[j] == typed[j - 1])
-                    j++;
+                    j += 1;
                 if (name[i] == typed[j]) // j跨越重复项之后再次和name[i]匹配
                 {
-                    j++;
-                    i++; // 相同则同时向后匹配
+                    j += 1;
+                    i += 1; // 相同则同时向后匹配
                 }
                 else
                     return false;
@@ -54,7 +54,7 @@ public:
         while (j < typed.size())
         {
             if (typed[j] == typed[j - 1])
-                j++;
+                j += 1;
             else
                 return false;
         }
@@ -65,10 +65,10 @@ public:
 int main()
 {
     Solution A = Solution();
-    bool result1=A.isLongPressedName("alex", "aaleex");
-    bool result2=A.isLongPressedName("saeed", "ssaaedd");
-    bool result3=A.isLongPressedName("saeed", "ssaaeedd");
-    bool result4=A.isLongPressedName("leelee", "lleeelee");
+    bool result1 = A.isLongPressedName("alex", "aaleex");
+    bool result2 = A.isLongPressedName("saeed", "ssaaedd");
+    bool result3 = A.isLongPressedName("saeed", "ssaaeedd");
+    bool result4 = A.isLongPressedName("leelee", "lleeelee");
     cout << result1 << endl;
     cout << result2 << endl;
     cout << result3 << endl;

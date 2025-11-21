@@ -31,14 +31,14 @@ public:
         for (auto iter : map)
         {
             priority_queue.push(iter);
-            if (priority_queue.size() > k)
-            { // 如果堆的大小大于了K，则队列弹出，保证堆的大小一直为k
+            if (priority_queue.size() > k) // 如果堆的大小大于了K，则队列弹出，保证堆的大小一直为k
+            {
                 priority_queue.pop();
             }
         }
         // 找出前K个高频元素，因为小顶堆先弹出的是最小的，所以倒序来输出到数组
         vector<int> result(k);
-        for (int i = k - 1; i >= 0; i--)
+        for (int i = k - 1; i >= 0; i -= 1)
         {
             result[i] = priority_queue.top().first;
             priority_queue.pop();

@@ -47,7 +47,6 @@ int main()
     ListNode *l1 = createListNode({1, 2, 4});
     ListNode *l2 = createListNode({1, 3, 4});
     ListNode *l3 = s.mergeTwoLists(l1, l2);
-    
     printListNode(l3);
     return 0;
 }

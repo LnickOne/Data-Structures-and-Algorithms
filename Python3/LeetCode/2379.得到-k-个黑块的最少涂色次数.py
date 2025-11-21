@@ -37,4 +37,8 @@ class Solution:
         return result  # 返回记录的最少涂色次数result
 
 
+print(Solution().minimumRecolors("WBBWWBBWBW", 7))  # Output: 3
+print(Solution().minimumRecolors("WBWBBBW", 2))  # Output: 0
+
+
 # @lc code=end

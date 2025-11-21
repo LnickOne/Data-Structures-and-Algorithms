@@ -17,4 +17,10 @@ class Solution:
         return res if res <= 0x7FFFFFFF else 0
 
 
+print(Solution().reverse(123))  # Output: 321
+print(Solution().reverse(-123))  # Output: -321
+print(Solution().reverse(120))  # Output: 21
+print(Solution().reverse(0))  # Output: 0
+
+
 # @lc code=end
