@@ -32,7 +32,8 @@ public:
         int index = nums.size() - 1;
         int right = nums.size() - 1;
         for (int left = 0; left <= right;)
-        { // 注意这里要i <= j，因为最后要处理两个元素
+        {
+            // 注意这里要i <= j，因为最后要处理两个元素
             if (nums[left] * nums[left] < nums[right] * nums[right])
             {
                 result[index] = nums[right] * nums[right];
