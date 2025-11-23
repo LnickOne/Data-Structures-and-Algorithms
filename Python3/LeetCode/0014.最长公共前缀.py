@@ -15,7 +15,7 @@ class Solution:
         result = ""
         for i in range(len(strs[0])):
             for j in range(1, len(strs)):
-                if i >= len(strs[j]) or strs[j][i]!= strs[0][i]:
+                if i >= len(strs[j]) or strs[j][i] != strs[0][i]:
                     return result
             result += strs[0][i]
         return result
@@ -23,5 +23,8 @@ class Solution:
 
 print(Solution().longestCommonPrefix(["flower", "flow", "flight"]))
 print(Solution().longestCommonPrefix(["dog", "racecar", "car"]))
+print(Solution().longestCommonPrefix([""]))
+print(Solution().longestCommonPrefix(["a"]))
+
 
 # @lc code=end
