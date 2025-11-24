@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-using namespace std;
 
 struct TreeNode
 {
@@ -24,11 +23,11 @@ struct TreeNode
     }
 };
 
-TreeNode *createBinaryTree(const vector<int> &arr) // 创建二叉树
+TreeNode *createBinaryTree(const std::vector<int> &arr) // 创建二叉树
 {
     if (arr.empty())
         return nullptr;
-    queue<TreeNode *> nodes;
+    std::queue<TreeNode *> nodes;
     TreeNode *root = new TreeNode(arr[0]);
     nodes.push(root);
     int i = 1;

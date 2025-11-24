@@ -25,6 +25,7 @@ print(Solution().longestCommonPrefix(["flower", "flow", "flight"]))
 print(Solution().longestCommonPrefix(["dog", "racecar", "car"]))
 print(Solution().longestCommonPrefix([""]))
 print(Solution().longestCommonPrefix(["a"]))
+print(Solution().longestCommonPrefix(["ab", "a"]))
 
 
 # @lc code=end
