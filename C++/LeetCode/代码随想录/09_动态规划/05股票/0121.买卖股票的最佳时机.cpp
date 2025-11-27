@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
 /*
 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
 你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。
@@ -17,6 +13,10 @@ using namespace std;
 输出：0
 解释：在这种情况下, 没有交易完成, 所以最大利润为 0。
 */
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:
@@ -39,7 +39,9 @@ public:
     int maxProfit(vector<int> &prices)
     {
         if (prices.size() == 0)
+        {
             return 0;
+        }
         vector<vector<int>> dp(prices.size(), vector<int>(2));
         dp[0][0] = 0;          // 第0天卖出股票的最大现金是dp[0][0]，手上没有股票无法卖出所以现金为0
         dp[0][1] = -prices[0]; // 第0天买入股票的最大现金是dp[0][1]，值为-price[0]
