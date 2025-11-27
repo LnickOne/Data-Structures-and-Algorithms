@@ -12,7 +12,7 @@ class Solution:
         result = 0
         left = 0
         right = len(height) - 1
-        while left < right:
+        while left <= right:
             length = right - left
             area = length * min(height[left], height[right])
             result = max(result, area)
@@ -22,5 +22,10 @@ class Solution:
                 right -= 1
         return result
 
+
+print(Solution().maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]))
+print(Solution().maxArea([1, 1]))
+print(Solution().maxArea([4, 3, 2, 1, 4]))
+print(Solution().maxArea([1, 2, 1]))
 
 # @lc code=end

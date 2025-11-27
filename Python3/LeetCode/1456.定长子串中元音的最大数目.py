@@ -13,9 +13,9 @@ class Solution:
         result = max(result, count)
         # 处理后续窗口
         for i in range(k, len(s)):
-            if s[i] in vowels:  
+            if s[i] in vowels:
                 count += 1
-            if s[i - k] in vowels: 
+            if s[i - k] in vowels:
                 count -= 1
             result = max(result, count)
         return result
