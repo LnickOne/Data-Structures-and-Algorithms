@@ -28,7 +28,9 @@ public:
   vector<int> findAnagrams(string s, string p)
   {
     if (p.size() > s.size())
+    {
       return {};
+    }
     vector<int> result;
     int k = p.size();
     unordered_map<char, int> s_map;

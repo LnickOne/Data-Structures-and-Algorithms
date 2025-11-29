@@ -31,7 +31,7 @@ public:
   {
     MyQueue deque;
     vector<int> result;
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i < k; i += 1)
     {
       deque.push(nums[i]); // 先将前k的元素放进队列
     }
@@ -70,7 +70,10 @@ public:
       deque.push_back(value);
     }
     // 查询当前队列里的最大值 直接返回队列前端也就是front就可以了。
-    int front() { return deque.front(); }
+    int front()
+    {
+      return deque.front();
+    }
   };
 
   // 方法二: 暴力解法

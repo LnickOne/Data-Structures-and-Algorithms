@@ -50,7 +50,7 @@
 - 而**分界点一定是最小数字, 且其上一个值要大于它**. 这样就可以用本题的思路, 判断 left 是不是分界点即可: 是的话直接退出循环, 否则继续二分找包含最小数字的区间.
   - **注意**: 这里必须用 left 来判断分界点, 是因为用 mid 的话可能会在退化情况时漏掉正确分界点, 例如`[2,2,2,1,2]`这个例子, 分界点是 1, 但是 mid 始终不会达到 1, 而 left 则总能
 - 另外注意如果前半段找到了就没必要找后半段了, 因为要求的是最小下标
-- 对于这个进阶问题, [进阶问题题解](https://leetcode-cn.com/problems/search-rotate-array-lcci/solution/fen-cheng-liang-duan-you-xu-shu-zu-jin-xing-er-fen/) 
+- 对于这个进阶问题, [进阶问题题解](https://leetcode-cn.com/problems/search-rotate-array-lcci/solution/fen-cheng-liang-duan-you-xu-shu-zu-jin-xing-er-fen/)
  */
 #include <iostream>
 #include <vector>
