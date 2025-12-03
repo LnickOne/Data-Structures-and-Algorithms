@@ -12,20 +12,42 @@ class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         if not strs:
             return ""
+        result = strs[0]
+        for i in range(1, len(strs)):
+            result = self.commonPrefix_dp(result, strs[i])
+            if not result:
+                return ""
+        return result
+
+    def commonPrefix(self, str1: str, str2: str) -> str:
         result = ""
-        for i in range(len(strs[0])):
-            for j in range(1, len(strs)):
-                if i >= len(strs[j]) or strs[j][i] != strs[0][i]:
-                    return result
-            result += strs[0][i]
+        for i in range(min(len(str1), len(str2))):
+            if str1[i] != str2[i]:
+                return result
+            result += str1[i]
+        return result
+
+    def commonPrefix_dp(self, str1: str, str2: str) -> str:
+        if not str1 or not str2:
+            return ""
+        result = ""
+        dp = [[False] * (len(str2) + 1) for _ in range(len(str1) + 1)]
+        max_len = 0
+        for i in range(1, min(len(str1), len(str2)) + 1):
+            if str1[i - 1] == str2[i - 1]:
+                dp[i][i] = dp[i - 1][i - 1] + 1
+            elif str1[i - 1] != str2[i - 1]:
+                break
+            max_len = max(max_len, dp[i][i])
+        result = str1[:max_len]
         return result
 
 
-print(Solution().longestCommonPrefix(["flower", "flow", "flight"]))
-print(Solution().longestCommonPrefix(["dog", "racecar", "car"]))
-print(Solution().longestCommonPrefix([""]))
-print(Solution().longestCommonPrefix(["a"]))
-print(Solution().longestCommonPrefix(["ab", "a"]))
+print(Solution().longestCommonPrefix(["flower", "flow", "flight"]))  # 输出fl
+print(Solution().longestCommonPrefix(["dog", "racecar", "car"]))  # 输出""
+print(Solution().longestCommonPrefix([""]))  # 输出""
+print(Solution().longestCommonPrefix(["a"]))  # 输出a
+print(Solution().longestCommonPrefix(["ab", "a"]))  # 输出a
 
 
 # @lc code=end

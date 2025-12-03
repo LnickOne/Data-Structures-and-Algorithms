@@ -41,9 +41,9 @@ public:
                 map[diff] = sum;
                 if (sum < target)
                     left += 1;
-                if (sum > target)
+                else if (sum > target)
                     right -= 1;
-                if (sum == target)
+                else if (sum == target)
                     return sum;
                 result = abs(result - target) < abs(sum - target) ? result : sum;
             }

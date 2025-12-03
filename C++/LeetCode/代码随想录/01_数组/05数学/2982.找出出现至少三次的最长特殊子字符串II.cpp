@@ -44,7 +44,6 @@ public:
             }
             groups.emplace_back(c, cnt);
         }
-
         // 按字符分组存储 连续长度
         unordered_map<char, vector<int>> char_groups;
         for (auto &p : groups)
