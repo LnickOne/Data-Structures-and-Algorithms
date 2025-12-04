@@ -50,24 +50,33 @@
 
 
 # @lc code=start
+from typing import List
+
+
 class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
-        result = 0
         nums.sort()
-        for i in range(len(nums)):
-            if i > 0 and nums[i] == nums[i - 1]:
+        result = nums[0] + nums[1] + nums[2]
+        for i in range(0, len(nums)):
+            if i > 0 and nums[i - 1] == nums[i]:
                 continue
             left, right = i + 1, len(nums) - 1
             while left < right:
                 sum = nums[i] + nums[left] + nums[right]
                 if sum == target:
                     return sum
-                if sum > target:
-                    right -= 1
-                else:
+                elif sum < target:
                     left += 1
-                result = min(result, sum, key=lambda x: abs(x - target))
+                elif sum > target:
+                    right -= 1
+                if abs(result - target) > abs(sum - target):
+                    result = sum
         return result
 
 
+print(Solution().threeSumClosest([-1, 2, 1, -4], 1))
+print(Solution().threeSumClosest([0, 0, 0], 1))
+print(Solution().threeSumClosest([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10))
+print(Solution().threeSumClosest([-1, 2, 1, -4], 1))
+print(Solution().threeSumClosest([-1, 2, 1, -4], 1))
 # @lc code=end

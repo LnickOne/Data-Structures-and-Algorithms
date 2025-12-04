@@ -54,12 +54,12 @@ public:
                     path.clear();
                     // 取到第一个结果后 继续对b和c去重 防止取到相同的元组结果
                     while (left < right && nums[left] == nums[left + 1]) // 用left指针和他前一个指针做对比，即对元素b去重
-                        left+=1;
+                        left += 1;
                     while (left < right && nums[right] == nums[right - 1]) // 用right指针和他前一个指针做对比，即对元素c去重
-                        right-=1;
+                        right -= 1;
                     // 找到答案后，双指针同时收缩
-                    left+=1;
-                    right-=1;
+                    left += 1;
+                    right -= 1;
                 }
             }
         }

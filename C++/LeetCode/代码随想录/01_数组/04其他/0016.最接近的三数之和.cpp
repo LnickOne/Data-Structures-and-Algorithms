@@ -22,12 +22,8 @@ public:
     int threeSumClosest(vector<int> &nums, const int &target)
     {
         sort(nums.begin(), nums.end());
-        int diff;
-        int sum;
-        vector<int> diff_nums;
-        unordered_map<int, int> map;
         int result = nums[0] + nums[1] + nums[2];
-        for (int i = 0; i < nums.size(); ++i)
+        for (int i = 0; i < nums.size(); i += 1)
         {
             if (i > 0 && nums[i] == nums[i - 1])
                 continue;
@@ -35,20 +31,19 @@ public:
             int right = nums.size() - 1;
             while (left < right)
             {
-                sum = nums[i] + nums[left] + nums[right];
-                diff = abs(sum - target);
-                diff_nums.push_back(diff);
-                map[diff] = sum;
-                if (sum < target)
+                int sum = nums[i] + nums[left] + nums[right];
+                if (sum == target)
+                    return sum;
+                else if (sum < target)
                     left += 1;
                 else if (sum > target)
                     right -= 1;
-                else if (sum == target)
-                    return sum;
-                result = abs(result - target) < abs(sum - target) ? result : sum;
+                if (abs(sum - target) < abs(result - target))
+                {
+                    result = sum;
+                }
             }
         }
-        // int min_diff = *min_element(diff_nums.begin(), diff_nums.end());
         return result;
     }
 };

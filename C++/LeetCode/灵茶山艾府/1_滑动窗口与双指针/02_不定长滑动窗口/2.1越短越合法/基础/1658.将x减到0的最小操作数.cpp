@@ -44,10 +44,14 @@ public:
         left += 1;
       }
       if (sum == total)
+      {
         result = max(result, right - left + 1);
+      }
     }
     if (result == -1)
+    {
       return -1;
+    }
     else
       return nums.size() - result;
   }
