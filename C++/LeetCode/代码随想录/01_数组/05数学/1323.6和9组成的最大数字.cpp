@@ -34,7 +34,8 @@ public:
         string numStr = to_string(num);
         for (char &num : numStr)
         {
-            if (num == '6'){
+            if (num == '6')
+            {
                 num = '9';
                 break;
             }

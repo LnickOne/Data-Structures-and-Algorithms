@@ -1,4 +1,3 @@
-
 /*
 给你一个整数数组 nums 和一个整数 k ，请你返回子数组内所有元素的乘积严格小于 k 的连续子数组的数目。
 示例 1：
@@ -27,7 +26,7 @@ public:
 int main()
 {
     Solution s;
-    vector<int> nums ={10, 5, 2, 6};
+    vector<int> nums = {10, 5, 2, 6};
     int k = 100;
     int result = s.numSubarraytotalLessThanK(nums, k);
     cout << result << endl;
