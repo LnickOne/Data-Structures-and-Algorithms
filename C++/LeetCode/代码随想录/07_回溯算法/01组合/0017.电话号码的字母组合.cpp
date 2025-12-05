@@ -45,7 +45,7 @@ public:
             return;
         }
         string str = map.at(digits[index]);
-        for (int i = start; i < str.size(); i++)
+        for (int i = start; i < str.size(); i += 1)
         {
             path.push_back(str[i]);
             backtracking(0, index + 1, digits, map, path, result);

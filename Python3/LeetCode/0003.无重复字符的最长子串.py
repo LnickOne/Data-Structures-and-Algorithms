@@ -11,7 +11,6 @@ class Solution:
         max_len = 0
         start = 0
         char_map = {}
-
         for end in range(len(s)):
             if s[end] in char_map:
                 start = max(start, char_map[s[end]] + 1)
