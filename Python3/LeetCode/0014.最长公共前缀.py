@@ -19,7 +19,10 @@ class Solution:
                 return ""
         return result
 
+    # 暴力法
     def commonPrefix(self, str1: str, str2: str) -> str:
+        if not str1 or not str2:
+            return ""
         result = ""
         for i in range(min(len(str1), len(str2))):
             if str1[i] != str2[i]:
@@ -27,6 +30,7 @@ class Solution:
             result += str1[i]
         return result
 
+    # 动态规划法
     def commonPrefix_dp(self, str1: str, str2: str) -> str:
         if not str1 or not str2:
             return ""

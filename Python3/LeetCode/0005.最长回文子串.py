@@ -4,6 +4,7 @@
 # [5] 最长回文子串
 #
 
+
 # @lc code=start
 class Solution:
     def longestPalindrome(self, s: str) -> str:
@@ -34,4 +35,3 @@ print(Solution().longestPalindrome("a"))  # Output: "a"
 print(Solution().longestPalindrome("ac"))  # Output: "a"
 print(Solution().longestPalindrome("aacabdkacaa"))  # Output: "aca"
 # @lc code=end
-
