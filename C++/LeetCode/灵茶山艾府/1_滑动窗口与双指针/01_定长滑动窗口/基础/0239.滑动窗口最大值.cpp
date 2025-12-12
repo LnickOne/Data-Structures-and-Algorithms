@@ -44,7 +44,7 @@ public:
     int max_num;
     // 处理第一个窗口
     max_num = *max_element(nums.begin(), nums.begin() + k);
-    result.push_back(max_num);
+    result.emplace_back(max_num);
     // 处理后续窗口
     for (int i = k; i < nums.size(); i += 1)
     {
@@ -59,7 +59,7 @@ public:
           max_num = nums[i];
         }
       }
-      result.push_back(max_num);
+      result.emplace_back(max_num);
     }
     return result;
   }
