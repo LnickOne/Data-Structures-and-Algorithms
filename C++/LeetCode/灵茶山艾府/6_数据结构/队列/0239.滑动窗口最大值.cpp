@@ -26,8 +26,8 @@ using namespace std;
 class Solution
 {
 public:
-  // 方法一: 使用单调队列
-  vector<int> maxSlidingWindow_1(vector<int> &nums, int k)
+  // 方法 : 单调队列
+  vector<int> maxSlidingWindow(vector<int> &nums, int k)
   {
     MyQueue deque;
     vector<int> result;
@@ -75,43 +75,16 @@ public:
       return deque.front();
     }
   };
-
-  // 方法二: 暴力解法
-  vector<int> maxSlidingWindow_2(vector<int> &nums, int k)
-  {
-    vector<int> result;
-    int max_val;
-    int left = 0;   // 滑动窗口的起始位置
-    int right = 0;  // 滑动窗口的结束位置
-    int length = 0; // 滑动窗口的长度
-    while (right < nums.size() - k + 1)
-    {
-      if (length != k)
-      {
-        right += k;
-        length += k;
-      }
-      if (left + k < nums.size() + 1)
-      {
-        max_val = *max_element(nums.begin() + left, nums.begin() + right);
-      }
-      result.push_back(max_val);
-      left += 1;    // 滑动窗口的起始位置每次向右移动一位
-      right = left; // 滑动窗口的结束位置跟随起始位置
-      length = 0;   // 滑动窗口做完需求操作后长度归0
-    }
-    return result;
-  }
 };
 
 int main()
 {
+  Solution s;
   vector<int> nums = {1, 3, -1, -3, 5, 3, 6, 7};
   int k = 3;
   vector<int> nums1 = {1, 3, -1, -3, 5, 3, 6, 7};
   int k1 = 5000;
-  Solution s;
-  s.maxSlidingWindow_2(nums, k);
+  s.maxSlidingWindow(nums, k);
 
   return 0;
 }

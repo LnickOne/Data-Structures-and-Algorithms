@@ -17,14 +17,8 @@ struct ListNode
     ListNode(int x, ListNode *next) : val(x), next(next) {}
     ~ListNode()
     {
-        ListNode *current = next;
-        while (current != nullptr)
-        {
-            ListNode *node = current;
-            current = current->next;
-            node->next = nullptr; // 切断连接
-            delete node;
-        }
+        // 析构函数只释放当前节点，不递归释放整个链表
+        // 这样可以避免重复删除和栈溢出问题
         next = nullptr;
     }
 };
@@ -80,4 +74,16 @@ ListNode *cloneList(ListNode *head)
         cur = cur->next;
     }
     return new_head;
+}
+
+// 释放整个链表的内存
+void deleteList(ListNode *head)
+{
+    while (head != nullptr)
+    {
+        ListNode *temp = head;
+        head = head->next;
+        temp->next = nullptr;
+        delete temp;
+    }
 }

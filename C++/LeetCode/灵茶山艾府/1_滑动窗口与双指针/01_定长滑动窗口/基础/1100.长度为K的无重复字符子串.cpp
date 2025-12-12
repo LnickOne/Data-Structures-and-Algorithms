@@ -29,7 +29,9 @@ public:
       chMap[s[i]] += 1;
     }
     if (chMap.size() == k)
+    {
       result += 1;
+    }
     // 处理后续窗口
     for (int i = k; i < s.size(); i += 1)
     {
