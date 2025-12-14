@@ -11,7 +11,7 @@ from typing import List
 class Solution:
     def numOfSubarrays(self, arr: List[int], k: int, threshold: int) -> int:
         result = 0
-        total = sum(arr[:k])
+        total = sum(arr[0:k])
         if total / k >= threshold:
             result += 1
         for i in range(k, len(arr)):

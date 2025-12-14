@@ -5,7 +5,6 @@
 #
 # @lc code=start
 from typing import List
-from typing import Counter
 
 
 class Solution:
@@ -16,7 +15,7 @@ class Solution:
         s_map = {}
         p_map = {}
         # 处理第一个窗口
-        for i in range(len(p)):
+        for i in range(0, len(p)):
             s_map[s[i]] = s_map.get(s[i], 0) + 1
             p_map[p[i]] = p_map.get(p[i], 0) + 1
         if s_map == p_map:
