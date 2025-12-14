@@ -59,12 +59,21 @@ class ListNode:
         self.next = next
 
 
+def printListNode(head):
+    temp = head
+    while temp:
+        print(temp.val, end=" ")
+        temp = temp.next
+    print()
+
+
 from typing import Optional
 
 
 class Solution:
     def mergeTwoLists(
-        self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        self, list1: Optional[ListNode], list2: Optional[ListNode]
+    ) -> Optional[ListNode]:
         dummy = ListNode(0, None)
         cur = dummy
         while list1 and list2:
@@ -81,6 +90,20 @@ class Solution:
         elif list2:
             cur.next = list2
         return dummy.next
+
+
+printListNode(
+    Solution().mergeTwoLists(
+        ListNode(1, ListNode(2, ListNode(4))), ListNode(1, ListNode(3, ListNode(4)))
+    )
+)
+printListNode(Solution().mergeTwoLists(None, None))
+printListNode(Solution().mergeTwoLists(None, ListNode(0)))
+printListNode(
+    Solution().mergeTwoLists(
+        ListNode(1, ListNode(2, ListNode(3))), ListNode(1, ListNode(3, ListNode(4)))
+    )
+)
 
 
 # @lc code=end

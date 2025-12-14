@@ -69,6 +69,14 @@ class ListNode:
         self.next = next
 
 
+def printListNode(head):
+    temp = head
+    while temp:
+        print(temp.val, end=" ")
+        temp = temp.next
+    print()
+
+
 from typing import List
 from typing import Optional
 
@@ -103,6 +111,27 @@ class Solution:
         elif list2:
             cur.next = list2
         return dummy.next
+
+
+printListNode(
+    Solution().mergeKLists(
+        [
+            ListNode(1, ListNode(4, ListNode(5))),
+            ListNode(1, ListNode(3, ListNode(4))),
+            ListNode(2, ListNode(6)),
+        ]
+    )
+)
+
+printListNode(
+    Solution().mergeKLists(
+        [
+            ListNode(1, ListNode(2, ListNode(3, ListNode(5)))),
+            ListNode(1, ListNode(3, ListNode(4))),
+            ListNode(2, ListNode(6)),
+        ]
+    )
+)
 
 
 # @lc code=end

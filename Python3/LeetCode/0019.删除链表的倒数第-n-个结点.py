@@ -46,5 +46,8 @@ printListNode(
     )
 )
 printListNode(Solution().removeNthFromEnd(ListNode(1), 1))
+printListNode(Solution().removeNthFromEnd(ListNode(1, ListNode(2)), 1))
+printListNode(Solution().removeNthFromEnd(ListNode(1, ListNode(2)), 2))
+printListNode(Solution().removeNthFromEnd(ListNode(1, ListNode(2, ListNode(3))), 3))
 
 # @lc code=end

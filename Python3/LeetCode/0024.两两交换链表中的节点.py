@@ -60,6 +60,14 @@ class ListNode:
         self.next = next
 
 
+def printListNode(head):
+    temp = head
+    while temp:
+        print(temp.val, end=" ")
+        temp = temp.next
+    print()
+
+
 class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head:
@@ -77,4 +85,10 @@ class Solution:
         return dummy.next
 
 
+printListNode(Solution().swapPairs(ListNode(1, ListNode(2, ListNode(3, ListNode(4))))))
+printListNode(
+    Solution().swapPairs(
+        ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+    )
+)
 # @lc code=end
