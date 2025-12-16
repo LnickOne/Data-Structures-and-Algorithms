@@ -20,17 +20,18 @@ public:
         while (cur && count != k)
         {
             cur = cur->next;
-            count++;
+            count += 1;
         }
         if (count == k)
         {
             cur = reverseKGroup(cur, k);
-            while (--count > 0)
+            while (count > 0)
             {
                 ListNode *tmp = head->next;
                 head->next = cur;
                 cur = head;
                 head = tmp;
+                count -= 1;
             }
             head = cur;
         }

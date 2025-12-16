@@ -18,12 +18,12 @@ public:
         dummy->next = head;
         ListNode *pre = dummy;
         ListNode *cur = head;
-        for (int i = 0; i < left - 1; i++)
+        for (int i = 0; i < left - 1; i += 1)
         {
             pre = cur;
             cur = cur->next;
         }
-        for (int i = left; i < right; i++)
+        for (int i = left; i < right; i += 1)
         {
             ListNode *node = cur->next;
             cur->next = node->next; // 1->3
