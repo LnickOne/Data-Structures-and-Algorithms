@@ -68,6 +68,7 @@ class Solution:
             right -= 1
         return
 
+
 print(Solution().generateParenthesis(3))
 print(Solution().generateParenthesis(1))
 
