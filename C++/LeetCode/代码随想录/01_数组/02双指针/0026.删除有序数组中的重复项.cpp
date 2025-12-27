@@ -26,9 +26,9 @@ public:
             if (nums[fast] != nums[fast - 1])
             {
                 nums[slow] = nums[fast];
-                slow++;
+                slow += 1;
             }
-            fast++;
+            fast += 1;
         }
         return slow;
     }

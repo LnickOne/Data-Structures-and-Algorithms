@@ -70,25 +70,10 @@
 ##### 方案 1: 转二进制字符串统计 1
 
 ```python
-class Solution:
-    def hammingWeight(self, n: int) -> int:
-        # 方法1: 转二进制字符串统计1
-        return bin(n).count('1')
 ```
 
 ##### 方案 2: 循环移位统计 1
 
-```python
-class Solution:
-    def hammingWeight(self, n: int) -> int:
-        # 方法2: 循环移位统计1
-        res = 0
-        for i in range(32):
-            if n == 0:
-                break
-            res += n & 1
-            n >>= 1
-        return res
 ```
 
 ### 方案 3 & 4 - 利用位运算统计 1 的个数
@@ -108,34 +93,4 @@ class Solution:
   - 设数字有 `M` 位 1, 需要遍历这么多次
 - 空间复杂度 `O(1)`
   - 只使用了几个变量
-
-#### 代码
-
-##### 方案 3: n &= n - 1
-
-```python
-class Solution:
-    def hammingWeight(self, n: int) -> int:
-        # 方法3: n &= n - 1
-        res = 0
-        while n:
-            n &= n - 1
-            res += 1
-        return res
-```
-
-##### 方案 4: n -= n & -n
-
-```python
-class Solution:
-    def hammingWeight(self, n: int) -> int:
-        # 方法4: n -= n & -n
-        res = 0
-        while n:
-            n -= n & -n
-            res += 1
-        return res
-```
-
----
  */

@@ -1,14 +1,17 @@
 #include "BinaryTree.h"
-class Solution {
+class Solution
+{
 public:
-    int findTargetNode(TreeNode* root, int cnt) {
+    int findTargetNode(TreeNode *root, int cnt)
+    {
         if (root == nullptr)
             return 0;
         vector<int> result;
         inOrder(root, result);
         return result[result.size() - cnt];
     }
-    void inOrder(TreeNode* root, vector<int>& result) {
+    void inOrder(TreeNode *root, vector<int> &result)
+    {
         if (root == nullptr)
             return;
         if (root->left)

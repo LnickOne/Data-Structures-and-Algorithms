@@ -37,14 +37,14 @@ public:
             if (nums[left] * nums[left] < nums[right] * nums[right])
             {
                 result[index] = nums[right] * nums[right];
-                right--;
-                index--;
+                right -= 1;
+                index -= 1;
             }
             else
             {
                 result[index] = nums[left] * nums[left];
-                left++;
-                index--;
+                left += 1;
+                index -= 1;
             }
         }
         return result;

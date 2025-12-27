@@ -25,8 +25,8 @@ public:
             if (nums[fast] != val)
             {
                 nums[slow] = nums[fast];
-                slow++;
-                result++;
+                slow += 1;
+                result += 1;
             }
         }
         return result;

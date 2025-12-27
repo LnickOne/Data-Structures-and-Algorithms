@@ -38,10 +38,12 @@ public:
             if (nums[right] != 0)
             {
                 swap(nums[left], nums[right]);
-                left++;
+                left += 1;
             }
-            if(nums[right]== 0)
-                right++;
+            else if (nums[right] == 0)
+            {
+                right += 1;
+            }
         }
     }
 };

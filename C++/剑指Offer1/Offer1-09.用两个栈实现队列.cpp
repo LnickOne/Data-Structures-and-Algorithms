@@ -1,6 +1,6 @@
-//> 题目难度: 简单
 /*
-> [原题链接](https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)
+题目难度: 简单
+[原题链接](https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)
 
 ## 题目描述
 
@@ -35,9 +35,6 @@
 [null,-1,null,null,5,2]
 
 ## 题目思考
-
-> ([思考题答案](#思考题答案)在最后)
-
 1. 如何用到两个栈?
 2. 可以做到插入和删除都只需要常数时间吗?
 3. 假如题目变为使用两个队列来实现栈, 又该怎么做? (队列只能尾部插入或者头部删除)

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-
+using namespace std;
 struct TreeNode
 {
     int val;
@@ -23,28 +23,30 @@ struct TreeNode
     }
 };
 
-TreeNode *createBinaryTree(const std::vector<int> &arr) // 创建二叉树
+TreeNode *createBinaryTree(const vector<int> &vec) // 创建二叉树
 {
-    if (arr.empty())
+    if (vec.empty())
+    {
         return nullptr;
-    std::queue<TreeNode *> nodes;
-    TreeNode *root = new TreeNode(arr[0]);
+    }
+    queue<TreeNode *> nodes;
+    TreeNode *root = new TreeNode(vec[0]);
     nodes.push(root);
     int i = 1;
-    while (!nodes.empty() && i < arr.size())
+    while (!nodes.empty() && i < vec.size())
     {
-        TreeNode *current = nodes.front();
+        TreeNode *node = nodes.front();
         nodes.pop();
-        if (i < arr.size() && arr[i] != -1)
+        if (i < vec.size() && vec[i] != -1)
         {
-            current->left = new TreeNode(arr[i]);
-            nodes.push(current->left);
+            node->left = new TreeNode(vec[i]);
+            nodes.push(node->left);
         }
         i += 1;
-        if (i < arr.size() && arr[i] != -1)
+        if (i < vec.size() && vec[i] != -1)
         {
-            current->right = new TreeNode(arr[i]);
-            nodes.push(current->right);
+            node->right = new TreeNode(vec[i]);
+            nodes.push(node->right);
         }
         i += 1;
     }

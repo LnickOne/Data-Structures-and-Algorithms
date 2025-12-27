@@ -1,5 +1,4 @@
 #include "BinaryTree.h"
-
 class Solution
 {
 public:

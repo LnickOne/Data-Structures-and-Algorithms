@@ -25,8 +25,8 @@ public:
         {
             if (s[left] != s[right])
                 return false;
-            left++;
-            right--;
+            left += 1;
+            right -= 1;
         }
         return true;
     }

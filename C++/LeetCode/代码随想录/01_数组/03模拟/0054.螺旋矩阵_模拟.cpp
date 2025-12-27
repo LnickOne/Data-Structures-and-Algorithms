@@ -26,14 +26,14 @@ public:
         while (start_row <= row_border && start_col <= col_border) // 遵循左闭右开的原则
         {
             // 上边从左往右
-            for (int col = start_col; col <= col_border; ++col) // 遵循左闭右开的原则
+            for (int col = start_col; col <= col_border; col += 1) // 遵循左闭右开的原则
                 result.push_back(matrix[start_row][col]);
-            ++start_col;
+            start_col += 1;
             // 右边从上往下
-            for (int i = start_col; i <= row_border; ++i)
+            for (int i = start_col; i <= row_border; i += 1)
                 result.push_back(matrix[i][col_border]);
             --col_border;
-            for (int i = start_col; i <= row_border; ++i)
+            for (int i = start_col; i <= row_border; i += 1)
                 result.push_back(matrix[i][col_border]);
             --col_border;
             // 下边从右往左
@@ -45,7 +45,7 @@ public:
             if (start_row <= col_border)
                 for (int i = row_border; i >= start_col; --i)
                     result.push_back(matrix[i][start_row]);
-            ++start_row;
+            start_row += 1;
         }
         return result;
     }
@@ -63,36 +63,39 @@ public:
         while (loop <= n / 2)
         {
             // 上边从左往右遍历
-            for (col = start_col; col < n - offset; col++)
+            for (col = start_col; col < n - offset; col += 1)
+
             {
                 result[start_row][col] = count;
-                count++;
+                count += 1;
             }
             // 从右边往下遍历
-            for (row = start_row; row < n - offset; row++)
+            for (row = start_row; row < n - offset; row += 1)
             {
                 result[row][col] = count;
-                count++;
+                count += 1;
             }
             // 从下边往左遍历
             for (; col > start_col; col--)
             {
                 result[row][col] = count;
-                count++;
+                count += 1;
             }
             // 从左边往上遍历
             for (; row > start_row; row--)
             {
                 result[row][col] = count;
-                count++;
+                count += 1;
             }
-            start_row++;
-            start_col++;
-            loop++;
-            offset++;
+            start_row += 1;
+            start_col += 1;
+            loop += 1;
+            offset += 1;
         }
         if (n % 2 == 1)
+        {
             result[start_row][start_col] = count;
+        }
         return result;
     }
 };

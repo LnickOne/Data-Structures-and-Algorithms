@@ -1,19 +1,14 @@
-/* > 题目难度: 中等
-
-> [原题链接](https://leetcode-cn.com/problems/qiu-12n-lcof/)
+/* 题目难度: 中等
+[原题链接](https://leetcode-cn.com/problems/qiu-12n-lcof/)
 ## 题目描述
-
 求 1+2+...+n ，要求不能使用乘除法、for、while、if、else、switch、case 等关键字及条件判断语句（A?B:C）。
-
 - 1 <= n <= 10000
 
 ## 题目样例
 
 ### 示例
-
 - 输入: n = 3
 - 输出: 6
-
 - 输入: n = 9
 - 输出: 45
 
@@ -80,8 +75,7 @@ class Solution:
             # B>>i作为递归出口, 为0后表示当前的i已经超过了B的最高位(B是正数, 所以可以这样..), 就不再继续递归
             # quickMultiply(i + 1)得到第i+1位以及之后的和
             # 而对于B的当前第i位, 需要判断其是否为0, 仍然利用and短路特性, 得到A(该位是1)或者0(该位是0), 然后左移i位累加到结果中即可
-            return B >> i and (quickMultiply(i + 1) + ((B &
-                                                        (1 << i) and A) << i))
+            return B >> i and (quickMultiply(i + 1) + ((B &(1 << i) and A) << i))
 
         return quickMultiply(0) >> 1
 
