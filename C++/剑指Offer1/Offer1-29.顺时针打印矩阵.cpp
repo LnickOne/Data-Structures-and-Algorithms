@@ -1,3 +1,4 @@
+/*
 > 题目难度: 简单
 
 > [原题链接](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/)
@@ -146,3 +147,4 @@ class Solution:
 ```
 
 ---
+*/

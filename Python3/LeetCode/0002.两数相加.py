@@ -3,7 +3,6 @@
 #
 # [2] 两数相加
 #
-
 # @lc code=start
 # Definition for singly-linked list.
 # class ListNode:
@@ -69,6 +68,7 @@ class Solution:
 
 l1 = ListNode(2, ListNode(4, ListNode(3, None)))
 l2 = ListNode(5, ListNode(6, ListNode(4, None)))
-result = Solution().addTwoNumbers(l1, l2)
-printListNode(result)
+printListNode(Solution().addTwoNumbers(l1, l2))
+printListNode(Solution().addTwoNumbers(l1, None))
+printListNode(Solution().addTwoNumbers(None, l2))
 # @lc code=end
