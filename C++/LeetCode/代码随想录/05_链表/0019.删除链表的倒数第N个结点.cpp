@@ -19,7 +19,9 @@ public:
         // 双指针的经典应用，快指针先走n+1步，然后快慢指针一起走，
         // 当快指针走到末尾时，慢指针指向的节点就是要删除的节点
         if (!head)
+        {
             return nullptr;
+        }
         ListNode *dummy = new ListNode(0);
         dummy->next = head;
         ListNode *slow = dummy;
@@ -50,7 +52,7 @@ public:
         }
         // 释放 dummy 节点
         ListNode *result = dummy->next;
-        delete dummy; 
+        delete dummy;
         return result;
     }
 

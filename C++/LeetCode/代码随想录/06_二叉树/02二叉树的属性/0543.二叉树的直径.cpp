@@ -11,7 +11,7 @@
 输入：root = [1,2]
 输出：1
 */
-#include "../BinaryTree.h" 
+#include "../BinaryTree.h"
 class Solution
 {
 public:
@@ -32,3 +32,12 @@ public:
         return mid;                         // 返回节点深度
     }
 };
+int main()
+{
+    TreeNode *root = new TreeNode(1);
+    root->left = new TreeNode(2);
+    root->right = new TreeNode(3);
+    Solution s;
+    cout << s.diameterOfBinaryTree(root) << endl;
+    return 0;
+}

@@ -43,7 +43,7 @@ void printListNode(ListNode *head)
     ListNode *temp = head;
     while (temp != nullptr)
     {
-        cout << temp->val << " ";
+        cout << (*temp).val  << " ";
         temp = temp->next;
     }
     cout << endl;

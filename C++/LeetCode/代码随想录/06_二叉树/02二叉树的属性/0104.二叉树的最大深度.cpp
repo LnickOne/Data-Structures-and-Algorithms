@@ -9,7 +9,7 @@
 输入：root = [1,null,2]
 输出：2
 */
-#include "../BinaryTree.h" 
+#include "../BinaryTree.h"
 #include <deque>
 class Solution
 {
@@ -40,7 +40,7 @@ public:
     //     while (!queue.empty())
     //     {
     //         int size = queue.size();
-    //         depth++;
+    //         depth +=1;
     //         for (int i = 0; i < size; i++)
     //         {
     //             TreeNode *node = queue.front();

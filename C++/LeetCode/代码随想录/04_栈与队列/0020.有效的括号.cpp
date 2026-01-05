@@ -1,5 +1,4 @@
 #include <stack>
-#include <string>
 #include <iostream>
 using namespace std;
 class Solution
@@ -19,8 +18,10 @@ public:
       else if (ch == ')' || ch == '}' || ch == ']')
       {
         if (stack.empty())
+        {
           return false;
-        if (!stack.empty())
+        }
+        else if (!stack.empty())
         {
           char top = stack.top();
           stack.pop();

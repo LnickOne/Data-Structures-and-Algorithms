@@ -7,14 +7,12 @@
 输入：root = [1,2,2,null,3,null,3]
 输出：false
 */
-#include "../BinaryTree.h" 
+#include "../BinaryTree.h"
 class Solution
 {
 public:
     bool isSymmetric(TreeNode *root)
     {
-        if (!root)
-            return true;
         return postOrder(root->left, root->right);
     }
     bool postOrder(TreeNode *left, TreeNode *right)

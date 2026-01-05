@@ -77,5 +77,6 @@ int main()
     vector<int> res = s.nextGreaterElement(nums1, nums2);
     for (int i : res)
         cout << i << " ";
+    cout << endl;
     return 0;
 }

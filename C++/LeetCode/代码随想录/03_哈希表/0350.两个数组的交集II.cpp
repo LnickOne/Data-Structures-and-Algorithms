@@ -22,7 +22,9 @@ public:
         unordered_map<int, int> map;
         vector<int> result;
         for (const int &key : nums1)
+        {
             map[key]++;
+        }
         for (const int &key : nums2)
         {
             if (map[key] > 0)

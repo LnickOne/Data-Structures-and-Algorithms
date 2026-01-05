@@ -11,18 +11,13 @@
 输入：root = []
 输出：true
 */
-#include "../BinaryTree.h"    
+#include "../BinaryTree.h"
 class Solution
 {
 public:
     bool isBalanced(TreeNode *root)
     {
-        if (!root)
-            return true;
-        int result = postOrder(root);
-        if (result == -1)
-            return false;
-        return true;
+        return postOrder(root) == -1 ? false : true;
     }
     int postOrder(TreeNode *root)
     {

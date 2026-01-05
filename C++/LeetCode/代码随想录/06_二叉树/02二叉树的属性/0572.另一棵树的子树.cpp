@@ -5,7 +5,7 @@
 二叉树 tree 的一棵子树包括 tree 的某个节点和这个节点的所有后代节点。
 tree 也可以看做它自身的一棵子树。
  */
-#include "../BinaryTree.h" 
+#include "../BinaryTree.h"
 class Solution
 {
 public:
@@ -14,7 +14,10 @@ public:
         if (!root)
             return false;
         // 这里细节：根部比较是全部比较 所以直接去递归isSameTree(root, subRoot)
-        // 左子树和右子树比较是部分比较，所以要递归的是isSubtree(root->left, subRoot)，而不是isSameTree(root->left, subRoot)
+        // 左子树和右子树比较是部分比较，所以要递归的是isSubtree(root->left, subRoot)，
+        // 而不是isSameTree(root->left, subRoot)
+        // 因为isSameTree(root->left, subRoot)是判断两个树是否相等，
+        // 而isSubtree(root->left, subRoot)是判断一个树是否是另一个树的子树
         bool mid = isSameTree(root, subRoot);
         bool left = isSubtree(root->left, subRoot);
         bool right = isSubtree(root->right, subRoot);
@@ -38,9 +41,18 @@ public:
         if (left->val != right->val)
             return false;
         // 此时：左右节点都不为空并且数值相同，继续做递归，做下一层的判断,左右中的后序遍历
-        bool left = isSameTree(left->left, right->left);
-        bool right = isSameTree(left->right, right->right);
-        bool mid = left && right;
+        bool result_left = isSameTree(left->left, right->left);
+        bool result_right = isSameTree(left->right, right->right);
+        bool mid = result_left && result_right;
         return mid; // 左子树：中、 右子树：中 （逻辑处理）
     }
 };
+int main()
+{
+    TreeNode *root = new TreeNode(1);
+    root->left = new TreeNode(2);
+    root->right = new TreeNode(3);
+    Solution s;
+    cout << s.isSubtree(root, root) << endl;
+    return 0;
+}

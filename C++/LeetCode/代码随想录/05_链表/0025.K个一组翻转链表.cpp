@@ -36,7 +36,7 @@ public:
             head = cur;
         }
         else
-        {
+        {       
             return head;
         }
         return head;

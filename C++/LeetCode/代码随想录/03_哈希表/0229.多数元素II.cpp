@@ -12,7 +12,7 @@ public:
         vector<int> result;
         unordered_map<int, int> map;
         for (const int &num : nums)
-            ++map[num];
+            map[num]++;
         const int frequency = nums.size() / 3;
         for (const auto &iter : map)
             if (iter.second > frequency)

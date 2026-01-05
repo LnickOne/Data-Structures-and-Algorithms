@@ -12,7 +12,7 @@
 输入：root = [2,2,2,3,null,3,null]
 输出：[[2,3],[3]]
 */
-#include "../BinaryTree.h" 
+#include "../BinaryTree.h"
 #include <unordered_map>
 class Solution
 {
@@ -44,3 +44,15 @@ public:
         return subTree;
     }
 };
+
+int main()
+{
+    TreeNode *root = new TreeNode(1);
+    root->left = new TreeNode(2);
+    root->right = new TreeNode(3);
+    Solution s;
+    vector<TreeNode *> result = s.findDuplicateSubtrees(root);
+    for (auto node : result)
+        cout << node->val << endl;
+    return 0;
+}

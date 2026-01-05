@@ -46,7 +46,7 @@ public:
     {
         string str_n = to_string(n);
         int sum = 0;
-        for (char ch : str_n)
+        for (const char &ch : str_n)
             sum = sum + pow(ch - '0', 2);
         return sum;
     }

@@ -18,7 +18,9 @@ public:
     ListNode *swapPairs(ListNode *head)
     {
         if (!head)
+        {
             return nullptr;
+        }
         ListNode *dummy = new ListNode(0);
         ListNode *cur = dummy;
         dummy->next = head;

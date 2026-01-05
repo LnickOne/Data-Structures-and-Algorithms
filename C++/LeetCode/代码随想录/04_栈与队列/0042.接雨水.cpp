@@ -16,10 +16,10 @@ class Solution
 {
 public:
     // 单调栈法
-    int trap(vector<int> &height)
-    {
-         
-    }
+    // int trap(vector<int> &height)
+    // {
+
+    // }
     // 暴力解法
     int trap_(vector<int> &height)
     {
@@ -37,17 +37,21 @@ public:
                 result += max_left - height[left];
                 left += 1;
             }
-            else
+            else if (max_left >= max_right)
             {
                 result += max_right - height[right];
                 right -= 1;
             }
         }
+        return result;
     }
 };
 
 int main()
 {
-
+    vector<int> height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    Solution s;
+    int result = s.trap_(height);
+    cout << result << endl;
     return 0;
 }

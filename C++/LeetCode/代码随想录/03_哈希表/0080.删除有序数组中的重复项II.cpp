@@ -5,11 +5,13 @@
 示例 1：
 输入：nums = [1,1,1,2,2,3]
 输出：5, nums = [1,1,2,2,3]
-解释：函数应返回新长度 length = 5, 并且原数组的前五个元素被修改为 1, 1, 2, 2, 3。 不需要考虑数组中超出新长度后面的元素。
+解释：函数应返回新长度 length = 5, 并且原数组的前五个元素被修改为 1, 1, 2, 2, 3。
+不需要考虑数组中超出新长度后面的元素。
 示例 2：
 输入：nums = [0,0,1,1,1,1,2,3,3]
 输出：7, nums = [0,0,1,1,2,3,3]
-解释：函数应返回新长度 length = 7, 并且原数组的前七个元素被修改为 0, 0, 1, 1, 2, 3, 3。不需要考虑数组中超出新长度后面的元素。
+解释：函数应返回新长度 length = 7, 并且原数组的前七个元素被修改为 0, 0, 1, 1, 2, 3, 3。
+不需要考虑数组中超出新长度后面的元素。
 */
 #include <iostream>
 #include <vector>
@@ -24,14 +26,14 @@ public:
     {
         unordered_map<int, int> map;
         int key;
-        for (int i = 0; i < nums.size(); i++)
+        for (int i = 0; i < nums.size(); i += 1)
         {
             key = nums[i];
             map[key]++;
             if (map[key] > 2)
             {
                 nums.erase(nums.begin() + i);
-                i--;
+                i -= 1;
             }
         }
         return nums.size();
@@ -44,7 +46,7 @@ int main()
     vector<int> nums1 = {0, 0, 1, 1, 1, 1, 2, 3, 3};
     Solution s;
     s.removeDuplicates(nums1);
-    for (int i = 0; i < nums1.size(); i++)
+    for (int i = 0; i < nums1.size(); i += 1)
     {
         cout << nums1[i] << " ";
     }

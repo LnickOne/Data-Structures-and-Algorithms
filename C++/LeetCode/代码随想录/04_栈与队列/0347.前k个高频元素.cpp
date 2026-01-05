@@ -22,13 +22,15 @@ public:
     vector<int> topKFrequent(vector<int> &nums, int k)
     {
         unordered_map<int, int> map;
-        for (int num : nums)
+        for (int &num : nums)
+        {
             map[num]++;
+        }
         // 对频率排序
         // 定义一个小顶堆，大小为k
         priority_queue<pair<int, int>, vector<pair<int, int>>, mycomparison> priority_queue;
         // 用固定大小为k的小顶堆，扫面所有频率的数值
-        for (auto iter : map)
+        for (const auto &iter : map)
         {
             priority_queue.push(iter);
             if (priority_queue.size() > k) // 如果堆的大小大于了K，则队列弹出，保证堆的大小一直为k
