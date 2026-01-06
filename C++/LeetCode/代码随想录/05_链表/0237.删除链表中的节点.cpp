@@ -33,5 +33,8 @@ public:
 
 int main()
 {
+    ListNode *head_1 = createListNode({4, 5, 1, 9});
+    Solution().deleteNode(head_1->next);
+    printListNode(head_1);
     return 0;
 }

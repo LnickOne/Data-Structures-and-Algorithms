@@ -30,51 +30,51 @@ class Solution
 {
 public:
     // 单调队列
-    class MyDeque // 单调队列（从大到小）
+    class Mydeque // 单调队列（从大到小）
     {
     public:
-        // 使用deque来实现单调队列
+        // 使用deq来实现单调队列
         // 每次弹出的时候，比较当前要弹出的数值是否等于队列出口元素的数值，如果相等则弹出。
         // 同时pop之前判断队列当前是否为空。
-        deque<int> deque;
+        deque<int> deq;
         void pop(int value)
         {
-            if (!deque.empty() && value == deque.front())
+            if (!deq.empty() && value == deq.front())
             {
-                deque.pop_front();
+                deq.pop_front();
             }
         }
         // 如果push的数值大于入口元素的数值，那么就将队列后端的数值弹出，直到push的数值小于等于队列入口元素的数值为止。这样就保持了队列里的数值是单调从大到小。
         void push(int value)
         {
-            while (!deque.empty() && value > deque.back())
+            while (!deq.empty() && value > deq.back())
             {
-                deque.pop_back();
+                deq.pop_back();
             }
-            deque.push_back(value);
+            deq.push_back(value);
         }
         // 查询当前队列里的最大值 直接返回队列前端front。
         int front()
         {
-            return deque.front();
+            return deq.front();
         }
     };
     vector<int> maxSlidingWindow(vector<int> &nums, int k)
     {
-        MyDeque deque;
+        Mydeque deq;
         vector<int> result;
         // 处理第一个窗口
         for (int i = 0; i < k; i++)
         {
-            deque.push(nums[i]); // 先将前k的元素放进队列
+            deq.push(nums[i]); // 先将前k的元素放进队列
         }
-        result.push_back(deque.front()); // result记录前k的元素的最大值
+        result.push_back(deq.front()); // result记录前k的元素的最大值
         // 处理后续窗口
         for (int i = k; i < nums.size(); i++)
         {
-            deque.push(nums[i]);             // 滑动窗口前加入最后面的元素
-            deque.pop(nums[i - k]);          // 滑动窗口移除最前面元素
-            result.push_back(deque.front()); // 记录对应的最大值
+            deq.push(nums[i]);             // 滑动窗口前加入最后面的元素
+            deq.pop(nums[i - k]);          // 滑动窗口移除最前面元素
+            result.push_back(deq.front()); // 记录对应的最大值
         }
         return result;
     }
@@ -90,5 +90,14 @@ int main()
     {
         cout << num << " ";
     }
+    cout << endl;
+    vector<int> nums1 = {1, 3, -1, -3, 5, 3, 6, 7};
+    int k1 = 5;
+    vector<int> result1 = sol.maxSlidingWindow(nums1, k1);
+    for (auto num : result1)
+    {
+        cout << num << " ";
+    }
+    cout << endl;
     return 0;
 }

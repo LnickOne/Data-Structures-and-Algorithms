@@ -52,6 +52,7 @@ int main()
     ListNode *head = createListNode({1, 2});
     ListNode *head1 = createListNode({1, 2, 2, 1, 3, 3, 4, 1, 2, 2, 1});
     ListNode *head2 = createListNode({1, 1, 2, 1});
-    Solution().isPalindrome(head2);
+    bool result = Solution().isPalindrome(head2);
+    std::cout << result << std::endl;
     return 0;
 }

@@ -18,67 +18,69 @@
 class Solution
 {
 public:
-  ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
-  {
-    ListNode *dummy = new ListNode(0);
-    ListNode *cur = dummy;
-    int sum;       // 两数之和
-    int quotient;  // 商数
-    int remainder; // 余数
-    int carry = 0; // 进位
-    while (l1 && l2)
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
     {
-      sum = l1->val + l2->val + carry;
-      quotient = sum / 10;                      // 商数
-      remainder = sum % 10;                     // 余数
-      ListNode *node = new ListNode(remainder); // 余数作为新节点的值
-      carry = quotient;                         // 商数作为进位
-      cur->next = node;
-      cur = cur->next;
-      l1 = l1->next;
-      l2 = l2->next;
+        ListNode *dummy = new ListNode(0);
+        ListNode *cur = dummy;
+        int sum;       // 两数之和
+        int quotient;  // 商数
+        int remainder; // 余数
+        int carry = 0; // 进位
+        while (l1 && l2)
+        {
+            sum = l1->val + l2->val + carry;
+            quotient = sum / 10;                      // 商数
+            remainder = sum % 10;                     // 余数
+            ListNode *node = new ListNode(remainder); // 余数作为新节点的值
+            carry = quotient;                         // 商数作为进位
+            cur->next = node;
+            cur = cur->next;
+            l1 = l1->next;
+            l2 = l2->next;
+        }
+        while (l1)
+        {
+            sum = l1->val + carry;
+            quotient = sum / 10;
+            remainder = sum % 10;
+            ListNode *node = new ListNode(remainder); // 余数作为新节点的值
+            carry = quotient;                         // 商数作为进位
+            cur->next = node;
+            cur = cur->next;
+            l1 = l1->next;
+        }
+        while (l2)
+        {
+            sum = l2->val + carry;
+            quotient = sum / 10;
+            remainder = sum % 10;
+            ListNode *node = new ListNode(remainder); // 余数作为新节点的值
+            carry = quotient;                         // 商数作为进位
+            cur->next = node;
+            cur = cur->next;
+            l2 = l2->next;
+        }
+
+        if (carry != 0)
+        {
+            ListNode *node = new ListNode(carry); // carry不为0则说明还有进位,将carry作为新节点的值
+            cur->next = node;
+            cur = cur->next;
+        }
+        return dummy->next;
     }
-    while (l1)
-    {
-      sum = l1->val + carry;
-      quotient = sum / 10;
-      remainder = sum % 10;
-      ListNode *node = new ListNode(remainder); // 余数作为新节点的值
-      carry = quotient;                         // 商数作为进位
-      cur->next = node;
-      cur = cur->next;
-      l1 = l1->next;
-    }
-    while (l2)
-    {
-      sum = l2->val + carry;
-      quotient = sum / 10;
-      remainder = sum % 10;
-      ListNode *node = new ListNode(remainder); // 余数作为新节点的值
-      carry = quotient;                         // 商数作为进位
-      cur->next = node;
-      cur = cur->next;
-      l2 = l2->next;
-    }
-    if (carry != 0)
-    {
-      ListNode *node = new ListNode(carry); // carry不为0则说明还有进位,将carry作为新节点的值
-      cur->next = node;
-      cur = cur->next;
-    }
-    return dummy->next;
-  }
 };
+
 int main()
 {
-  Solution s;
-  ListNode *l1 = createListNode({2, 4, 3});
-  ListNode *l2 = createListNode({5, 6, 4});
-  ListNode *l3 = createListNode({9, 9, 9, 9, 9, 9, 9});
-  ListNode *l4 = createListNode({9, 9, 9, 9});
-  ListNode *res = s.addTwoNumbers(l1, l2);
-  ListNode *res1 = s.addTwoNumbers(l3, l4);
-  printListNode(res);
-  printListNode(res1);
-  return 0;
+    Solution s;
+    ListNode *l1 = createListNode({2, 4, 3});
+    ListNode *l2 = createListNode({5, 6, 4});
+    ListNode *l3 = createListNode({9, 9, 9, 9, 9, 9, 9});
+    ListNode *l4 = createListNode({9, 9, 9, 9});
+    ListNode *res = s.addTwoNumbers(l1, l2);
+    ListNode *res1 = s.addTwoNumbers(l3, l4);
+    printListNode(res);
+    printListNode(res1);
+    return 0;
 }

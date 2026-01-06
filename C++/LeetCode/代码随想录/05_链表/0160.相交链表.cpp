@@ -26,6 +26,7 @@
 这两个链表不相交，因此返回 null 。
 */
 #include "ListNode.h"
+#include <unordered_set>
 class Solution
 {
 public:
@@ -51,5 +52,13 @@ int main()
     ListNode *headA = createListNode({4, 1, 8, 4, 5});
     ListNode *headB = createListNode({5, 6, 1, 8, 4, 5});
     Solution s;
+    ListNode *intersectionNode = s.getIntersectionNode(headA, headB);
+    if (intersectionNode)
+        cout << intersectionNode->val << endl;
+    else
+        cout << "null" << endl;
+    // 释放内存
+    deleteList(headA);
+    deleteList(headB);
     return 0;
 }

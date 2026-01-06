@@ -26,61 +26,61 @@
 class Solution
 {
 public:
-  ListNode *mergeKLists(vector<ListNode *> &lists)
-  {
-    if (lists.empty())
-      return nullptr;
-    ListNode *result = lists[0];
-    for (int i = 1; i < lists.size(); i += 1)
+    ListNode *mergeKLists(vector<ListNode *> &lists)
     {
-      result = mergeTwoLists(result, lists[i]);
+        if (lists.empty())
+            return nullptr;
+        ListNode *result = lists[0];
+        for (int i = 1; i < lists.size(); i += 1)
+        {
+            result = mergeTwoLists(result, lists[i]);
+        }
+        return result;
     }
-    return result;
-  }
-  ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
-  {
-    if (list1 == nullptr)
+    ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
     {
-      return list2;
+        if (list1 == nullptr)
+        {
+            return list2;
+        }
+        else if (list2 == nullptr)
+        {
+            return list1;
+        }
+        ListNode *dummy = new ListNode(0);
+        ListNode *cur = dummy;
+        while (list1 && list2)
+        {
+            if (list1->val <= list2->val)
+            {
+                cur->next = list1;
+                list1 = list1->next;
+                cur = cur->next;
+            }
+            else if (list1->val > list2->val)
+            {
+                cur->next = list2;
+                list2 = list2->next;
+                cur = cur->next;
+            }
+        }
+        if (list1)
+            cur->next = list1;
+        else if (list2)
+            cur->next = list2;
+        ListNode *result = dummy->next;
+        delete dummy; // 删除dummy节点
+        return result;
     }
-    else if (list2 == nullptr)
-    {
-      return list1;
-    }
-    ListNode *dummy = new ListNode(0);
-    ListNode *cur = dummy;
-    while (list1 && list2)
-    {
-      if (list1->val <= list2->val)
-      {
-        cur->next = list1;
-        list1 = list1->next;
-        cur = cur->next;
-      }
-      else if (list1->val > list2->val)
-      {
-        cur->next = list2;
-        list2 = list2->next;
-        cur = cur->next;
-      }
-    }
-    if (list1)
-      cur->next = list1;
-    else if (list2)
-      cur->next = list2;
-    ListNode *result = dummy->next;
-    delete dummy; // 删除dummy节点
-    return result;
-  }
 };
 int main()
 {
-  Solution s;
-  vector<ListNode *> lists = {createListNode({1, 4, 5}), createListNode({1, 3, 4}), createListNode({2, 6})};
-  ListNode *l3 = s.mergeKLists(lists);
-  printListNode(l3);
-  // 释放合并后的链表内存
-  deleteList(l3);
+    Solution s;
+    vector<ListNode *> lists = {createListNode({1, 4, 5}), createListNode({1, 3, 4}), createListNode({2, 6})};
+    ListNode *l3 = s.mergeKLists(lists);
+    printListNode(l3);
+    // 释放合并后的链表内存
+    deleteList(l3);
 
-  return 0;
+    return 0;
 }

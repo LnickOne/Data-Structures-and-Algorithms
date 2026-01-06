@@ -10,16 +10,17 @@
 输出：[]
 */
 #include "ListNode.h"
-#include "../../include/ListNode.h"
+
 class Solution
 {
 public:
     ListNode *removeElements(ListNode *head, int val)
     {
         // 方法一：使用虚拟头节点操作
-        if(head == nullptr)
+        if (head == nullptr)
             return nullptr;
-        if(head->val == val){
+        if (head->val == val)
+        {
             return head->next;
         }
         ListNode *dummy = new ListNode(0);
@@ -29,9 +30,9 @@ public:
         {
             if (cur->next->val == val)
             {
-                ListNode* node = cur->next;
+                ListNode *node = cur->next;
                 int value = node->val;
-                while(node && node->val == value) // 可能连续多个节点的值为val
+                while (node && node->val == value) // 可能连续多个节点的值为val
                 {
                     ListNode *del_node = node;
                     node = node->next;
@@ -44,46 +45,46 @@ public:
                 cur = cur->next;
         }
         return dummy->next; // 原来的头节点head有可能已经被删除了,dummy->next有可能是新链表的头节点
-        // 方法二：直接在原节点操作
-        while (head && head->val == val) // 操作头节点，如果头节点的值为val就一直删除头节点
-        {
-            ListNode *node = head;
-            head = head->next;
-            delete node; // 删除节点释放内存
-        }
-        ListNode *cur = head;
-        while (cur && cur->next) // 操作非头部节点
-        {
-            if (cur->next->val == val)
-            {
-                ListNode *node = cur->next;
-                cur->next = cur->next->next;
-                delete node;
-            }
-            else
-            {
-                cur = cur->next;
-            }
-        }
-        return head;
-        // 方法三：递归操作
-        if (head == nullptr) //  基础情况：空链表
-        {
-            return nullptr;
-        }
+                            // 方法二：直接在原节点操作
+                            // while (head && head->val == val) // 操作头节点，如果头节点的值为val就一直删除头节点
+                            // {
+                            //     ListNode *node = head;
+                            //     head = head->next;
+                            //     delete node; // 删除节点释放内存
+                            // }
+                            // ListNode *cur = head;
+                            // while (cur && cur->next) // 操作非头部节点
+                            // {
+                            //     if (cur->next->val == val)
+                            //     {
+                            //         ListNode *node = cur->next;
+                            //         cur->next = cur->next->next;
+                            //         delete node;
+                            //     }
+                            //     else
+                            //     {
+                            //         cur = cur->next;
+                            //     }
+                            // }
+                            // return head;
+                            // 方法三：递归操作
+                            //     if (head == nullptr) //  基础情况：空链表
+                            //     {
+                            //         return nullptr;
+                            //     }
 
-        // 递归处理
-        if (head->val == val)
-        {
-            ListNode *newHead = removeElements(head->next, val);
-            delete head;
-            return newHead;
-        }
-        else
-        {
-            head->next = removeElements(head->next, val);
-            return head;
-        }
+        //     // 递归处理
+        //     if (head->val == val)
+        //     {
+        //         ListNode *newHead = removeElements(head->next, val);
+        //         delete head;
+        //         return newHead;
+        //     }
+        //     else
+        //     {
+        //         head->next = removeElements(head->next, val);
+        //         return head;
+        //     }
     }
 };
 
@@ -93,5 +94,7 @@ int main()
     ListNode *head_2 = createListNode({7, 7, 7, 7});
     Solution().removeElements(head_1, 6);
     Solution().removeElements(head_2, 7);
+    printListNode(head_1);
+    printListNode(head_2);
     return 0;
 }

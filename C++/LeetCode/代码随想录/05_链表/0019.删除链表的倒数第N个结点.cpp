@@ -16,12 +16,12 @@ class Solution
 public:
     ListNode *removeNthFromEnd(ListNode *head, int n)
     {
-        // 双指针的经典应用，快指针先走n+1步，然后快慢指针一起走，
-        // 当快指针走到末尾时，慢指针指向的节点就是要删除的节点
         if (!head)
         {
             return nullptr;
         }
+        // 双指针的经典应用，快指针先走n+1步，然后快慢指针一起走，
+        // 当快指针走到末尾时，慢指针指向的节点就是要删除的节点
         ListNode *dummy = new ListNode(0);
         dummy->next = head;
         ListNode *slow = dummy;

@@ -31,5 +31,8 @@ public:
 
 int main()
 {
+    ListNode *head_1 = createListNode({1, 2, 3, 4, 5});
+    ListNode *result = Solution().reverseList(head_1);
+    printListNode(result);
     return 0;
 }

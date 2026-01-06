@@ -133,5 +133,14 @@ public:
 
 int main()
 {
+    MyLinkedList myLinkedList;
+    myLinkedList.addAtHead(1);
+    myLinkedList.addAtTail(3);
+    myLinkedList.addAtIndex(1, 2);    // 链表变为 1->2->3
+    int result = myLinkedList.get(1); // 返回 2
+    std::cout << result << std::endl;
+    myLinkedList.deleteAtIndex(1); // 现在，链表变为 1->3
+    result = myLinkedList.get(1);  // 返回 3
+    std::cout << result << std::endl;
     return 0;
 }

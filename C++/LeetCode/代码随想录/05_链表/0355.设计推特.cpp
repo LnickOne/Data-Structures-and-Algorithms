@@ -28,6 +28,10 @@ twitter.getNewsFeed(1);  // 用户 1 获取推文应当返回一个列表，其�
 */
 #include "ListNode.h"
 #include <unordered_set>
+#include <queue>
+#include <vector>
+#include <unordered_map>
+#include <iostream>
 class Twitter
 {
     class Tweet
@@ -47,11 +51,18 @@ class Twitter
         int id;
         unordered_set<int> followed;
         vector<Tweet> tweets;
+        User() : id(0)
+        {
+            followed.clear();
+            tweets.clear();
+        }
         User(int id)
         {
             this->id = id;
             followed.clear();
             tweets.clear();
+            // 用户自动关注自己
+            followed.insert(id);
         }
     };
     class TweetCompare
@@ -91,6 +102,7 @@ public:
         for (int followeeId : user.followed)
         {
             vector<Tweet> &tweets = userMap[followeeId].tweets;
+            // 只取每个用户的最新推文
             for (Tweet &tweet : tweets)
             {
                 pq.push(tweet);
@@ -129,11 +141,32 @@ public:
 int main()
 {
     Twitter twitter;
-    twitter.postTweet(1, 5);
-    vector<int> result = twitter.getNewsFeed(1);
-    for (int i = 0; i < result.size(); i++)
+    twitter.postTweet(1, 5);                      // 用户 1 发送了一条新推文 (用户 id = 1, 推文 id = 5)
+    vector<int> result1 = twitter.getNewsFeed(1); // 用户 1 的获取推文应当返回一个列表，其中包含一个 id 为 5 的推文
+    cout << "Result 1: ";
+    for (int i = 0; i < result1.size(); i++)
     {
-        cout << result[i] << " ";
+        cout << result1[i] << " ";
+    }
+    cout << endl;
+
+    twitter.follow(1, 2);                         // 用户 1 关注了用户 2
+    twitter.postTweet(2, 6);                      // 用户 2 发送了一个新推文 (推文 id = 6)
+    vector<int> result2 = twitter.getNewsFeed(1); // 用户 1 的获取推文应当返回一个列表，其中包含两个推文，id 分别为 -> [6, 5]
+    cout << "Result 2: ";
+    for (int i = 0; i < result2.size(); i++)
+    {
+        cout << result2[i] << " ";
+    }
+    cout << endl;
+
+    twitter.unfollow(1, 2);                       // 用户 1 取消关注了用户 2
+    vector<int> result3 = twitter.getNewsFeed(1); // 用户 1 获取推文应当返回一个列表，其中包含一个 id 为 5 的推文
+    cout << "Result 3: ";
+    for (int i = 0; i < result3.size(); i++)
+    {
+        cout << result3[i] << " ";
     }
     cout << endl;
     return 0;
+}
