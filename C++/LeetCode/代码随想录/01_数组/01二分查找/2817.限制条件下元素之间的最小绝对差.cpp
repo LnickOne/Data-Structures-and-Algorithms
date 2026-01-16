@@ -36,9 +36,9 @@ public:
     int minAbsoluteDifference(vector<int> &nums, int x)
     {
         int result = INT_MAX;
-        for (int i = 0; i < nums.size(); i++)
+        for (int i = 0; i < nums.size(); i += 1)
         {
-            for (int j = i + x; j < nums.size(); j++)
+            for (int j = i + x; j < nums.size(); j += 1)
             {
                 result = min(result, abs(nums[i] - nums[j]));
             }
