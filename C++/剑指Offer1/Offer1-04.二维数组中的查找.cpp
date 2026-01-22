@@ -85,11 +85,11 @@ public:
     {
       return false;
     }
-    int left = 0;
-    int right = matrix[0].size() - 1;
     for (std::vector<int> &vec : matrix)
     {
-      while (left <= right) // 二分查找，左闭右闭
+      int left = 0;
+      int right = matrix[0].size() - 1;
+      while (left <= right)
       {
         int mid = (right - left) / 2 + left;
         if (vec[mid] > target)
@@ -104,13 +104,7 @@ public:
         {
           return true;
         }
-        else if (left == right && vec[mid] != target)
-        {
-          break;
-        }
       }
-      left = 0;
-      right = matrix[0].size() - 1;
     }
     return false;
   }

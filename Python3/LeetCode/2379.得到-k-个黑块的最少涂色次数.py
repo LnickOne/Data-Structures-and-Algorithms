@@ -25,9 +25,8 @@ class Solution:
                 count_b += 1
             if blocks[i - k] == "B":  # 离开窗口的字符是'B'，count_b减1
                 count_b -= 1
-            # 如果发现某个窗口中count_b等于k，说明该窗口已经是全黑的，直接返回0
             if count_b == k:
-                return 0
+                return 0  # 如果发现某个窗口中count_b等于k，说明该窗口已经是全黑的，直接返回0
             count_w = k - count_b  # 更新count_w为当前窗口中需要涂色的白色块数量
             result = min(result, count_w)  # 更新result为所有窗口中需要涂色的最少次数
         return result  # 返回记录的最少涂色次数result

@@ -50,28 +50,6 @@ head = [1,3,2]
 - 空间复杂度 `O(N)`
   - 递归的栈的消耗
 
-#### 代码
-
-```python
-class Solution:
-    def reversePrint(self, head: ListNode) -> List[int]:
-        # 方法2: 递归
-        res = []
-
-        def addNode(node):
-            if not node:
-                # 递归出口, 当前node是None
-                return
-            # 先递归调用下一个节点
-            addNode(node.next)
-            # 此时后面的节点都已经按照从尾到头的顺序, 依次加入了res, 加入当前节点即可
-            # 如果这一句和上一句交换位置, 那就变成了从头到尾的顺序了, 因为先遍历到的节点先加入res中
-            res.append(node.val)
-        # 初始传入头节点, 开始递归
-        addNode(head)
-        return res
-```
-
 ### 方案 3
 
 #### 思路
@@ -89,5 +67,51 @@ class Solution:
   - 链表中每个节点只需要遍历两遍
 - 空间复杂度 `O(N)`
   - 使用了一个长度为 N 的栈
-
  */
+#include "ListNode.h"
+class Solution
+{
+public:
+  vector<int> reverseBookList(ListNode *head)
+  {
+    if (head == nullptr)
+      return {};
+    head = reverseList(head);
+    vector<int> result;
+    while (head)
+    {
+      result.push_back(head->val);
+      head = head->next;
+    }
+    return result;
+  }
+  ListNode *reverseList(ListNode *head)
+  {
+    if (!head)
+      return nullptr;
+    ListNode *pre = nullptr;
+    ListNode *cur = head;
+    while (cur)
+    {
+      ListNode *cur_next = cur->next;
+      cur->next = pre;
+      pre = cur;
+      cur = cur_next;
+    }
+    return pre;
+  }
+};
+
+int main()
+{
+  cout << "test1" << endl;
+  Solution s;
+  ListNode *head = createListNode({1, 2, 3, 4, 5});
+  vector<int> result = s.reverseBookList(head);
+  for (int i = 0; i < result.size(); i++)
+  {
+    cout << result[i] << " ";
+  }
+  cout << endl;
+  return 0;
+}
