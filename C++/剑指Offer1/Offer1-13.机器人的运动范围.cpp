@@ -1,10 +1,11 @@
-/* 
+/*
 题目难度: 中等
 [原题链接](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)
 题目描述
 地上有一个 m 行 n 列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。
 一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于 k 的格子。
-例如，当 k 为 18 时，机器人能够进入方格 [35, 37] ，因为 3+5+3+7=18。但它不能进入方格 [35, 38]，因为 3+5+3+8=19。请问该机器人能够到达多少个格子？
+例如，当 k 为 18 时，机器人能够进入方格 [35, 37] ，因为 3+5+3+7=18。
+但它不能进入方格 [35, 38]，因为 3+5+3+8=19。请问该机器人能够到达多少个格子？
 - 1 <= n,m <= 100
 - 0 <= k <= 20题目样例
 示例 1
@@ -13,7 +14,6 @@ m = 2, n = 3, k = 1
 输出
 3
 示例 2
-
 输入
 m = 3, n = 1, k = 0
 输出
@@ -40,14 +40,11 @@ m = 3, n = 1, k = 0
 #分析
 - 同样的, 这道题也可以用经典的 DFS
 - 方案 2 就是这个思路: 维护 visit 集合, 如果邻居满足条件(1.在方格内; 2.行列数位和不大于 k; 3.没被访问过, 即没在 visit 集合中)的话就加入集合中, 并递归访问该邻居, 最后统计 visit 集合的元素数目即可
-- 和昨天的`剑指 Offer 12. 矩阵中的路径 - leetcode 剑指offer系列` (大家在公众号里回复 **offer** 就能看到了)的 DFS 不一样的是, 这道题的 DFS 没有在递归调用邻居之后将其从 visit 中移除. 
+- 和昨天的`剑指 Offer 12. 矩阵中的路径 - leetcode 剑指offer系列` (大家在公众号里回复 **offer** 就能看到了)的 DFS 不一样的是, 这道题的 DFS 没有在递归调用邻居之后将其从 visit 中移除.
   这是因为上道题中一个点可能出现在多条路径中, 所以必须调用完之后从集合移除, 避免之后的路径无法使用该节点; 而这道题只有一个共享的运动范围, 所以一个点如果出现在运动范围内的话, 那么它一定不需要再次被访问了, 直接永久加入 visit 集合中即可
 #实现
-
 - 下面的代码有详细注释, 也是 DFS 的经典模板
-
 复杂度
-
 - 时间复杂度 `O(MN)`
   - 每个点被访问之后就会被加入 visit 集合, 只会被访问有限次, 所以时间复杂度就是点的个数`O(MN)`
 - 空间复杂度 `O(MN)`
@@ -55,7 +52,6 @@ m = 3, n = 1, k = 0
 方案 3
 
 思路
-
 #分析
 
 - 回顾方案 1 和方案 2, 两种方案都需要遍历 4 个方向的邻居, 但我们真的有必要这样做吗?
@@ -79,3 +75,69 @@ m = 3, n = 1, k = 0
 - 空间复杂度 `O(MN)`
   - dp 字典/集合的空间消耗
  */
+#include <vector>
+#include <unordered_set>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+class Solution
+{
+public:
+  int wardrobeFinishing(int m, int n, int cnt)
+  {
+    vector<vector<int>> dp(m, vector<int>(n, 0));
+    dp[0][0] = 1;
+    for (int r = 0; r < m; ++r)
+    {
+      for (int c = 0; c < n; ++c)
+      {
+        if (r == 0 && c == 0)
+        {
+          continue;
+        }
+        int sum = 0;
+        int r1 = r;
+        while (r1)
+        {
+          sum += r1 % 10;
+          r1 /= 10;
+        }
+        int c1 = c;
+        while (c1)
+        {
+          sum += c1 % 10;
+          c1 /= 10;
+        }
+        if (sum > cnt)
+        {
+          continue;
+        }
+        if (r > 0)
+        {
+          dp[r][c] |= dp[r - 1][c];
+        }
+        if (c > 0)
+        {
+          dp[r][c] |= dp[r][c - 1];
+        }
+      }
+    }
+    int res = 0;
+    for (int r = 0; r < m; ++r)
+    {
+      for (int c = 0; c < n; ++c)
+      {
+        res += dp[r][c];
+      }
+    }
+    return res;
+  }
+};
+int main()
+{
+  Solution s;
+  int m = 2, n = 3, cnt = 1;
+  int res = s.wardrobeFinishing(m, n, cnt);
+  cout << res << endl;
+  return 0;
+}
