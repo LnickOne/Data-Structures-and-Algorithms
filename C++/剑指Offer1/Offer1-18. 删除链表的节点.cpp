@@ -56,81 +56,23 @@ head = [4,5,1,9], val = 5
    3. 最后返回 `prehead.next` 就是新的 `head`
 
 ### 复杂度
-
 - 时间复杂度 `O(N)`
   - 最差情况需要遍历整个链表的所有节点
 - 空间复杂度 `O(1)`
   - 只使用了几个变量
-
 ### 代码
 
 #### 方案 1 - 特殊处理 head
 
-```python
-class Solution:
-    def deleteNode(self, head: ListNode, val: int) -> ListNode:
-        # 需要考虑head不存在或者删除节点就是head的情况
-        if not head:
-            return head
-        if head.val == val:
-            return head.next
-        pre = head
-        cur = head.next
-        while cur:
-            if cur.val == val:
-                # 找到删除节点了, 直接将pre的next指向cur的next就完成删除操作
-                pre.next = cur.next
-                break
-            # 更新pre和cur, 依次后移一个节点
-            pre = cur
-            cur = cur.next
-        return head
-```
 
 #### 方案 2 - 增加哨兵节点
 
-```python
-class Solution:
-    def deleteNode(self, head: ListNode, val: int) -> ListNode:
-        prehead = ListNode(0)
-        prehead.next = head
-        cur, pre = head, prehead
-        while cur:
-            if cur.val == val:
-                # 找到删除节点了, 直接将pre的next指向cur的next就完成删除操作
-                pre.next = cur.next
-                break
-            # 更新pre和cur, 依次后移一个节点
-            pre = cur
-            cur = cur.next
-        return prehead.next
+
 ```
 
 ## 思考题答案
-
 1. 进阶问题: 如果节点的值存在重复需要怎么做?
-
    1. 对方案 2 稍加改造即可: 找到删除节点后不跳出循环, 而是在更新 `pre` 的 `next` 之后, **保持 pre 不变** (因为有可能存在连续多个待删除节点, 这样保持 `pre` 不变才能将其指向要一个不会被删除的节点), 而将 `cur` 继续后移; 而没找到时再移动 `pre` 和 `cur`
    2. 由于两个条件都需要后移`cur`, 所以可以将其提取到 if 条件之外, 简化代码
    3. 这道题也即[203. 移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/), 具体代码如下:
-
-```python
-class Solution:
-    def removeElements(self, head: ListNode, val: int) -> ListNode:
-        prehead = ListNode(0)
-        prehead.next = head
-        cur, pre = head, prehead
-        while cur:
-            if cur.val == val:
-                # 找到删除节点了, 直接将pre的next指向cur的next就完成删除操作
-                pre.next = cur.next
-            else:
-                # 当前cur不是要删除节点, 更新pre, 后移一个节点
-                pre = cur
-            # 由于两个条件都需要后移cur, 这里可以将其提取出来
-            cur = cur.next
-        return prehead.next
-```
-
----
  */

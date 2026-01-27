@@ -72,46 +72,46 @@ head = [1,3,2]
 class Solution
 {
 public:
-  vector<int> reverseBookList(ListNode *head)
-  {
-    if (head == nullptr)
-      return {};
-    head = reverseList(head);
-    vector<int> result;
-    while (head)
+    vector<int> reverseBookList(ListNode *head)
     {
-      result.push_back(head->val);
-      head = head->next;
+        if (head == nullptr)
+            return {};
+        head = reverseList(head);
+        vector<int> result;
+        while (head)
+        {
+            result.push_back(head->val);
+            head = head->next;
+        }
+        return result;
     }
-    return result;
-  }
-  ListNode *reverseList(ListNode *head)
-  {
-    if (!head)
-      return nullptr;
-    ListNode *pre = nullptr;
-    ListNode *cur = head;
-    while (cur)
+    ListNode *reverseList(ListNode *head)
     {
-      ListNode *cur_next = cur->next;
-      cur->next = pre;
-      pre = cur;
-      cur = cur_next;
+        if (!head)
+            return nullptr;
+        ListNode *pre = nullptr;
+        ListNode *cur = head;
+        while (cur)
+        {
+            ListNode *cur_next = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = cur_next;
+        }
+        return pre;
     }
-    return pre;
-  }
 };
 
 int main()
 {
-  cout << "test1" << endl;
-  Solution s;
-  ListNode *head = createListNode({1, 2, 3, 4, 5});
-  vector<int> result = s.reverseBookList(head);
-  for (int i = 0; i < result.size(); i++)
-  {
-    cout << result[i] << " ";
-  }
-  cout << endl;
-  return 0;
+    cout << "test1" << endl;
+    Solution s;
+    ListNode *head = createListNode({1, 2, 3, 4, 5});
+    vector<int> result = s.reverseBookList(head);
+    for (int i = 0; i < result.size(); i++)
+    {
+        cout << result[i] << " ";
+    }
+    cout << endl;
+    return 0;
 }
