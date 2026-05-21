@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
 /*
 给定一个三角形 triangle ，找出自顶向下的最小路径和。
 每一步只能移动到下一行中相邻的结点上。
@@ -20,6 +16,10 @@ using namespace std;
 输入：triangle = [[-10]]
 输出：-10
 */
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:

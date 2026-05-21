@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <numeric>
-using namespace std;
 /*
 给你一个非负整数数组 nums 和一个整数 target 。
 向数组中的每个整数前添加 '+' 或 '-' ，然后串联起所有整数，可以构造一个 表达式 ：
@@ -20,6 +16,10 @@ using namespace std;
 输入：nums = [1], target = 1
 输出：1
 */
+#include <vector>
+#include <iostream>
+#include <numeric>
+using namespace std;
 class Solution
 {
 public:

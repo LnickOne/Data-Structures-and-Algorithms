@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <numeric>
-using namespace std;
 /*
 有一堆石头，用整数数组 stones 表示。其中 stones[i] 表示第 i 块石头的重量。
 每一回合，从中选出任意两块石头，然后将它们一起粉碎。假设石头的重量分别为 x 和 y，且 x <= y。
@@ -21,6 +17,10 @@ using namespace std;
 输入：stones = [31,26,33,21,40]
 输出：5
  */
+#include <vector>
+#include <iostream>
+#include <numeric>
+using namespace std;
 class Solution
 {
 public:

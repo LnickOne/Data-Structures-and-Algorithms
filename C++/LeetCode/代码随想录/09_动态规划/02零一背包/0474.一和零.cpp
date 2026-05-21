@@ -1,6 +1,3 @@
-#include <vector>
-#include <iostream>
-using namespace std;
 /*
 给你一个二进制字符串数组 strs 和两个整数 m 和 n 。
 请你找出并返回 strs 的最大子集的长度，该子集中 最多 有 m 个 0 和 n 个 1 。
@@ -16,6 +13,9 @@ using namespace std;
 输出：2
 解释：最大的子集是 {"0", "1"} ，所以答案是 2 。
 */
+#include <vector>
+#include <iostream>
+using namespace std;
 class Solution
 {
 public:

@@ -1,6 +1,3 @@
-#include <vector>
-#include <iostream>
-using namespace std;
 /*
 泰波那契序列 Tn 定义如下：
 T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
@@ -15,6 +12,9 @@ T_4 = 1 + 1 + 2 = 4
 输入：n = 25
 输出：1389537
 */
+#include <vector>
+#include <iostream>
+using namespace std;
 class Solution
 {
 public:

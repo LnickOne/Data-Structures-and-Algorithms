@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
 /*
 给定一个非负整数 numRows，生成「杨辉三角」的前 numRows 行。
 
@@ -14,6 +10,10 @@ using namespace std;
 输入: numRows = 1
 输出: [[1]]
 */
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:
