@@ -62,97 +62,63 @@
 - 空间复杂度 O(1): 只使用了几个常数空间的变量
 
 ### 代码
+#include <iostream>  // 添加输入输出流头文件
+#include <climits>   // 已包含，用于INT_MIN/INT_MAX
+using namespace std; // 添加命名空间声明
 
-```python
-class Solution:
-    def divide(self, dividend: int, divisor: int) -> int:
-        # 核心思路: 2的幂和除数乘积不断左移一位, 直到最接近且小于等于被除数, 循环该过程直到被除数<除数
-        # 先将数字都转为正数, 并记录商的符号
-        neg = False
-        if dividend < 0:
-            dividend = -dividend
-            neg = not neg
-        if divisor < 0:
-            divisor = -divisor
-            neg = not neg
-        res = 0
-        # 注意循环条件是大于等于, 因为等于情况下仍有商, 为1
-        while dividend >= divisor:
-            # 2的幂初始化为1
-            mi = 1
-            # 除数乘积初始化为除数
-            cur = divisor
-            # 注意循环条件是大于等于, 相等时表示恰好整除
-            while dividend >= (cur << 1):
-                # 2的幂和除数乘积不断左移一位, 直到最接近且小于等于被除数
-                cur <<= 1
-                mi <<= 1
-            # 此时的除数乘积就是最接近且小于等于被除数的数了
-            # 商加上当前的2的幂
-            res += mi
-            # 被除数减去已经使用的除数乘积
-            dividend -= cur
-        # 恢复符号
-        if neg:
-            # 负号时需要取相反数
-            res = -res
-        # 注意溢出时取最大正数
-        mn, mx = -(2**31), 2**31 - 1
-        if res < mn or res > mx:
-            return mx
-        return res
-```c++
-#include <iostream>   // 添加输入输出流头文件
-#include <climits>    // 已包含，用于INT_MIN/INT_MAX
-using namespace std;  // 添加命名空间声明
-
-class Solution {
+class Solution
+{
 public:
-    int divide(int dividend, int divisor) {
+    int divide(int dividend, int divisor)
+    {
         // 处理特殊情况：防止溢出
-        if (dividend == INT_MIN && divisor == -1) {
+        if (dividend == INT_MIN && divisor == -1)
+        {
             return INT_MAX;
         }
-        
+
         // 确定结果的符号
         bool neg = (dividend < 0) ^ (divisor < 0);
-        
+
         // 使用long long避免溢出
         long long dvd = llabs((long long)dividend);
         long long dvs = llabs((long long)divisor);
-        
+
         int res = 0;
-        
+
         // 注意循环条件是大于等于, 因为等于情况下仍有商, 为1
-        while (dvd >= dvs) {
+        while (dvd >= dvs)
+        {
             // 2的幂初始化为1
             long long mi = 1;
             // 除数乘积初始化为除数
             long long cur = dvs;
-            
+
             // 注意循环条件是大于等于, 相等时表示恰好整除
-            while (dvd >= (cur << 1)) {
+            while (dvd >= (cur << 1))
+            {
                 // 2的幂和除数乘积不断左移一位, 直到最接近且小于等于被除数
                 cur <<= 1;
                 mi <<= 1;
             }
-            
+
             // 商加上当前的2的幂
             res += mi;
             // 被除数减去已经使用的除数乘积
             dvd -= cur;
         }
-        
+
         // 恢复符号
         return neg ? -res : res;
     }
 };
-int main(){
+int main()
+{
     Solution s;
     int dividend = 15;
     int divisor = 2;
     int result = s.divide(dividend, divisor);
-    cout << "Result: " << result << endl;  // 修复转义字符 &quot; 为 "
+    cout << "Result: " << result << endl; // 修复转义字符 &quot; 为 "
     return 0;
 }
 ```
