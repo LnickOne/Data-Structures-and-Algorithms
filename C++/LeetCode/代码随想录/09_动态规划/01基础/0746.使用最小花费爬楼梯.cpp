@@ -49,7 +49,7 @@ public:
         dp[1] = 0;
         for (int i = 2; i <= cost.size(); i++)
         {
-            dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]); // 从下标为0或下标为1的台阶开始爬楼梯到达楼梯i的位置的最小花费值 
+            dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]); // 从下标为0或下标为1的台阶开始爬楼梯到达楼梯i的位置的最小花费值
         }
         return dp[cost.size()];
     }
@@ -59,5 +59,5 @@ int main()
 {
     vector<int> cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
     Solution sol;
-    cout << sol.minCostClimbingStairs(cost);
+    cout << sol.minCostClimbingStairs(cost) << endl;
 }
