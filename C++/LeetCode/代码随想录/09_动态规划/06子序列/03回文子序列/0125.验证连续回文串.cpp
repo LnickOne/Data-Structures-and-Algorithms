@@ -66,7 +66,7 @@ int main()
 {
     Solution sol;
 
-    cout << sol.isPalindrome("A man, a plan, a canal: Panama");
+    cout << sol.isPalindrome("A man, a plan, a canal: Panama") << endl;
 
     return 0;
 }

@@ -66,8 +66,6 @@ int main()
 {
     string s = "aaa";
     Solution sol;
-    cout << sol.countSubstrings(s);
-    cout << endl;
-
+    cout << sol.countSubstrings(s) << endl;
     return 0;
 }

@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <algorithm>
-using namespace std;
 /*
 给你一个字符串 s，找到 s 中最长的回文子串
 示例 1：
@@ -12,6 +8,10 @@ using namespace std;
 输入：s = "cbbd"
 输出："bb"
  */
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:
@@ -46,9 +46,9 @@ public:
             return "";
         string result;
         vector<vector<int>> dp(s.size(), vector<int>(s.size()));
-        for (int i = s.size(); i >= 0; i-=1)
+        for (int i = s.size(); i >= 0; i -= 1)
         {
-            for (int j = i; j < s.size(); j+=1)
+            for (int j = i; j < s.size(); j += 1)
             {
                 if (s[i] == s[j])
                 {

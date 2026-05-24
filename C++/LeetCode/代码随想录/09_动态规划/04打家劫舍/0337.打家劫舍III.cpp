@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
 /*
 小偷又发现了一个新的可行窃的地区。
 这个地区只有一个入口，我们称之为 root 。
@@ -18,6 +14,10 @@ using namespace std;
 输出: 9
 解释: 小偷一晚能够盗取的最高金额 4 + 5 = 9
 */
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 struct TreeNode
 {
     int val;

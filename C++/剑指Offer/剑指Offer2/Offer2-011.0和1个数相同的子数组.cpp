@@ -38,11 +38,15 @@ public:
         int z = 0, o = 0, res = 0;
         for (int i = 0; i < (int)nums.size(); i++)
         {
-            if (nums[i] == 0) z++;
-            else o++;
+            if (nums[i] == 0)
+                z++;
+            else
+                o++;
             int diff = z - o;
-            if (first.count(diff)) res = max(res, i - first[diff]);
-            else first[diff] = i;
+            if (first.count(diff))
+                res = max(res, i - first[diff]);
+            else
+                first[diff] = i;
         }
         return res;
     }
