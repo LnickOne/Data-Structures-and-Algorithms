@@ -61,10 +61,10 @@ public:
 int main()
 {
     Solution s;
-    cout << s.divide(15, 2) << endl;   // 7
-    cout << s.divide(7, -3) << endl;   // -2
-    cout << s.divide(0, 1) << endl;    // 0
-    cout << s.divide(1, 1) << endl;    // 1
+    cout << s.divide(15, 2) << endl;       // 7
+    cout << s.divide(7, -3) << endl;       // -2
+    cout << s.divide(0, 1) << endl;        // 0
+    cout << s.divide(1, 1) << endl;        // 1
     cout << s.divide(INT_MIN, -1) << endl; // 2147483647
     return 0;
 }

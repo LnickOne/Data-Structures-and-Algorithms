@@ -31,8 +31,13 @@ public:
         while (s <= e)
         {
             long long m = (s + e) / 2;
-            if (m * m <= x) { res = m; s = m + 1; }
-            else e = m - 1;
+            if (m * m <= x)
+            {
+                res = m;
+                s = m + 1;
+            }
+            else
+                e = m - 1;
         }
         return (int)res;
     }
@@ -41,10 +46,10 @@ public:
 int main()
 {
     Solution sol;
-    cout << sol.mySqrt(4) << endl;  // 2
-    cout << sol.mySqrt(8) << endl;  // 2
-    cout << sol.mySqrt(0) << endl;  // 0
-    cout << sol.mySqrt(1) << endl;  // 1
+    cout << sol.mySqrt(4) << endl;          // 2
+    cout << sol.mySqrt(8) << endl;          // 2
+    cout << sol.mySqrt(0) << endl;          // 0
+    cout << sol.mySqrt(1) << endl;          // 1
     cout << sol.mySqrt(2147483647) << endl; // 46340
     return 0;
 }

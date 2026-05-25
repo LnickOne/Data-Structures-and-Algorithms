@@ -31,11 +31,13 @@ using namespace std;
 class Solution
 {
     vector<int> sms;
+
 public:
     Solution(vector<int> &w)
     {
         sms.push_back(0);
-        for (int x : w) sms.push_back(sms.back() + x);
+        for (int x : w)
+            sms.push_back(sms.back() + x);
     }
     int pickIndex()
     {
@@ -56,8 +58,10 @@ int main()
     for (int i = 0; i < 1000; i++)
     {
         int idx = s2.pickIndex();
-        if (idx == 0) cnt0++;
-        else cnt1++;
+        if (idx == 0)
+            cnt0++;
+        else
+            cnt1++;
     }
     cout << "idx0: " << cnt0 << " idx1: " << cnt1 << endl; // ~250:750
     return 0;

@@ -26,17 +26,21 @@ class Solution
     vector<int> memo;
     int cut(int n)
     {
-        if (n <= 3) return n;
-        if (memo[n]) return memo[n];
+        if (n <= 3)
+            return n;
+        if (memo[n])
+            return memo[n];
         int mx = 0;
         for (int i = 2; i <= n - 2; ++i)
             mx = max(mx, i * cut(n - i));
         return memo[n] = mx;
     }
+
 public:
     int cuttingBamboo(int bamboo_len)
     {
-        if (bamboo_len <= 3) return bamboo_len - 1;
+        if (bamboo_len <= 3)
+            return bamboo_len - 1;
         memo.assign(bamboo_len + 1, 0);
         return cut(bamboo_len);
     }
@@ -45,7 +49,7 @@ public:
 int main()
 {
     Solution sol;
-    cout << sol.cuttingBamboo(2)  << endl; // 1
+    cout << sol.cuttingBamboo(2) << endl;  // 1
     cout << sol.cuttingBamboo(12) << endl; // 81
     return 0;
 }

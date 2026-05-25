@@ -58,7 +58,8 @@ int main()
     for (auto &s : r1)
     {
         cout << "[";
-        for (int i = 0; i < (int)s.size(); i++) { if (i) cout << ","; cout << s[i]; }
+        for (int x : s)
+            cout << x << ",";
         cout << "] ";
     }
     cout << endl; // 所有子集

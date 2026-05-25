@@ -28,16 +28,19 @@ class Solution
         base %= mod;
         while (exp > 0)
         {
-            if (exp & 1) res = res * base % mod;
+            if (exp & 1)
+                res = res * base % mod;
             base = base * base % mod;
             exp >>= 1;
         }
         return res;
     }
+
 public:
     int cuttingBamboo(int bamboo_len)
     {
-        if (bamboo_len <= 3) return bamboo_len - 1;
+        if (bamboo_len <= 3)
+            return bamboo_len - 1;
         int n = bamboo_len;
         if (n % 3 == 0)
             return (int)power(3, n / 3, MOD);
@@ -51,8 +54,8 @@ public:
 int main()
 {
     Solution sol;
-    cout << sol.cuttingBamboo(12)  << endl; // 81
-    cout << sol.cuttingBamboo(2)   << endl; // 1
-    cout << sol.cuttingBamboo(10)  << endl; // 36
+    cout << sol.cuttingBamboo(12) << endl; // 81
+    cout << sol.cuttingBamboo(2) << endl;  // 1
+    cout << sol.cuttingBamboo(10) << endl; // 36
     return 0;
 }

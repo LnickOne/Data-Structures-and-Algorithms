@@ -32,8 +32,13 @@ public:
         ListNode *pre = &prehead, *cur = head;
         while (cur)
         {
-            if (cur->val == val) { pre->next = cur->next; break; }
-            pre = cur; cur = cur->next;
+            if (cur->val == val)
+            {
+                pre->next = cur->next;
+                break;
+            }
+            pre = cur;
+            cur = cur->next;
         }
         return prehead.next;
     }
@@ -41,18 +46,31 @@ public:
 
 int main()
 {
-    auto make = [](vector<int> v) {
+    auto make = [](vector<int> v)
+    {
         ListNode *h = nullptr, **p = &h;
-        for (int x : v) { *p = new ListNode(x); p = &(*p)->next; }
+        for (int x : v)
+        {
+            *p = new ListNode(x);
+            p = &(*p)->next;
+        }
         return h;
     };
-    auto print = [](ListNode *h) {
+    auto print = [](ListNode *h)
+    {
         bool first = true;
-        while (h) { if (!first) cout << "->"; cout << h->val; first = false; h = h->next; }
+        while (h)
+        {
+            if (!first)
+                cout << "->";
+            cout << h->val;
+            first = false;
+            h = h->next;
+        }
         cout << endl;
     };
     Solution sol;
-    print(sol.deleteNode(make({4,5,1,9}), 5)); // 4->1->9
-    print(sol.deleteNode(make({4,5,1,9}), 1)); // 4->5->9
+    print(sol.deleteNode(make({4, 5, 1, 9}), 5)); // 4->1->9
+    print(sol.deleteNode(make({4, 5, 1, 9}), 1)); // 4->5->9
     return 0;
 }

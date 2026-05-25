@@ -36,8 +36,10 @@ public:
     {
         unordered_set<string> visited(deadends.begin(), deadends.end());
         string start = "0000";
-        if (visited.count(start)) return -1;
-        if (start == target) return 0;
+        if (visited.count(start))
+            return -1;
+        if (start == target)
+            return 0;
         queue<string> q;
         q.push(start);
         visited.insert(start);
@@ -48,7 +50,8 @@ public:
             ++cnt;
             for (int i = 0; i < sz; ++i)
             {
-                string cur = q.front(); q.pop();
+                string cur = q.front();
+                q.pop();
                 for (int j = 0; j < 4; ++j)
                 {
                     int d = cur[j] - '0';
@@ -58,7 +61,8 @@ public:
                         nxt[j] = '0' + (d + delta + 10) % 10;
                         if (!visited.count(nxt))
                         {
-                            if (nxt == target) return cnt;
+                            if (nxt == target)
+                                return cnt;
                             visited.insert(nxt);
                             q.push(nxt);
                         }
@@ -73,7 +77,7 @@ public:
 int main()
 {
     Solution sol;
-    vector<string> d1 = {"0201","0101","0102","1212","2002"};
+    vector<string> d1 = {"0201", "0101", "0102", "1212", "2002"};
     cout << sol.openLock(d1, "0202") << endl; // 6
     vector<string> d2 = {"8888"};
     cout << sol.openLock(d2, "0009") << endl; // 1

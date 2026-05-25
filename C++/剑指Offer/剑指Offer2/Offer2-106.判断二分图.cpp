@@ -33,13 +33,15 @@ public:
         vector<int> color(n, -1);
         for (int start = 0; start < n; ++start)
         {
-            if (color[start] != -1) continue;
+            if (color[start] != -1)
+                continue;
             queue<int> q;
             q.push(start);
             color[start] = 0;
             while (!q.empty())
             {
-                int cur = q.front(); q.pop();
+                int cur = q.front();
+                q.pop();
                 for (int nxt : graph[cur])
                 {
                     if (color[nxt] == -1)
@@ -47,7 +49,8 @@ public:
                         color[nxt] = 1 - color[cur];
                         q.push(nxt);
                     }
-                    else if (color[nxt] == color[cur]) return false;
+                    else if (color[nxt] == color[cur])
+                        return false;
                 }
             }
         }
@@ -59,9 +62,9 @@ int main()
 {
     Solution sol;
     cout << boolalpha;
-    vector<vector<int>> g1 = {{1,2,3},{0,2},{0,1,3},{0,2}};
+    vector<vector<int>> g1 = {{1, 2, 3}, {0, 2}, {0, 1, 3}, {0, 2}};
     cout << sol.isBipartite(g1) << endl; // false
-    vector<vector<int>> g2 = {{1,3},{0,2},{1,3},{0,2}};
+    vector<vector<int>> g2 = {{1, 3}, {0, 2}, {1, 3}, {0, 2}};
     cout << sol.isBipartite(g2) << endl; // true
     return 0;
 }

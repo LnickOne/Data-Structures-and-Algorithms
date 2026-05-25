@@ -20,7 +20,6 @@
 - 空间复杂度 O(1): 常数空间
  */
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 class Solution
@@ -28,13 +27,17 @@ class Solution
 public:
     double myPow(double x, int n)
     {
-        if (x == 0) return 0;
         long long N = n;
-        if (N < 0) { x = 1.0 / x; N = -N; }
+        if (N < 0)
+        {
+            x = 1.0 / x;
+            N = -N;
+        }
         double res = 1.0;
         while (N > 0)
         {
-            if (N & 1) res *= x;
+            if (N & 1)
+                res *= x;
             x *= x;
             N >>= 1;
         }
@@ -45,8 +48,8 @@ public:
 int main()
 {
     Solution sol;
-    cout << sol.myPow(2.0, 10) << endl;  // 1024
-    cout << sol.myPow(2.1, 3)  << endl;  // 9.261
-    cout << sol.myPow(2.0, -2) << endl;  // 0.25
+    cout << sol.myPow(2.0, 10) << endl; // 1024
+    cout << sol.myPow(2.1, 3) << endl;  // 9.261
+    cout << sol.myPow(2.0, -2) << endl; // 0.25
     return 0;
 }

@@ -31,14 +31,19 @@ public:
     {
         int rows = mat.size(), cols = mat[0].size();
         vector<vector<int>> dist(rows, vector<int>(cols, -1));
-        queue<pair<int,int>> q;
+        queue<pair<int, int>> q;
         for (int r = 0; r < rows; ++r)
             for (int c = 0; c < cols; ++c)
-                if (mat[r][c] == 0) { dist[r][c] = 0; q.push({r, c}); }
-        int dx[] = {1,-1,0,0}, dy[] = {0,0,1,-1};
+                if (mat[r][c] == 0)
+                {
+                    dist[r][c] = 0;
+                    q.push({r, c});
+                }
+        int dx[] = {1, -1, 0, 0}, dy[] = {0, 0, 1, -1};
         while (!q.empty())
         {
-            auto [r, c] = q.front(); q.pop();
+            auto [r, c] = q.front();
+            q.pop();
             for (int d = 0; d < 4; ++d)
             {
                 int rr = r + dx[d], cc = c + dy[d];
@@ -56,13 +61,31 @@ public:
 int main()
 {
     Solution sol;
-    vector<vector<int>> m1 = {{0,0,0},{0,1,0},{0,0,0}};
+    vector<vector<int>> m1 = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
     auto r1 = sol.updateMatrix(m1);
-    for (auto &row : r1) { for (int i = 0; i < (int)row.size(); ++i) { if (i) cout << ","; cout << row[i]; } cout << endl; }
+    for (auto &row : r1)
+    {
+        for (int i = 0; i < (int)row.size(); ++i)
+        {
+            if (i)
+                cout << ",";
+            cout << row[i];
+        }
+        cout << endl;
+    }
     // 0,0,0 / 0,1,0 / 0,0,0
-    vector<vector<int>> m2 = {{0,0,0},{0,1,0},{1,1,1}};
+    vector<vector<int>> m2 = {{0, 0, 0}, {0, 1, 0}, {1, 1, 1}};
     auto r2 = sol.updateMatrix(m2);
-    for (auto &row : r2) { for (int i = 0; i < (int)row.size(); ++i) { if (i) cout << ","; cout << row[i]; } cout << endl; }
+    for (auto &row : r2)
+    {
+        for (int i = 0; i < (int)row.size(); ++i)
+        {
+            if (i)
+                cout << ",";
+            cout << row[i];
+        }
+        cout << endl;
+    }
     // 0,0,0 / 0,1,0 / 1,2,1
     return 0;
 }

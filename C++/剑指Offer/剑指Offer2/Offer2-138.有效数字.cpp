@@ -37,32 +37,43 @@ class Solution
             char c = s[i];
             if (c == '+' || c == '-')
             {
-                if (i != 0) return false;
+                if (i != 0)
+                    return false;
             }
             else if (c == '.')
             {
-                if (!allowDot || hasDot) return false;
+                if (!allowDot || hasDot)
+                    return false;
                 hasDot = true;
             }
             else if (c >= '0' && c <= '9')
             {
                 hasNum = true;
             }
-            else return false;
+            else
+                return false;
         }
         return hasNum;
     }
+
 public:
     bool validNumber(string s)
     {
         int l = 0, r = (int)s.size() - 1;
-        while (l <= r && s[l] == ' ') ++l;
-        while (r >= l && s[r] == ' ') --r;
+        while (l <= r && s[l] == ' ')
+            ++l;
+        while (r >= l && s[r] == ' ')
+            --r;
         s = s.substr(l, r - l + 1);
         int e = -1;
         for (int i = 0; i < (int)s.size(); ++i)
-            if (s[i] == 'e' || s[i] == 'E') { e = i; break; }
-        if (e == -1) return isValid(s, true);
+            if (s[i] == 'e' || s[i] == 'E')
+            {
+                e = i;
+                break;
+            }
+        if (e == -1)
+            return isValid(s, true);
         return isValid(s.substr(0, e), true) && isValid(s.substr(e + 1), false);
     }
 };
@@ -71,11 +82,11 @@ int main()
 {
     Solution sol;
     cout << boolalpha;
-    cout << sol.validNumber("0")        << endl; // true
-    cout << sol.validNumber("e")        << endl; // false
-    cout << sol.validNumber(".")        << endl; // false
-    cout << sol.validNumber("2e10")     << endl; // true
-    cout << sol.validNumber("99e2.5")   << endl; // false
-    cout << sol.validNumber("+3.14")    << endl; // true
+    cout << sol.validNumber("0") << endl;      // true
+    cout << sol.validNumber("e") << endl;      // false
+    cout << sol.validNumber(".") << endl;      // false
+    cout << sol.validNumber("2e10") << endl;   // true
+    cout << sol.validNumber("99e2.5") << endl; // false
+    cout << sol.validNumber("+3.14") << endl;  // true
     return 0;
 }

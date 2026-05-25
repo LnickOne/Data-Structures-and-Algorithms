@@ -30,20 +30,21 @@ public:
     int maxAreaOfIsland(vector<vector<int>> &grid)
     {
         int rows = grid.size(), cols = grid[0].size(), res = 0;
-        int dx[] = {1,-1,0,0}, dy[] = {0,0,1,-1};
+        int dx[] = {1, -1, 0, 0}, dy[] = {0, 0, 1, -1};
         for (int sr = 0; sr < rows; ++sr)
         {
             for (int sc = 0; sc < cols; ++sc)
             {
                 if (grid[sr][sc] == 1)
                 {
-                    queue<pair<int,int>> q;
+                    queue<pair<int, int>> q;
                     q.push({sr, sc});
                     grid[sr][sc] = 0;
                     int area = 0;
                     while (!q.empty())
                     {
-                        auto [r, c] = q.front(); q.pop();
+                        auto [r, c] = q.front();
+                        q.pop();
                         ++area;
                         for (int d = 0; d < 4; ++d)
                         {
@@ -67,17 +68,16 @@ int main()
 {
     Solution sol;
     vector<vector<int>> g1 = {
-        {0,0,1,0,0,0,0,1,0,0,0,0,0},
-        {0,0,0,0,0,0,0,1,1,1,0,0,0},
-        {0,1,1,0,1,0,0,0,0,0,0,0,0},
-        {0,1,0,0,1,1,0,0,1,0,1,0,0},
-        {0,1,0,0,1,1,0,0,1,1,1,0,0},
-        {0,0,0,0,0,0,0,0,0,0,1,0,0},
-        {0,0,0,0,0,0,0,1,1,1,0,0,0},
-        {0,0,0,0,0,0,0,1,1,0,0,0,0}
-    };
+        {0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+        {0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0},
+        {0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0}};
     cout << sol.maxAreaOfIsland(g1) << endl; // 6
-    vector<vector<int>> g2 = {{0,0,0,0,0,0,0,0}};
+    vector<vector<int>> g2 = {{0, 0, 0, 0, 0, 0, 0, 0}};
     cout << sol.maxAreaOfIsland(g2) << endl; // 0
     return 0;
 }

@@ -25,9 +25,11 @@ public:
     vector<int> printNumbers(int cnt)
     {
         int mx = 1;
-        for (int i = 0; i < cnt; ++i) mx *= 10;
+        for (int i = 0; i < cnt; ++i)
+            mx *= 10;
         vector<int> res;
-        for (int i = 1; i < mx; ++i) res.push_back(i);
+        for (int i = 1; i < mx; ++i)
+            res.push_back(i);
         return res;
     }
 };
@@ -37,7 +39,12 @@ int main()
     Solution sol;
     auto r = sol.printNumbers(1);
     cout << "[";
-    for (int i = 0; i < (int)r.size(); ++i) { if (i) cout << ","; cout << r[i]; }
+    for (int i = 0; i < (int)r.size(); ++i)
+    {
+        if (i)
+            cout << ",";
+        cout << r[i];
+    }
     cout << "]" << endl; // [1,2,...,9]
     return 0;
 }

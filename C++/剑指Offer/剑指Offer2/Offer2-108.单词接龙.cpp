@@ -32,7 +32,8 @@ public:
     int ladderLength(string beginWord, string endWord, vector<string> &wordList)
     {
         unordered_set<string> wordSet(wordList.begin(), wordList.end());
-        if (!wordSet.count(endWord)) return 0;
+        if (!wordSet.count(endWord))
+            return 0;
         queue<string> q;
         q.push(beginWord);
         wordSet.erase(beginWord);
@@ -42,14 +43,17 @@ public:
             int sz = q.size();
             for (int i = 0; i < sz; ++i)
             {
-                string cur = q.front(); q.pop();
-                if (cur == endWord) return cnt;
+                string cur = q.front();
+                q.pop();
+                if (cur == endWord)
+                    return cnt;
                 for (int j = 0; j < (int)cur.size(); ++j)
                 {
                     char orig = cur[j];
                     for (char c = 'a'; c <= 'z'; ++c)
                     {
-                        if (c == orig) continue;
+                        if (c == orig)
+                            continue;
                         cur[j] = c;
                         if (wordSet.count(cur))
                         {
@@ -69,9 +73,9 @@ public:
 int main()
 {
     Solution sol;
-    vector<string> w1 = {"hot","dot","dog","lot","log","cog"};
+    vector<string> w1 = {"hot", "dot", "dog", "lot", "log", "cog"};
     cout << sol.ladderLength("hit", "cog", w1) << endl; // 5
-    vector<string> w2 = {"hot","dot","dog","lot","log"};
+    vector<string> w2 = {"hot", "dot", "dog", "lot", "log"};
     cout << sol.ladderLength("hit", "cog", w2) << endl; // 0
     return 0;
 }

@@ -33,7 +33,8 @@ public:
         for (int x : nums)
         {
             pq.push(x);
-            if ((int)pq.size() > k) pq.pop();
+            if ((int)pq.size() > k)
+                pq.pop();
         }
         return pq.top();
     }

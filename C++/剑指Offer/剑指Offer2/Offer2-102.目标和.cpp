@@ -29,11 +29,11 @@ class Solution
 public:
     int findTargetSumWays(vector<int> &nums, int target)
     {
-        unordered_map<int,int> dp;
+        unordered_map<int, int> dp;
         dp[0] = 1;
         for (int x : nums)
         {
-            unordered_map<int,int> ndp;
+            unordered_map<int, int> ndp;
             for (auto &[sm, cnt] : dp)
             {
                 ndp[sm + x] += cnt;
