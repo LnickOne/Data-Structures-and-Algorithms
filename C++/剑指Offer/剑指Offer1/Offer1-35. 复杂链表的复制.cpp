@@ -45,25 +45,25 @@ using namespace std;
 struct Node
 {
     int val;
-    Node* next;
-    Node* random;
+    Node *next;
+    Node *random;
     Node(int x) : val(x), next(nullptr), random(nullptr) {}
 };
 
 class Solution
 {
 public:
-    Node* copyRandomList(Node* head)
+    Node *copyRandomList(Node *head)
     {
         if (!head)
             return nullptr;
 
-        unordered_map<Node*, Node*> maps;
+        unordered_map<Node *, Node *> maps;
 
         // 第一遍遍历, 建立新的链表, 以及老节点到新节点的映射关系
-        Node* copyHead = new Node(head->val);
-        Node* origin = head;
-        Node* copy = copyHead;
+        Node *copyHead = new Node(head->val);
+        Node *origin = head;
+        Node *copy = copyHead;
         maps[origin] = copy;
         while (origin->next)
         {
@@ -92,9 +92,9 @@ public:
 };
 
 // 辅助函数: 打印复杂链表 (值和 random 值)
-void printNodeList(Node* head)
+void printNodeList(Node *head)
 {
-    Node* cur = head;
+    Node *cur = head;
     while (cur)
     {
         cout << "[" << cur->val << ",";
@@ -116,26 +116,26 @@ int main()
 
     // 示例: [[7,null],[13,0],[11,4],[10,2],[1,0]]
     // 构建原始链表
-    Node* n1 = new Node(7);
-    Node* n2 = new Node(13);
-    Node* n3 = new Node(11);
-    Node* n4 = new Node(10);
-    Node* n5 = new Node(1);
+    Node *n1 = new Node(7);
+    Node *n2 = new Node(13);
+    Node *n3 = new Node(11);
+    Node *n4 = new Node(10);
+    Node *n5 = new Node(1);
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
     n4->next = n5;
     // 设置 random 指针
     n1->random = nullptr;
-    n2->random = n1;   // index 0
-    n3->random = n5;   // index 4
-    n4->random = n3;   // index 2
-    n5->random = n1;   // index 0
+    n2->random = n1; // index 0
+    n3->random = n5; // index 4
+    n4->random = n3; // index 2
+    n5->random = n1; // index 0
 
     cout << "Original: ";
     printNodeList(n1);
 
-    Node* copied = s.copyRandomList(n1);
+    Node *copied = s.copyRandomList(n1);
     cout << "Copied:   ";
     printNodeList(copied);
 

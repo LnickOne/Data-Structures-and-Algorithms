@@ -65,7 +65,7 @@ using namespace std;
 class Solution
 {
 public:
-    int missingNumber(vector<int>& nums)
+    int missingNumber(vector<int> &nums)
     {
         // 方法 2: 二分查找变种
         // 注意初始化的终点需要为数字长度 n, 因为最终缺失数字可能是 n, 不能排除这一情况
@@ -95,19 +95,19 @@ int main()
 
     // 示例 1: [0,1,3], 期望输出 2
     vector<int> nums1 = {0, 1, 3};
-    cout << s.missingNumber(nums1) << endl;  // 2
+    cout << s.missingNumber(nums1) << endl; // 2
 
     // 示例 2: [0,1,2,3,4,5,6,7,9], 期望输出 8
     vector<int> nums2 = {0, 1, 2, 3, 4, 5, 6, 7, 9};
-    cout << s.missingNumber(nums2) << endl;  // 8
+    cout << s.missingNumber(nums2) << endl; // 8
 
     // 缺失值为 0
     vector<int> nums3 = {1, 2, 3};
-    cout << s.missingNumber(nums3) << endl;  // 0
+    cout << s.missingNumber(nums3) << endl; // 0
 
     // 缺失值为末尾 n
     vector<int> nums4 = {0, 1, 2, 3};
-    cout << s.missingNumber(nums4) << endl;  // 4
+    cout << s.missingNumber(nums4) << endl; // 4
 
     return 0;
 }

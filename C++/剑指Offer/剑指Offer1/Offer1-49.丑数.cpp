@@ -77,9 +77,12 @@ public:
             int next = min({ugly[i2] * 2, ugly[i3] * 3, ugly[i5] * 5});
             ugly[i] = next;
             // 哪个候选生成了最小值就将对应指针后移 (可能同时移动多个)
-            if (next == ugly[i2] * 2) i2++;
-            if (next == ugly[i3] * 3) i3++;
-            if (next == ugly[i5] * 5) i5++;
+            if (next == ugly[i2] * 2)
+                i2++;
+            if (next == ugly[i3] * 3)
+                i3++;
+            if (next == ugly[i5] * 5)
+                i5++;
         }
         return ugly[n - 1];
     }
@@ -88,9 +91,9 @@ public:
 int main()
 {
     Solution sol;
-    cout << sol.nthUglyNumber(1) << endl;   // 1
-    cout << sol.nthUglyNumber(10) << endl;  // 12
-    cout << sol.nthUglyNumber(11) << endl;  // 15
-    cout << sol.nthUglyNumber(15) << endl;  // 24
+    cout << sol.nthUglyNumber(1) << endl;  // 1
+    cout << sol.nthUglyNumber(10) << endl; // 12
+    cout << sol.nthUglyNumber(11) << endl; // 15
+    cout << sol.nthUglyNumber(15) << endl; // 24
     return 0;
 }

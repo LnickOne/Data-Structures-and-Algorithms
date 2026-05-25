@@ -29,17 +29,24 @@ class Solution
     vector<int> cur;
     void dfs(int i, int n, int k)
     {
-        if ((int)cur.size() == k) { res.push_back(cur); return; }
-        if ((int)cur.size() + n - i + 1 < k) return;
+        if ((int)cur.size() == k)
+        {
+            res.push_back(cur);
+            return;
+        }
+        if ((int)cur.size() + n - i + 1 < k)
+            return;
         cur.push_back(i);
         dfs(i + 1, n, k);
         cur.pop_back();
         dfs(i + 1, n, k);
     }
+
 public:
     vector<vector<int>> combine(int n, int k)
     {
-        res.clear(); cur.clear();
+        res.clear();
+        cur.clear();
         dfs(1, n, k);
         return res;
     }
@@ -49,10 +56,30 @@ int main()
 {
     Solution sol;
     auto r1 = sol.combine(4, 2);
-    for (auto &c : r1) { cout << "["; for (int x : c) cout << x << ","; cout << "] "; }
+    for (auto &c : r1)
+    {
+        cout << "[";
+        for (int i = 0; i < (int)c.size(); i++)
+        {
+            if (i)
+                cout << ",";
+            cout << c[i];
+        }
+        cout << "] ";
+    }
     cout << endl; // C(4,2)=6 个组合
     auto r2 = sol.combine(1, 1);
-    for (auto &c : r2) { cout << "["; for (int x : c) cout << x << ","; cout << "] "; }
+    for (auto &c : r2)
+    {
+        cout << "[";
+        for (int i = 0; i < (int)c.size(); i++)
+        {
+            if (i)
+                cout << ",";
+            cout << c[i];
+        }
+        cout << "] ";
+    }
     cout << endl; // [1]
     return 0;
 }

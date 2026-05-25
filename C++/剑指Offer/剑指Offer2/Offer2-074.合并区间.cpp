@@ -46,13 +46,16 @@ public:
 int main()
 {
     Solution sol;
-    auto print = [](vector<vector<int>> &v) {
-        for (auto &p : v) cout << "[" << p[0] << "," << p[1] << "] "; cout << endl;
+    auto print = [](vector<vector<int>> &v)
+    {
+        for (auto &p : v)
+            cout << "[" << p[0] << "," << p[1] << "] ";
+        cout << endl;
     };
-    vector<vector<int>> iv1 = {{1,3},{2,6},{8,10},{15,18}};
+    vector<vector<int>> iv1 = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
     auto r1 = sol.merge(iv1);
     print(r1); // [1,6] [8,10] [15,18]
-    vector<vector<int>> iv2 = {{1,4},{4,5}};
+    vector<vector<int>> iv2 = {{1, 4}, {4, 5}};
     auto r2 = sol.merge(iv2);
     print(r2); // [1,5]
     return 0;

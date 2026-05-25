@@ -25,12 +25,12 @@ int main()
 {
     // BST: [6,2,8,0,4,7,9,null,null,3,5], p=2, q=8 => 6
     TreeNode *root = createBinaryTree({6, 2, 8, 0, 4, 7, 9, -1, -1, 3, 5});
-    TreeNode *p = root->left;   // 2
-    TreeNode *q = root->right;  // 8
+    TreeNode *p = root->left;  // 2
+    TreeNode *q = root->right; // 8
     Solution s;
     cout << s.lowestCommonAncestor(root, p, q)->val << endl; // 6
     // p=2, q=4 => 2
-    TreeNode *q2 = root->left->right; // 4
+    TreeNode *q2 = root->left->right;                         // 4
     cout << s.lowestCommonAncestor(root, p, q2)->val << endl; // 2
     return 0;
 }

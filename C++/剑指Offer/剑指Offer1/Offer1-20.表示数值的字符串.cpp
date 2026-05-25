@@ -61,13 +61,16 @@ public:
     {
         // 去除首尾空格
         int left = 0, right = (int)s.size() - 1;
-        while (left <= right && s[left] == ' ') left++;
-        while (right >= left && s[right] == ' ') right--;
-        if (left > right) return false;
+        while (left <= right && s[left] == ' ')
+            left++;
+        while (right >= left && s[right] == ' ')
+            right--;
+        if (left > right)
+            return false;
         s = s.substr(left, right - left + 1);
 
         // isValid: 判断子串是否是合法数字, allowDot 表示是否允许小数点
-        auto isValid = [](const string& t, bool allowDot) -> bool
+        auto isValid = [](const string &t, bool allowDot) -> bool
         {
             bool hasNum = false;
             bool hasDot = false;
@@ -77,12 +80,15 @@ public:
                 if (c == '+' || c == '-')
                 {
                     // 符号只能出现在开头
-                    if (i != 0) return false;
+                    if (i != 0)
+                        return false;
                 }
                 else if (c == '.')
                 {
-                    if (!allowDot) return false;
-                    if (hasDot) return false;
+                    if (!allowDot)
+                        return false;
+                    if (hasDot)
+                        return false;
                     hasDot = true;
                 }
                 else if (c >= '0' && c <= '9')
@@ -119,19 +125,19 @@ int main()
 {
     Solution sol;
     cout << boolalpha;
-    cout << sol.isNumber("0") << endl;           // true
-    cout << sol.isNumber(" 0.1 ") << endl;       // true
-    cout << sol.isNumber("abc") << endl;         // false
-    cout << sol.isNumber("1 a") << endl;         // false
-    cout << sol.isNumber("2e10") << endl;        // true
-    cout << sol.isNumber(" -90e3   ") << endl;   // true
-    cout << sol.isNumber(" 1e") << endl;         // false
-    cout << sol.isNumber("e3") << endl;          // false
-    cout << sol.isNumber(" 6e-1") << endl;       // true
-    cout << sol.isNumber(" 99e2.5 ") << endl;    // false
-    cout << sol.isNumber("53.5e93") << endl;     // true
-    cout << sol.isNumber(" --6 ") << endl;       // false
-    cout << sol.isNumber("-+3") << endl;         // false
-    cout << sol.isNumber("95a54e53") << endl;    // false
+    cout << sol.isNumber("0") << endl;         // true
+    cout << sol.isNumber(" 0.1 ") << endl;     // true
+    cout << sol.isNumber("abc") << endl;       // false
+    cout << sol.isNumber("1 a") << endl;       // false
+    cout << sol.isNumber("2e10") << endl;      // true
+    cout << sol.isNumber(" -90e3   ") << endl; // true
+    cout << sol.isNumber(" 1e") << endl;       // false
+    cout << sol.isNumber("e3") << endl;        // false
+    cout << sol.isNumber(" 6e-1") << endl;     // true
+    cout << sol.isNumber(" 99e2.5 ") << endl;  // false
+    cout << sol.isNumber("53.5e93") << endl;   // true
+    cout << sol.isNumber(" --6 ") << endl;     // false
+    cout << sol.isNumber("-+3") << endl;       // false
+    cout << sol.isNumber("95a54e53") << endl;  // false
     return 0;
 }

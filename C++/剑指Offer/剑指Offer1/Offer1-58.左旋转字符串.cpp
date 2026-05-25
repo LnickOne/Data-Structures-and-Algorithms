@@ -69,16 +69,16 @@ int main()
     Solution s;
 
     // 示例 1: s = "abcdefg", k = 2, 期望输出 "cdefgab"
-    cout << s.reverseLeftWords("abcdefg", 2) << endl;  // cdefgab
+    cout << s.reverseLeftWords("abcdefg", 2) << endl; // cdefgab
 
     // 示例 2: s = "lrloseumgh", k = 6, 期望输出 "umghlrlose"
-    cout << s.reverseLeftWords("lrloseumgh", 6) << endl;  // umghlrlose
+    cout << s.reverseLeftWords("lrloseumgh", 6) << endl; // umghlrlose
 
     // k = 1
-    cout << s.reverseLeftWords("abcd", 1) << endl;  // bcda
+    cout << s.reverseLeftWords("abcd", 1) << endl; // bcda
 
     // k = length - 1
-    cout << s.reverseLeftWords("abcd", 3) << endl;  // dabc
+    cout << s.reverseLeftWords("abcd", 3) << endl; // dabc
 
     return 0;
 }

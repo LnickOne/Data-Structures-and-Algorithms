@@ -59,9 +59,11 @@ public:
                 cur->next = node;
                 return head;
             }
-            if (cur->val >= mx->val) mx = cur;
+            if (cur->val >= mx->val)
+                mx = cur;
             cur = cur->next;
-            if (cur == head) break;
+            if (cur == head)
+                break;
         }
         node->next = mx->next;
         mx->next = node;
@@ -74,23 +76,42 @@ int main()
     Solution s;
     // 示例1: [3,4,1] 插入 2
     Node *n1 = new Node(3), *n2 = new Node(4), *n3 = new Node(1);
-    n1->next = n2; n2->next = n3; n3->next = n1;
+    n1->next = n2;
+    n2->next = n3;
+    n3->next = n1;
     s.insert(n1, 2);
     Node *cur = n1;
-    do { cout << cur->val << " "; cur = cur->next; } while (cur != n1);
+    do
+    {
+        cout << cur->val << " ";
+        cur = cur->next;
+    } while (cur != n1);
     cout << endl; // 3 4 1 2
     // 清理
-    n3->next = nullptr; while (n1) { Node *t = n1->next; delete n1; n1 = t; }
+    n3->next = nullptr;
+    while (n1)
+    {
+        Node *t = n1->next;
+        delete n1;
+        n1 = t;
+    }
     // 示例2: 空链表插入 1
     Node *res = s.insert(nullptr, 1);
     cout << res->val << endl; // 1
     delete res;
     // 示例3: [1] 插入 0
-    Node *m1 = new Node(1); m1->next = m1;
+    Node *m1 = new Node(1);
+    m1->next = m1;
     s.insert(m1, 0);
     cur = m1;
-    do { cout << cur->val << " "; cur = cur->next; } while (cur != m1);
+    do
+    {
+        cout << cur->val << " ";
+        cur = cur->next;
+    } while (cur != m1);
     cout << endl; // 1 0
-    m1->next->next = nullptr; delete m1->next; delete m1;
+    m1->next->next = nullptr;
+    delete m1->next;
+    delete m1;
     return 0;
 }

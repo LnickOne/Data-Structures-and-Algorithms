@@ -53,7 +53,7 @@ using namespace std;
 class Solution
 {
 public:
-    vector<int> exchange(vector<int>& nums)
+    vector<int> exchange(vector<int> &nums)
     {
         int i = 0, j = (int)nums.size() - 1;
         while (i < j)
@@ -83,7 +83,8 @@ int main()
     cout << "输入 [1,2,3,4] => [";
     for (int i = 0; i < (int)res1.size(); i++)
     {
-        if (i) cout << ",";
+        if (i)
+            cout << ",";
         cout << res1[i];
     }
     cout << "]" << endl;
@@ -94,7 +95,8 @@ int main()
     cout << "输入 [2,4,6,1,3] => [";
     for (int i = 0; i < (int)res2.size(); i++)
     {
-        if (i) cout << ",";
+        if (i)
+            cout << ",";
         cout << res2[i];
     }
     cout << "]" << endl;

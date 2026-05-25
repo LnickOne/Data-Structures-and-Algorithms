@@ -41,7 +41,7 @@ using namespace std;
 class Solution
 {
 public:
-    int reversePairs(vector<int>& nums)
+    int reversePairs(vector<int> &nums)
     {
         long long cnt = 0;
         mergeSort(nums, 0, (int)nums.size() - 1, cnt);
@@ -49,16 +49,17 @@ public:
     }
 
 private:
-    void mergeSort(vector<int>& nums, int left, int right, long long& cnt)
+    void mergeSort(vector<int> &nums, int left, int right, long long &cnt)
     {
-        if (left >= right) return;
+        if (left >= right)
+            return;
         int mid = left + (right - left) / 2;
         mergeSort(nums, left, mid, cnt);
         mergeSort(nums, mid + 1, right, cnt);
         merge(nums, left, mid, right, cnt);
     }
 
-    void merge(vector<int>& nums, int left, int mid, int right, long long& cnt)
+    void merge(vector<int> &nums, int left, int mid, int right, long long &cnt)
     {
         vector<int> tmp(right - left + 1);
         int i = left, j = mid + 1, k = 0;
@@ -75,8 +76,10 @@ private:
                 tmp[k++] = nums[j++];
             }
         }
-        while (i <= mid) tmp[k++] = nums[i++];
-        while (j <= right) tmp[k++] = nums[j++];
+        while (i <= mid)
+            tmp[k++] = nums[i++];
+        while (j <= right)
+            tmp[k++] = nums[j++];
         for (int x = 0; x < k; x++)
         {
             nums[left + x] = tmp[x];

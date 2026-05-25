@@ -29,16 +29,22 @@ class Solution
     vector<int> cur;
     void dfs(vector<int> &nums, int i)
     {
-        if (i == (int)nums.size()) { res.push_back(cur); return; }
+        if (i == (int)nums.size())
+        {
+            res.push_back(cur);
+            return;
+        }
         dfs(nums, i + 1);
         cur.push_back(nums[i]);
         dfs(nums, i + 1);
         cur.pop_back();
     }
+
 public:
     vector<vector<int>> subsets(vector<int> &nums)
     {
-        res.clear(); cur.clear();
+        res.clear();
+        cur.clear();
         dfs(nums, 0);
         return res;
     }
@@ -49,7 +55,12 @@ int main()
     Solution sol;
     vector<int> n1 = {1, 2, 3};
     auto r1 = sol.subsets(n1);
-    for (auto &s : r1) { cout << "["; for (int x : s) cout << x << ","; cout << "] "; }
+    for (auto &s : r1)
+    {
+        cout << "[";
+        for (int i = 0; i < (int)s.size(); i++) { if (i) cout << ","; cout << s[i]; }
+        cout << "] ";
+    }
     cout << endl; // 所有子集
     return 0;
 }

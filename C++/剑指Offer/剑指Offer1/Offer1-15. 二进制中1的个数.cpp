@@ -50,27 +50,27 @@ using namespace std;
 class Solution
 {
 public:
-    // 方案3: 利用 n & (n-1) 消去最低位的1
-    int hammingWeight(uint32_t n)
+  // 方案3: 利用 n & (n-1) 消去最低位的1
+  int hammingWeight(uint32_t n)
+  {
+    int count = 0;
+    while (n != 0)
     {
-        int count = 0;
-        while (n != 0)
-        {
-            n = n & (n - 1);
-            count++;
-        }
-        return count;
+      n = n & (n - 1);
+      count++;
     }
+    return count;
+  }
 };
 
 int main()
 {
-    Solution s;
-    // 示例1: 00000000000000000000000000001011 => 3
-    cout << s.hammingWeight(0b00000000000000000000000000001011) << endl; // 3
-    // 示例2: 00000000000000000000000010000000 => 1
-    cout << s.hammingWeight(0b00000000000000000000000010000000) << endl; // 1
-    // 9 的二进制是 1001, 有2个1
-    cout << s.hammingWeight(9) << endl; // 2
-    return 0;
+  Solution s;
+  // 示例1: 00000000000000000000000000001011 => 3
+  cout << s.hammingWeight(0b00000000000000000000000000001011) << endl; // 3
+  // 示例2: 00000000000000000000000010000000 => 1
+  cout << s.hammingWeight(0b00000000000000000000000010000000) << endl; // 1
+  // 9 的二进制是 1001, 有2个1
+  cout << s.hammingWeight(9) << endl; // 2
+  return 0;
 }

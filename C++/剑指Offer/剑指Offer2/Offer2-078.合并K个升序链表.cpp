@@ -30,19 +30,30 @@ class Solution
         ListNode *cur = &dummy;
         while (h1 || h2)
         {
-            if (!h2 || (h1 && h1->val <= h2->val)) { cur->next = h1; h1 = h1->next; }
-            else { cur->next = h2; h2 = h2->next; }
+            if (!h2 || (h1 && h1->val <= h2->val))
+            {
+                cur->next = h1;
+                h1 = h1->next;
+            }
+            else
+            {
+                cur->next = h2;
+                h2 = h2->next;
+            }
             cur = cur->next;
         }
         return dummy.next;
     }
     ListNode *merge(vector<ListNode *> &lists, int s, int e)
     {
-        if (s > e) return nullptr;
-        if (s == e) return lists[s];
+        if (s > e)
+            return nullptr;
+        if (s == e)
+            return lists[s];
         int m = (s + e) / 2;
         return mergeTwo(merge(lists, s, m), merge(lists, m + 1, e));
     }
+
 public:
     ListNode *mergeKLists(vector<ListNode *> &lists)
     {

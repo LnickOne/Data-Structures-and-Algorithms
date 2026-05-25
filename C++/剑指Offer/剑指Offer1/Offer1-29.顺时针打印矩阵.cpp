@@ -38,7 +38,7 @@ using namespace std;
 class Solution
 {
 public:
-    vector<int> spiralOrder(vector<vector<int>>& matrix)
+    vector<int> spiralOrder(vector<vector<int>> &matrix)
     {
         vector<int> res;
         if (matrix.empty() || matrix[0].empty())
@@ -89,7 +89,8 @@ int main()
     cout << "输入 [[1,2,3],[4,5,6],[7,8,9]] => [";
     for (int i = 0; i < (int)res1.size(); i++)
     {
-        if (i) cout << ",";
+        if (i)
+            cout << ",";
         cout << res1[i];
     }
     cout << "]" << endl;
@@ -100,7 +101,8 @@ int main()
     cout << "输入 [[1,2,3,4],[5,6,7,8],[9,10,11,12]] => [";
     for (int i = 0; i < (int)res2.size(); i++)
     {
-        if (i) cout << ",";
+        if (i)
+            cout << ",";
         cout << res2[i];
     }
     cout << "]" << endl;

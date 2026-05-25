@@ -66,50 +66,50 @@
 class Solution
 {
 public:
-    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2)
+  ListNode *mergeTwoLists(ListNode *l1, ListNode *l2)
+  {
+    // 方法 1: 迭代, 哨兵节点, 归并排序思路
+    ListNode prehead(0);
+    ListNode *cur = &prehead;
+    while (l1 || l2)
     {
-        // 方法 1: 迭代, 哨兵节点, 归并排序思路
-        ListNode prehead(0);
-        ListNode* cur = &prehead;
-        while (l1 || l2)
-        {
-            if (!l1 || (l2 && l2->val <= l1->val))
-            {
-                // 该情况要么是只有 l2 节点, 要么 l2 节点值更小
-                cur->next = l2;
-                l2 = l2->next;
-            }
-            else
-            {
-                // 否则的话当前的下个节点只能是 l1
-                cur->next = l1;
-                l1 = l1->next;
-            }
-            cur = cur->next;
-        }
-        // 哨兵节点的 next 就是合并后的链表头
-        return prehead.next;
+      if (!l1 || (l2 && l2->val <= l1->val))
+      {
+        // 该情况要么是只有 l2 节点, 要么 l2 节点值更小
+        cur->next = l2;
+        l2 = l2->next;
+      }
+      else
+      {
+        // 否则的话当前的下个节点只能是 l1
+        cur->next = l1;
+        l1 = l1->next;
+      }
+      cur = cur->next;
     }
+    // 哨兵节点的 next 就是合并后的链表头
+    return prehead.next;
+  }
 };
 
 int main()
 {
-    Solution s;
+  Solution s;
 
-    // 示例: 1->2->4 与 1->3->4, 期望输出 1->1->2->3->4->4
-    ListNode* l1 = createListNode({1, 2, 4});
-    ListNode* l2 = createListNode({1, 3, 4});
-    ListNode* res1 = s.mergeTwoLists(l1, l2);
-    printListNode(res1);  // 1 -> 1 -> 2 -> 3 -> 4 -> 4
+  // 示例: 1->2->4 与 1->3->4, 期望输出 1->1->2->3->4->4
+  ListNode *l1 = createListNode({1, 2, 4});
+  ListNode *l2 = createListNode({1, 3, 4});
+  ListNode *res1 = s.mergeTwoLists(l1, l2);
+  printListNode(res1); // 1 -> 1 -> 2 -> 3 -> 4 -> 4
 
-    // 其中一个为空
-    ListNode* l3 = createListNode({1, 3, 5});
-    ListNode* res2 = s.mergeTwoLists(l3, nullptr);
-    printListNode(res2);  // 1 -> 3 -> 5
+  // 其中一个为空
+  ListNode *l3 = createListNode({1, 3, 5});
+  ListNode *res2 = s.mergeTwoLists(l3, nullptr);
+  printListNode(res2); // 1 -> 3 -> 5
 
-    // 两个都为空
-    ListNode* res3 = s.mergeTwoLists(nullptr, nullptr);
-    printListNode(res3);  // (empty)
+  // 两个都为空
+  ListNode *res3 = s.mergeTwoLists(nullptr, nullptr);
+  printListNode(res3); // (empty)
 
-    return 0;
+  return 0;
 }

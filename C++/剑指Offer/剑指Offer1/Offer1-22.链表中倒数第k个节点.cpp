@@ -47,45 +47,45 @@
 class Solution
 {
 public:
-    ListNode* getKthFromEnd(ListNode* head, int k)
+  ListNode *getKthFromEnd(ListNode *head, int k)
+  {
+    // 双指针快慢节点
+    // 快指针先走 k 步, 然后慢指针再开始走
+    // 保证两者距离一直为 k, 当快指针走到结尾时慢指针恰好停在倒数第 k 个节点
+    ListNode *fast = head;
+    for (int i = 0; i < k; i++)
     {
-        // 双指针快慢节点
-        // 快指针先走 k 步, 然后慢指针再开始走
-        // 保证两者距离一直为 k, 当快指针走到结尾时慢指针恰好停在倒数第 k 个节点
-        ListNode* fast = head;
-        for (int i = 0; i < k; i++)
-        {
-            if (fast)
-                fast = fast->next;
-        }
-        ListNode* slow = head;
-        while (fast)
-        {
-            slow = slow->next;
-            fast = fast->next;
-        }
-        return slow;
+      if (fast)
+        fast = fast->next;
     }
+    ListNode *slow = head;
+    while (fast)
+    {
+      slow = slow->next;
+      fast = fast->next;
+    }
+    return slow;
+  }
 };
 
 int main()
 {
-    Solution s;
+  Solution s;
 
-    // 示例: 1->2->3->4->5, k=2, 期望输出 4->5
-    ListNode* head1 = createListNode({1, 2, 3, 4, 5});
-    ListNode* res1 = s.getKthFromEnd(head1, 2);
-    printListNode(res1);  // 4 -> 5
+  // 示例: 1->2->3->4->5, k=2, 期望输出 4->5
+  ListNode *head1 = createListNode({1, 2, 3, 4, 5});
+  ListNode *res1 = s.getKthFromEnd(head1, 2);
+  printListNode(res1); // 4 -> 5
 
-    // 倒数第 1 个: 期望输出 5
-    ListNode* head2 = createListNode({1, 2, 3, 4, 5});
-    ListNode* res2 = s.getKthFromEnd(head2, 1);
-    printListNode(res2);  // 5
+  // 倒数第 1 个: 期望输出 5
+  ListNode *head2 = createListNode({1, 2, 3, 4, 5});
+  ListNode *res2 = s.getKthFromEnd(head2, 1);
+  printListNode(res2); // 5
 
-    // 倒数第 k 等于链表长度: 期望返回 head
-    ListNode* head3 = createListNode({1, 2, 3});
-    ListNode* res3 = s.getKthFromEnd(head3, 3);
-    printListNode(res3);  // 1 -> 2 -> 3
+  // 倒数第 k 等于链表长度: 期望返回 head
+  ListNode *head3 = createListNode({1, 2, 3});
+  ListNode *res3 = s.getKthFromEnd(head3, 3);
+  printListNode(res3); // 1 -> 2 -> 3
 
-    return 0;
+  return 0;
 }

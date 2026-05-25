@@ -43,10 +43,10 @@
 class Solution
 {
 public:
-    ListNode* getIntersectionNode(ListNode* headA, ListNode* headB)
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB)
     {
-        ListNode* a = headA;
-        ListNode* b = headB;
+        ListNode *a = headA;
+        ListNode *b = headB;
         while (a != b)
         {
             // a 如果到达 A 的末尾之后的空节点, 就置为 B 的起点重新遍历
@@ -64,42 +64,44 @@ int main()
 
     // 示例: listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], 相交于值为 8 的节点
     // 构建共享部分 8->4->5
-    ListNode* shared = createListNode({8, 4, 5});
+    ListNode *shared = createListNode({8, 4, 5});
 
     // 构建链表 A 的前半部分 4->1, 然后接上 shared
-    ListNode* headA = createListNode({4, 1});
-    ListNode* curA = headA;
-    while (curA->next) curA = curA->next;
+    ListNode *headA = createListNode({4, 1});
+    ListNode *curA = headA;
+    while (curA->next)
+        curA = curA->next;
     curA->next = shared;
 
     // 构建链表 B 的前半部分 5->0->1, 然后接上 shared
-    ListNode* headB = createListNode({5, 0, 1});
-    ListNode* curB = headB;
-    while (curB->next) curB = curB->next;
+    ListNode *headB = createListNode({5, 0, 1});
+    ListNode *curB = headB;
+    while (curB->next)
+        curB = curB->next;
     curB->next = shared;
 
-    ListNode* res1 = s.getIntersectionNode(headA, headB);
+    ListNode *res1 = s.getIntersectionNode(headA, headB);
     if (res1)
-        cout << "Intersection node value: " << res1->val << endl;  // 8
+        cout << "Intersection node value: " << res1->val << endl; // 8
     else
         cout << "No intersection" << endl;
 
     // 无交点情况
-    ListNode* listC = createListNode({1, 2, 3});
-    ListNode* listD = createListNode({4, 5});
-    ListNode* res2 = s.getIntersectionNode(listC, listD);
+    ListNode *listC = createListNode({1, 2, 3});
+    ListNode *listD = createListNode({4, 5});
+    ListNode *res2 = s.getIntersectionNode(listC, listD);
     if (res2)
         cout << "Intersection node value: " << res2->val << endl;
     else
-        cout << "No intersection" << endl;  // No intersection
+        cout << "No intersection" << endl; // No intersection
 
     // 清理 (注意 shared 由 headA/headB 共享, 只需释放一次)
-    deleteList(headA);   // 释放 4->1->8->4->5
+    deleteList(headA); // 释放 4->1->8->4->5
     // headB 的独占部分 5->0->1 需手动释放
-    ListNode* tmp = headB;
+    ListNode *tmp = headB;
     for (int i = 0; i < 3; i++)
     {
-        ListNode* next = tmp->next;
+        ListNode *next = tmp->next;
         delete tmp;
         tmp = next;
     }

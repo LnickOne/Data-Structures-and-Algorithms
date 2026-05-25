@@ -94,7 +94,8 @@ int main()
         cout << "[";
         for (int i = 0; i < (int)seq.size(); i++)
         {
-            if (i > 0) cout << ",";
+            if (i > 0)
+                cout << ",";
             cout << seq[i];
         }
         cout << "] ";
@@ -107,7 +108,8 @@ int main()
         cout << "[";
         for (int i = 0; i < (int)seq.size(); i++)
         {
-            if (i > 0) cout << ",";
+            if (i > 0)
+                cout << ",";
             cout << seq[i];
         }
         cout << "] ";

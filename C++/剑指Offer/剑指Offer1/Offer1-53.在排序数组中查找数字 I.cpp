@@ -45,7 +45,7 @@ using namespace std;
 class Solution
 {
 public:
-    int search(vector<int>& nums, int target)
+    int search(vector<int> &nums, int target)
     {
         // 二分查找左右边界
         auto binarySearch = [&](bool isLeft) -> int
@@ -100,18 +100,18 @@ int main()
 
     // 示例 1: nums = [5,7,7,8,8,10], target = 8, 期望输出 2
     vector<int> nums1 = {5, 7, 7, 8, 8, 10};
-    cout << s.search(nums1, 8) << endl;  // 2
+    cout << s.search(nums1, 8) << endl; // 2
 
     // 示例 2: nums = [5,7,7,8,8,10], target = 6, 期望输出 0
-    cout << s.search(nums1, 6) << endl;  // 0
+    cout << s.search(nums1, 6) << endl; // 0
 
     // target 出现 1 次
     vector<int> nums2 = {1, 2, 3, 4, 5};
-    cout << s.search(nums2, 3) << endl;  // 1
+    cout << s.search(nums2, 3) << endl; // 1
 
     // target 占满整个数组
     vector<int> nums3 = {7, 7, 7, 7};
-    cout << s.search(nums3, 7) << endl;  // 4
+    cout << s.search(nums3, 7) << endl; // 4
 
     return 0;
 }

@@ -58,7 +58,8 @@
 #include <queue>
 using namespace std;
 
-class MaxQueue {
+class MaxQueue
+{
     queue<int> q;
     deque<int> dq; // monotonic decreasing deque
 public:
@@ -66,23 +67,31 @@ public:
 
     int max_value() { return dq.empty() ? -1 : dq.front(); }
 
-    void push_back(int value) {
+    void push_back(int value)
+    {
         q.push(value);
-        while (!dq.empty() && dq.back() < value) dq.pop_back();
+        while (!dq.empty() && dq.back() < value)
+            dq.pop_back();
         dq.push_back(value);
     }
 
-    int pop_front() {
-        if (q.empty()) return -1;
-        int val = q.front(); q.pop();
-        if (val == dq.front()) dq.pop_front();
+    int pop_front()
+    {
+        if (q.empty())
+            return -1;
+        int val = q.front();
+        q.pop();
+        if (val == dq.front())
+            dq.pop_front();
         return val;
     }
 };
 
-int main() {
+int main()
+{
     MaxQueue mq;
-    mq.push_back(1); mq.push_back(2);
+    mq.push_back(1);
+    mq.push_back(2);
     cout << mq.max_value() << endl; // 2
     cout << mq.pop_front() << endl; // 1
     cout << mq.max_value() << endl; // 2

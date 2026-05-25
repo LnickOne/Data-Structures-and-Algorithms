@@ -52,11 +52,12 @@ using namespace std;
 class Solution
 {
 public:
-    vector<int> singleNumbers(vector<int>& nums)
+    vector<int> singleNumbers(vector<int> &nums)
     {
         // 第一步: 异或所有数字, 得到两个只出现一次的数字的异或结果
         int xorAll = 0;
-        for (int x : nums) xorAll ^= x;
+        for (int x : nums)
+            xorAll ^= x;
 
         // 第二步: 找到 xorAll 最低位的 1 (利用 lowbit)
         // 该位上两个目标数字取值不同, 可以用来分组

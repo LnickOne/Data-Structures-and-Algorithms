@@ -77,20 +77,22 @@ public:
 };
 int main()
 {
-    TreeNode *root = createBinaryTree({4, 2, 7, 1, 3, 6, 9});
-    Solution s;
-    TreeNode *result = s.flipTree(root);
-    // 层序遍历输出镜像结果, 期望 [4,7,2,9,6,3,1]
-    queue<TreeNode *> q;
-    q.push(result);
-    while (!q.empty())
-    {
-        TreeNode *node = q.front();
-        q.pop();
-        cout << node->val << " ";
-        if (node->left) q.push(node->left);
-        if (node->right) q.push(node->right);
-    }
-    cout << endl;
-    return 0;
+  TreeNode *root = createBinaryTree({4, 2, 7, 1, 3, 6, 9});
+  Solution s;
+  TreeNode *result = s.flipTree(root);
+  // 层序遍历输出镜像结果, 期望 [4,7,2,9,6,3,1]
+  queue<TreeNode *> q;
+  q.push(result);
+  while (!q.empty())
+  {
+    TreeNode *node = q.front();
+    q.pop();
+    cout << node->val << " ";
+    if (node->left)
+      q.push(node->left);
+    if (node->right)
+      q.push(node->right);
+  }
+  cout << endl;
+  return 0;
 }

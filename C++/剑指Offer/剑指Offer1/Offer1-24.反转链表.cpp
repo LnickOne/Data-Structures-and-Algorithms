@@ -66,47 +66,47 @@
 class Solution
 {
 public:
-    ListNode* reverseList(ListNode* head)
+  ListNode *reverseList(ListNode *head)
+  {
+    // 方法 1: 迭代, 双指针
+    if (!head)
+      return head;
+    ListNode *pre = head;
+    ListNode *cur = head->next;
+    // head 变成了翻转后的末尾, 所以其 next 要置为空
+    head->next = nullptr;
+    while (cur)
     {
-        // 方法 1: 迭代, 双指针
-        if (!head)
-            return head;
-        ListNode* pre = head;
-        ListNode* cur = head->next;
-        // head 变成了翻转后的末尾, 所以其 next 要置为空
-        head->next = nullptr;
-        while (cur)
-        {
-            // 先存下 cur 的下一个节点
-            ListNode* nex = cur->next;
-            // cur 的下一个节点指向 pre, 完成当前节点指向的反转
-            cur->next = pre;
-            // 更新 pre 和 cur, 分别按照原链表顺序往后移动一位
-            pre = cur;
-            cur = nex;
-        }
-        // 最终 cur 就是空, 而 pre 则是反转后的开头节点
-        return pre;
+      // 先存下 cur 的下一个节点
+      ListNode *nex = cur->next;
+      // cur 的下一个节点指向 pre, 完成当前节点指向的反转
+      cur->next = pre;
+      // 更新 pre 和 cur, 分别按照原链表顺序往后移动一位
+      pre = cur;
+      cur = nex;
     }
+    // 最终 cur 就是空, 而 pre 则是反转后的开头节点
+    return pre;
+  }
 };
 
 int main()
 {
-    Solution s;
+  Solution s;
 
-    // 示例: 1->2->3->4->5->NULL, 期望输出 5->4->3->2->1->NULL
-    ListNode* head1 = createListNode({1, 2, 3, 4, 5});
-    ListNode* res1 = s.reverseList(head1);
-    printListNode(res1);  // 5 -> 4 -> 3 -> 2 -> 1
+  // 示例: 1->2->3->4->5->NULL, 期望输出 5->4->3->2->1->NULL
+  ListNode *head1 = createListNode({1, 2, 3, 4, 5});
+  ListNode *res1 = s.reverseList(head1);
+  printListNode(res1); // 5 -> 4 -> 3 -> 2 -> 1
 
-    // 空链表
-    ListNode* res2 = s.reverseList(nullptr);
-    printListNode(res2);  // (empty)
+  // 空链表
+  ListNode *res2 = s.reverseList(nullptr);
+  printListNode(res2); // (empty)
 
-    // 单节点
-    ListNode* head3 = createListNode({1});
-    ListNode* res3 = s.reverseList(head3);
-    printListNode(res3);  // 1
+  // 单节点
+  ListNode *head3 = createListNode({1});
+  ListNode *res3 = s.reverseList(head3);
+  printListNode(res3); // 1
 
-    return 0;
+  return 0;
 }

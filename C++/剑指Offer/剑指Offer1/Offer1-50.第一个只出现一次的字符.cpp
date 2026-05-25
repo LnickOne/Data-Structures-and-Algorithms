@@ -63,7 +63,7 @@ public:
         }
         char res = ' ';
         int mnIndex = (int)s.size();
-        for (auto& kv : d)
+        for (auto &kv : d)
         {
             int firstIndex = kv.second.first;
             int cnt = kv.second.second;

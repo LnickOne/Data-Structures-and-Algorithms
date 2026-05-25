@@ -57,7 +57,8 @@ int main()
     cout << "n=1: [";
     for (int i = 0; i < (int)res1.size(); i++)
     {
-        if (i) cout << ",";
+        if (i)
+            cout << ",";
         cout << res1[i];
     }
     cout << "]" << endl;

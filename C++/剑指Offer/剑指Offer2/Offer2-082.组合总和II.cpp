@@ -60,11 +60,11 @@ int main()
     Solution sol;
     vector<int> c1 = {10, 1, 2, 7, 6, 1, 5};
     auto r1 = sol.combinationSum2(c1, 8);
-    for (auto &v : r1) { cout << "["; for (int x : v) cout << x << ","; cout << "] "; }
+    for (auto &v : r1) { cout << "["; for (int i = 0; i < (int)v.size(); i++) { if (i) cout << ","; cout << v[i]; } cout << "] "; }
     cout << endl; // [1,1,6] [1,2,5] [1,7] [2,6]
     vector<int> c2 = {2, 5, 2, 1, 2};
     auto r2 = sol.combinationSum2(c2, 5);
-    for (auto &v : r2) { cout << "["; for (int x : v) cout << x << ","; cout << "] "; }
+    for (auto &v : r2) { cout << "["; for (int i = 0; i < (int)v.size(); i++) { if (i) cout << ","; cout << v[i]; } cout << "] "; }
     cout << endl; // [1,2,2] [5]
     return 0;
 }

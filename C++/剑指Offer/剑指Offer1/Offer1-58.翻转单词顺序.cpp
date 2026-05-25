@@ -79,7 +79,8 @@ public:
         string res;
         for (int i = 0; i < (int)words.size(); i++)
         {
-            if (i > 0) res += ' ';
+            if (i > 0)
+                res += ' ';
             res += words[i];
         }
         return res;
@@ -91,16 +92,16 @@ int main()
     Solution s;
 
     // 示例 1: "the sky is blue", 期望输出 "blue is sky the"
-    cout << s.reverseWords("the sky is blue") << endl;  // blue is sky the
+    cout << s.reverseWords("the sky is blue") << endl; // blue is sky the
 
     // 示例 2: "  hello world!  ", 期望输出 "world! hello"
-    cout << s.reverseWords("  hello world!  ") << endl;  // world! hello
+    cout << s.reverseWords("  hello world!  ") << endl; // world! hello
 
     // 示例 3: "I am a student. ", 期望输出 "student. a am I"
-    cout << s.reverseWords("I am a student. ") << endl;  // student. a am I
+    cout << s.reverseWords("I am a student. ") << endl; // student. a am I
 
     // 多余空格: "a good   example", 期望输出 "example good a"
-    cout << s.reverseWords("a good   example") << endl;  // example good a
+    cout << s.reverseWords("a good   example") << endl; // example good a
 
     return 0;
 }

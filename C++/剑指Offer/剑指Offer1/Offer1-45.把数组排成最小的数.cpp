@@ -36,7 +36,7 @@ using namespace std;
 class Solution
 {
 public:
-    string minNumber(vector<int>& nums)
+    string minNumber(vector<int> &nums)
     {
         // 将所有数字转为字符串
         vector<string> strs;
@@ -44,13 +44,12 @@ public:
             strs.push_back(to_string(num));
 
         // 自定义排序: 比较 a+b 与 b+a, 若 a+b < b+a 则 a 排在前面
-        sort(strs.begin(), strs.end(), [](const string& a, const string& b) {
-            return a + b < b + a;
-        });
+        sort(strs.begin(), strs.end(), [](const string &a, const string &b)
+             { return a + b < b + a; });
 
         // 拼接所有字符串
         string res;
-        for (const string& str : strs)
+        for (const string &str : strs)
             res += str;
 
         return res;

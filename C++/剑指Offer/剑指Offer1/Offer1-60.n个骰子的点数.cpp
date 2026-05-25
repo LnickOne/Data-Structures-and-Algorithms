@@ -48,34 +48,45 @@
 #include <vector>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    vector<double> twoSum(int n) {
+    vector<double> twoSum(int n)
+    {
         // dp[s] = probability that sum is s with current number of dice
         vector<double> dp(6 * n + 1, 0);
         // init: 1 die
-        for (int v = 1; v <= 6; v++) dp[v] = 1.0 / 6;
-        for (int i = 2; i <= n; i++) {
+        for (int v = 1; v <= 6; v++)
+            dp[v] = 1.0 / 6;
+        for (int i = 2; i <= n; i++)
+        {
             vector<double> ndp(6 * n + 1, 0);
-            for (int s = i - 1; s <= 6 * (i - 1); s++) {
-                if (dp[s] == 0) continue;
-                for (int v = 1; v <= 6; v++) ndp[s + v] += dp[s] / 6;
+            for (int s = i - 1; s <= 6 * (i - 1); s++)
+            {
+                if (dp[s] == 0)
+                    continue;
+                for (int v = 1; v <= 6; v++)
+                    ndp[s + v] += dp[s] / 6;
             }
             dp = ndp;
         }
         vector<double> res;
-        for (int s = n; s <= 6 * n; s++) res.push_back(dp[s]);
+        for (int s = n; s <= 6 * n; s++)
+            res.push_back(dp[s]);
         return res;
     }
 };
 
-int main() {
+int main()
+{
     Solution s;
     auto res = s.twoSum(1);
-    for (double x : res) cout << x << " ";
+    for (double x : res)
+        cout << x << " ";
     cout << endl;
     res = s.twoSum(2);
-    for (double x : res) cout << x << " ";
+    for (double x : res)
+        cout << x << " ";
     cout << endl;
     return 0;
 }

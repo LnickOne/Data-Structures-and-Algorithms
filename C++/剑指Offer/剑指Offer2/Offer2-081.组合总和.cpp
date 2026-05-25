@@ -60,18 +60,26 @@ int main()
     for (auto &v : r1)
     {
         cout << "[";
-        for (int x : v)
-            cout << x << ",";
+        for (int i = 0; i < (int)v.size(); i++)
+        {
+            if (i)
+                cout << ",";
+            cout << v[i];
+        }
         cout << "] ";
     }
-    cout << endl; // [7] [2,2,3]
+    cout << endl; // [2,2,3] [7]
     vector<int> c2 = {2, 3, 5};
     auto r2 = sol.combinationSum(c2, 8);
     for (auto &v : r2)
     {
         cout << "[";
-        for (int x : v)
-            cout << x << ",";
+        for (int i = 0; i < (int)v.size(); i++)
+        {
+            if (i)
+                cout << ",";
+            cout << v[i];
+        }
         cout << "] ";
     }
     cout << endl; // [2,2,2,2] [2,3,3] [3,5]

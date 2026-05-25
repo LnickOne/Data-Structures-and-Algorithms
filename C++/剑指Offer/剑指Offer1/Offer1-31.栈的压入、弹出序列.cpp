@@ -80,34 +80,34 @@ using namespace std;
 class Solution
 {
 public:
-    bool validateStackSequences(vector<int> pushed, vector<int> popped)
+  bool validateStackSequences(vector<int> pushed, vector<int> popped)
+  {
+    stack<int> st;
+    int j = 0;
+    for (int p : pushed)
     {
-        stack<int> st;
-        int j = 0;
-        for (int p : pushed)
-        {
-            st.push(p);
-            while (!st.empty() && j < (int)popped.size() && st.top() == popped[j])
-            {
-                st.pop();
-                j++;
-            }
-        }
-        return st.empty();
+      st.push(p);
+      while (!st.empty() && j < (int)popped.size() && st.top() == popped[j])
+      {
+        st.pop();
+        j++;
+      }
     }
+    return st.empty();
+  }
 };
 
 int main()
 {
-    Solution sol;
+  Solution sol;
 
-    vector<int> pushed1 = {1, 2, 3, 4, 5};
-    vector<int> popped1 = {4, 5, 3, 2, 1};
-    cout << (sol.validateStackSequences(pushed1, popped1) ? "true" : "false") << endl; // true
+  vector<int> pushed1 = {1, 2, 3, 4, 5};
+  vector<int> popped1 = {4, 5, 3, 2, 1};
+  cout << (sol.validateStackSequences(pushed1, popped1) ? "true" : "false") << endl; // true
 
-    vector<int> pushed2 = {1, 2, 3, 4, 5};
-    vector<int> popped2 = {4, 3, 5, 1, 2};
-    cout << (sol.validateStackSequences(pushed2, popped2) ? "true" : "false") << endl; // false
+  vector<int> pushed2 = {1, 2, 3, 4, 5};
+  vector<int> popped2 = {4, 3, 5, 1, 2};
+  cout << (sol.validateStackSequences(pushed2, popped2) ? "true" : "false") << endl; // false
 
-    return 0;
+  return 0;
 }

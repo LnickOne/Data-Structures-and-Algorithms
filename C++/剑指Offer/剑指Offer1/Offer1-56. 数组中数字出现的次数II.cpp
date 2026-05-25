@@ -49,7 +49,7 @@ using namespace std;
 class Solution
 {
 public:
-    int singleNumber(vector<int>& nums)
+    int singleNumber(vector<int> &nums)
     {
         int res = 0;
         for (int i = 0; i < 32; i++)
@@ -59,7 +59,8 @@ public:
             int cnt = 0;
             for (int x : nums)
             {
-                if (x & mask) cnt++;
+                if (x & mask)
+                    cnt++;
             }
             // 若次数对 3 取余为 1, 则答案在第 i 位上为 1
             if (cnt % 3 == 1)

@@ -70,51 +70,51 @@ using namespace std;
 class CQueue
 {
 public:
-    stack<int> s1;
-    stack<int> s2;
+  stack<int> s1;
+  stack<int> s2;
 
-    CQueue()
-    {
-    }
+  CQueue()
+  {
+  }
 
-    void appendTail(int value)
-    {
-        s1.push(value);
-    }
+  void appendTail(int value)
+  {
+    s1.push(value);
+  }
 
-    int deleteHead()
+  int deleteHead()
+  {
+    if (s1.empty() && s2.empty())
     {
-        if (s1.empty() && s2.empty())
-        {
-            return -1;
-        }
-        if (s2.empty())
-        {
-            while (!s1.empty())
-            {
-                s2.push(s1.top());
-                s1.pop();
-            }
-        }
-        int result = s2.top();
-        s2.pop();
-        return result;
+      return -1;
     }
+    if (s2.empty())
+    {
+      while (!s1.empty())
+      {
+        s2.push(s1.top());
+        s1.pop();
+      }
+    }
+    int result = s2.top();
+    s2.pop();
+    return result;
+  }
 };
 
 int main()
 {
-    CQueue cqueue;
-    cqueue.appendTail(3);
-    cout << cqueue.deleteHead() << endl; // 3
-    cout << cqueue.deleteHead() << endl; // -1
+  CQueue cqueue;
+  cqueue.appendTail(3);
+  cout << cqueue.deleteHead() << endl; // 3
+  cout << cqueue.deleteHead() << endl; // -1
 
-    CQueue cqueue2;
-    cout << cqueue2.deleteHead() << endl; // -1
-    cqueue2.appendTail(5);
-    cqueue2.appendTail(2);
-    cout << cqueue2.deleteHead() << endl; // 5
-    cout << cqueue2.deleteHead() << endl; // 2
+  CQueue cqueue2;
+  cout << cqueue2.deleteHead() << endl; // -1
+  cqueue2.appendTail(5);
+  cqueue2.appendTail(2);
+  cout << cqueue2.deleteHead() << endl; // 5
+  cout << cqueue2.deleteHead() << endl; // 2
 
-    return 0;
+  return 0;
 }

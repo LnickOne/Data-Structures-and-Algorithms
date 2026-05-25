@@ -75,12 +75,14 @@ public:
             if (c == ' ')
             {
                 // 开头空白继续跳过; 否则终止
-                if (!isHeadBlank) break;
+                if (!isHeadBlank)
+                    break;
             }
             else if (c == '+' || c == '-')
             {
                 // 正负号只在开头空白阶段有效
-                if (!isHeadBlank) break;
+                if (!isHeadBlank)
+                    break;
                 pos = (c == '+');
                 isHeadBlank = false;
             }
@@ -89,8 +91,10 @@ public:
                 isHeadBlank = false;
                 result = result * 10 + (c - '0');
                 // 提前检测溢出
-                if (pos && result > INT_MAX) return INT_MAX;
-                if (!pos && -result < INT_MIN) return INT_MIN;
+                if (pos && result > INT_MAX)
+                    return INT_MAX;
+                if (!pos && -result < INT_MIN)
+                    return INT_MIN;
             }
             else
             {
@@ -100,8 +104,10 @@ public:
         }
 
         result = pos ? result : -result;
-        if (result > INT_MAX) return INT_MAX;
-        if (result < INT_MIN) return INT_MIN;
+        if (result > INT_MAX)
+            return INT_MAX;
+        if (result < INT_MIN)
+            return INT_MIN;
         return (int)result;
     }
 };
@@ -110,14 +116,14 @@ int main()
 {
     Solution s;
     // 示例1: "42" => 42
-    cout << s.strToInt("42") << endl;              // 42
+    cout << s.strToInt("42") << endl; // 42
     // 示例2: " -42" => -42
-    cout << s.strToInt(" -42") << endl;            // -42
+    cout << s.strToInt(" -42") << endl; // -42
     // 示例3: "4193 with words" => 4193
     cout << s.strToInt("4193 with words") << endl; // 4193
     // 示例4: "words and 987" => 0
-    cout << s.strToInt("words and 987") << endl;   // 0
+    cout << s.strToInt("words and 987") << endl; // 0
     // 示例5: "-91283472332" => -2147483648
-    cout << s.strToInt("-91283472332") << endl;    // -2147483648
+    cout << s.strToInt("-91283472332") << endl; // -2147483648
     return 0;
 }

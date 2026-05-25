@@ -29,7 +29,7 @@ using namespace std;
 class Solution
 {
 public:
-    vector<int> constructArr(vector<int>& a)
+    vector<int> constructArr(vector<int> &a)
     {
         int n = a.size();
         vector<int> b(n, 1);
@@ -61,7 +61,8 @@ int main()
     for (int i = 0; i < (int)result.size(); i++)
     {
         cout << result[i];
-        if (i + 1 < (int)result.size()) cout << ",";
+        if (i + 1 < (int)result.size())
+            cout << ",";
     }
     cout << endl; // 120,60,40,30,24
     return 0;

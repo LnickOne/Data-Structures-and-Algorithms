@@ -59,26 +59,34 @@
 #include <deque>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+    vector<int> maxSlidingWindow(vector<int> &nums, int k)
+    {
         deque<int> dq; // stores indices, front = max
         vector<int> res;
-        for (int i = 0; i < (int)nums.size(); i++) {
-            while (!dq.empty() && nums[dq.back()] <= nums[i]) dq.pop_back();
+        for (int i = 0; i < (int)nums.size(); i++)
+        {
+            while (!dq.empty() && nums[dq.back()] <= nums[i])
+                dq.pop_back();
             dq.push_back(i);
-            if (dq.front() <= i - k) dq.pop_front(); // out of window
-            if (i >= k - 1) res.push_back(nums[dq.front()]);
+            if (dq.front() <= i - k)
+                dq.pop_front(); // out of window
+            if (i >= k - 1)
+                res.push_back(nums[dq.front()]);
         }
         return res;
     }
 };
 
-int main() {
+int main()
+{
     Solution s;
     vector<int> nums = {1, 3, -1, -3, 5, 3, 6, 7};
     auto res = s.maxSlidingWindow(nums, 3);
-    for (int x : res) cout << x << " ";
+    for (int x : res)
+        cout << x << " ";
     cout << endl;
     return 0;
 }

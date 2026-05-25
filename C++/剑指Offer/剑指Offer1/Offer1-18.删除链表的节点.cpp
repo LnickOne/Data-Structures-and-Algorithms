@@ -46,14 +46,14 @@ head = [4,5,1,9], val = 5
 class Solution
 {
 public:
-    ListNode* deleteNode(ListNode* head, int val)
+    ListNode *deleteNode(ListNode *head, int val)
     {
         // 特殊处理 head 节点
         if (head->val == val)
             return head->next;
         // 否则 pre 从 head 出发, cur 从 head->next 出发
-        ListNode* pre = head;
-        ListNode* cur = head->next;
+        ListNode *pre = head;
+        ListNode *cur = head->next;
         while (cur)
         {
             if (cur->val == val)
@@ -73,19 +73,19 @@ int main()
     Solution s;
 
     // 示例: head = [4,5,1,9], val = 5, 期望输出 [4,1,9]
-    ListNode* head1 = createListNode({4, 5, 1, 9});
-    ListNode* res1 = s.deleteNode(head1, 5);
-    printListNode(res1);  // 4 -> 1 -> 9
+    ListNode *head1 = createListNode({4, 5, 1, 9});
+    ListNode *res1 = s.deleteNode(head1, 5);
+    printListNode(res1); // 4 -> 1 -> 9
 
     // 删除头节点: head = [1,2,3], val = 1, 期望输出 [2,3]
-    ListNode* head2 = createListNode({1, 2, 3});
-    ListNode* res2 = s.deleteNode(head2, 1);
-    printListNode(res2);  // 2 -> 3
+    ListNode *head2 = createListNode({1, 2, 3});
+    ListNode *res2 = s.deleteNode(head2, 1);
+    printListNode(res2); // 2 -> 3
 
     // 删除尾节点: head = [1,2,3], val = 3, 期望输出 [1,2]
-    ListNode* head3 = createListNode({1, 2, 3});
-    ListNode* res3 = s.deleteNode(head3, 3);
-    printListNode(res3);  // 1 -> 2
+    ListNode *head3 = createListNode({1, 2, 3});
+    ListNode *res3 = s.deleteNode(head3, 3);
+    printListNode(res3); // 1 -> 2
 
     return 0;
 }

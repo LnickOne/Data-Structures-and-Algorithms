@@ -67,37 +67,37 @@ using namespace std;
 class Solution
 {
 public:
-    double myPow(double x, int n)
+  double myPow(double x, int n)
+  {
+    // 处理负指数: 先转为 long 防止 INT_MIN 取反溢出
+    long exp = n;
+    if (exp < 0)
     {
-        // 处理负指数: 先转为 long 防止 INT_MIN 取反溢出
-        long exp = n;
-        if (exp < 0)
-        {
-            x = 1.0 / x;
-            exp = -exp;
-        }
-        double result = 1.0;
-        while (exp > 0)
-        {
-            if (exp & 1)
-            {
-                result *= x;
-            }
-            x *= x;
-            exp >>= 1;
-        }
-        return result;
+      x = 1.0 / x;
+      exp = -exp;
     }
+    double result = 1.0;
+    while (exp > 0)
+    {
+      if (exp & 1)
+      {
+        result *= x;
+      }
+      x *= x;
+      exp >>= 1;
+    }
+    return result;
+  }
 };
 
 int main()
 {
-    Solution s;
-    // 示例1: 2^10 = 1024
-    cout << s.myPow(2.00000, 10) << endl;   // 1024
-    // 示例2: 2.1^3 = 9.261
-    cout << s.myPow(2.10000, 3) << endl;    // 9.261
-    // 示例3: 2^-2 = 0.25
-    cout << s.myPow(2.00000, -2) << endl;   // 0.25
-    return 0;
+  Solution s;
+  // 示例1: 2^10 = 1024
+  cout << s.myPow(2.00000, 10) << endl; // 1024
+  // 示例2: 2.1^3 = 9.261
+  cout << s.myPow(2.10000, 3) << endl; // 9.261
+  // 示例3: 2^-2 = 0.25
+  cout << s.myPow(2.00000, -2) << endl; // 0.25
+  return 0;
 }

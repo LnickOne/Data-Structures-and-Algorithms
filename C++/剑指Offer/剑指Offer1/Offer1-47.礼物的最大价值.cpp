@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
 /*
 现有一个记作二维矩阵 frame 的珠宝架，其中 frame[i][j] 为该位置珠宝的价值。拿取珠宝的规则为：
 只能从架子的左上角开始拿珠宝
@@ -13,6 +9,10 @@ using namespace std;
 输出：12
 解释：路径 1→3→5→2→1 可以拿到最高价值的珠宝
 */
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 class Solution
 {
 public:
