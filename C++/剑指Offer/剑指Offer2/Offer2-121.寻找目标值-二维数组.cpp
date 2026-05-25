@@ -28,14 +28,18 @@ class Solution
 public:
     bool findTargetIn2DPlants(vector<vector<int>> &plants, int target)
     {
-        if (plants.empty() || plants[0].empty()) return false;
+        if (plants.empty() || plants[0].empty())
+            return false;
         int rows = (int)plants.size(), cols = (int)plants[0].size();
         int r = rows - 1, c = 0;
         while (r >= 0 && c < cols)
         {
-            if (plants[r][c] == target) return true;
-            else if (plants[r][c] > target) --r;
-            else ++c;
+            if (plants[r][c] == target)
+                return true;
+            else if (plants[r][c] > target)
+                --r;
+            else
+                ++c;
         }
         return false;
     }
@@ -45,9 +49,9 @@ int main()
 {
     Solution sol;
     cout << boolalpha;
-    vector<vector<int>> p1 = {{2,3,6,8},{4,5,8,9},{5,9,10,12}};
-    cout << sol.findTargetIn2DPlants(p1, 8) << endl;  // true
-    vector<vector<int>> p2 = {{1,3,5},{2,5,7}};
-    cout << sol.findTargetIn2DPlants(p2, 4) << endl;  // false
+    vector<vector<int>> p1 = {{2, 3, 6, 8}, {4, 5, 8, 9}, {5, 9, 10, 12}};
+    cout << sol.findTargetIn2DPlants(p1, 8) << endl; // true
+    vector<vector<int>> p2 = {{1, 3, 5}, {2, 5, 7}};
+    cout << sol.findTargetIn2DPlants(p2, 4) << endl; // false
     return 0;
 }

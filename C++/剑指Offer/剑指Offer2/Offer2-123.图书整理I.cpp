@@ -18,7 +18,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "../剑指Offer1/ListNode.h"
+#include "ListNode.h"
 using namespace std;
 
 class Solution
@@ -27,7 +27,11 @@ public:
     vector<int> reverseBookList(ListNode *head)
     {
         vector<int> res;
-        while (head) { res.push_back(head->val); head = head->next; }
+        while (head)
+        {
+            res.push_back(head->val);
+            head = head->next;
+        }
         reverse(res.begin(), res.end());
         return res;
     }
@@ -42,7 +46,12 @@ int main()
     Solution sol;
     auto r = sol.reverseBookList(head);
     cout << "[";
-    for (int i = 0; i < (int)r.size(); ++i) { if (i) cout << ","; cout << r[i]; }
+    for (int i = 0; i < (int)r.size(); ++i)
+    {
+        if (i)
+            cout << ",";
+        cout << r[i];
+    }
     cout << "]" << endl; // [1,4,6,3]
     return 0;
 }

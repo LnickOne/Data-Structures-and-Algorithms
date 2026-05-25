@@ -24,7 +24,7 @@
 - 时间复杂度 O(N): 每个节点只会被遍历一次
 - 空间复杂度 O(N): 递归栈和前缀和字典
  */
-#include "../剑指Offer1/BinaryTree.h"
+#include "BinaryTree.h"
 #include <unordered_map>
 
 class Solution

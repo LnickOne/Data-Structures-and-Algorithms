@@ -20,7 +20,7 @@
 - 时间复杂度 O(NlogN): logN 次归并, 每次 O(N)
 - 空间复杂度 O(1): 不使用递归栈
  */
-#include "../剑指Offer1/ListNode.h"
+#include "ListNode.h"
 
 class Solution
 {

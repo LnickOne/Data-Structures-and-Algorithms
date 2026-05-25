@@ -18,7 +18,7 @@
 - 时间复杂度 O(N): 中序遍历 O(N) + 双指针 O(N)
 - 空间复杂度 O(N): 额外有序数组存储所有节点的值
  */
-#include "../剑指Offer1/BinaryTree.h"
+#include "BinaryTree.h"
 #include <vector>
 
 class Solution

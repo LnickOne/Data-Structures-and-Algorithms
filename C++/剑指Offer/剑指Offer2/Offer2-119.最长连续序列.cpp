@@ -36,7 +36,11 @@ public:
             if (!st.count(x - 1))
             {
                 int cnt = 0;
-                while (st.count(x)) { ++x; ++cnt; }
+                while (st.count(x))
+                {
+                    ++x;
+                    ++cnt;
+                }
                 res = max(res, cnt);
             }
         }

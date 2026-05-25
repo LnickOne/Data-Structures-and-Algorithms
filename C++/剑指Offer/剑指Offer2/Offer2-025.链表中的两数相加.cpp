@@ -25,7 +25,7 @@
 - 时间复杂度 O(M+N): M 和 N 分别是两个链表的长度
 - 空间复杂度 O(M+N): 两个栈各自存储对应链表的所有值
  */
-#include "../剑指Offer1/ListNode.h"
+#include "ListNode.h"
 #include <stack>
 
 class Solution

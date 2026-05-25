@@ -20,7 +20,7 @@
 - 时间复杂度 O(N): 遍历每个节点一遍
 - 空间复杂度 O(N): 队列存储各层节点
  */
-#include "../剑指Offer1/BinaryTree.h"
+#include "BinaryTree.h"
 
 class Solution
 {

@@ -22,7 +22,7 @@
 - 时间复杂度 O(M+N): 各自最多遍历两次
 - 空间复杂度 O(1): 只使用了几个常数空间的变量
  */
-#include "../剑指Offer1/ListNode.h"
+#include "ListNode.h"
 
 class Solution
 {

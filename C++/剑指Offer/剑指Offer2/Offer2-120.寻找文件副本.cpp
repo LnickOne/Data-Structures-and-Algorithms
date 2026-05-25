@@ -28,8 +28,10 @@ public:
         int n = (int)documents.size();
         for (int x : documents)
         {
-            if (x >= n) x -= n;
-            if (documents[x] >= n) return x;
+            if (x >= n)
+                x -= n;
+            if (documents[x] >= n)
+                return x;
             documents[x] += n;
         }
         return -1;

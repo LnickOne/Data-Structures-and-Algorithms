@@ -31,7 +31,7 @@
 - 时间复杂度 O(N): 遍历一次
 - 空间复杂度 O(N): 递归栈的消耗
  */
-#include "../剑指Offer1/ListNode.h"
+#include "ListNode.h"
 
 class Solution
 {

@@ -22,7 +22,7 @@
 - 时间复杂度 O(N): 每个节点只会被遍历一次
 - 空间复杂度 O(H): H 是树的高度, 递归栈空间
  */
-#include "../剑指Offer1/BinaryTree.h"
+#include "BinaryTree.h"
 #include <climits>
 
 class Solution

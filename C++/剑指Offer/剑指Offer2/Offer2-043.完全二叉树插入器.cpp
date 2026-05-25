@@ -23,7 +23,7 @@
 - 时间复杂度 O(1): 每次 insert 只需要常数次操作
 - 空间复杂度 O(N): 存储所有节点
  */
-#include "../剑指Offer1/BinaryTree.h"
+#include "BinaryTree.h"
 #include <vector>
 
 class CBTInserter

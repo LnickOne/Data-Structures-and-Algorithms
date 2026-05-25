@@ -23,7 +23,7 @@
 - 时间复杂度 O(1) (均摊): 每个节点入栈出栈各一次
 - 空间复杂度 O(H): 栈最多存树高度个节点
  */
-#include "../剑指Offer1/BinaryTree.h"
+#include "BinaryTree.h"
 #include <stack>
 
 class BSTIterator

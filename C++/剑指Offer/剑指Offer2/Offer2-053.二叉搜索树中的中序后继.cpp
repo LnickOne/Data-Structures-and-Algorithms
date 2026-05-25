@@ -20,7 +20,7 @@
 - 时间复杂度 O(logN): 二分查找
 - 空间复杂度 O(1): 只使用了几个常数空间的变量
  */
-#include "../剑指Offer1/BinaryTree.h"
+#include "BinaryTree.h"
 
 class Solution
 {

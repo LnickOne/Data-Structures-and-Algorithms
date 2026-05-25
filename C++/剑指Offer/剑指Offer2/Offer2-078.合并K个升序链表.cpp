@@ -19,7 +19,7 @@
 - 时间复杂度 O(NKlogK): K 个链表, 每个平均 N 个节点, logK 次归并
 - 空间复杂度 O(logK): 递归栈
  */
-#include "../剑指Offer1/ListNode.h"
+#include "ListNode.h"
 #include <vector>
 
 class Solution

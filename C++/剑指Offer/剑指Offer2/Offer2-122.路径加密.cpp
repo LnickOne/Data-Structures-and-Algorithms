@@ -25,7 +25,8 @@ public:
     string pathEncryption(string path)
     {
         for (char &c : path)
-            if (c == '.') c = ' ';
+            if (c == '.')
+                c = ' ';
         return path;
     }
 };
