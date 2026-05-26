@@ -1,38 +1,24 @@
 /* > 题目难度: 中等
-
 > [原题链接](https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/)
-
 题目描述
-
 请定义一个队列并实现函数 max_value 得到队列里的最大值，要求函数 max_value、push_back 和 pop_front 的均摊时间复杂度都是 O(1)。
-
 若队列为空，pop_front 和 max_value  需要返回 -1
-
 - 1 <= push_back,pop_front,max_value 的总操作数 <= 10000
 - 1 <= value <= 10^5
-
 题目样例
-
 示例
-
 - 输入:
 - ["MaxQueue","push_back","push_back","max_value","pop_front","max_value"]
 - [[],[1],[2],[],[],[]]
 - 输出: [null,null,null,2,1,2]
-
 - 输入:
 - ["MaxQueue","pop_front","max_value"]
 - [[],[],[]]
 - 输出: [null,-1,-1]
-
 题目思考
-
 1. 要做到均摊时间复杂度为 O(1), 需要哪些数据结构?
-
 解决方案
-
 思路
-
 - 一个比较容易想到的思路是使用一个双端队列模拟, 然后每次利用 max 函数求最大值, 但这样求最大值的时间复杂度为 O(N), 不满足题目要求
 - 如果我们能够动态维护当前队列的最大值, 那么求最大值的时候只需要用 O(1)时间返回这个值即可
 - 但只使用一个变量来保存最大值并不够用, 因为当它被 pop 的时候必须重新计算新的最大值, 时间复杂度仍为 O(N)
@@ -46,13 +32,10 @@
   - **pop_front**: 弹出并返回正常队列右侧元素, 不存在则返回-1; 且如果单调队列最大值恰好等于弹出的元素时, 也需要将其从单调队列中弹出
 
 - 下面代码对必要的步骤有详细的解释, 特别是对 push_back 和 pop_front 的一些关键点的解释, 方便大家理解
-
 复杂度
-
 - 时间复杂度 O(1): 显然 max_value 和 pop_front 操作的复杂度都是 O(1). 而对于 push_back 操作, 虽然它使用了 while 循环, 可能弹出多个元素, 但是每个元素只会进入和弹出单调队列各一次, 所以整个操作序列下来的均摊时间复杂度为 O(1)
 - 空间复杂度 O(N): 队列需要存所有值
-
---- */
+*/
 #include <iostream>
 #include <deque>
 #include <queue>

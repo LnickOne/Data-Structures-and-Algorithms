@@ -42,9 +42,12 @@ public:
         for (int i = 0; i < n - 2; i++)
         {
             int a = nums[i];
-            if (i > 0 && a == nums[i - 1]) continue;
-            if (a + nums[i + 1] + nums[i + 2] > 0) break;
-            if (a + nums[n - 1] + nums[n - 2] < 0) continue;
+            if (i > 0 && a == nums[i - 1])
+                continue;
+            if (a + nums[i + 1] + nums[i + 2] > 0)
+                break;
+            if (a + nums[n - 1] + nums[n - 2] < 0)
+                continue;
             int j = i + 1, k = n - 1;
             while (j < k)
             {
@@ -53,10 +56,13 @@ public:
                 {
                     if (res.empty() || res.back() != vector<int>{a, nums[j], nums[k]})
                         res.push_back({a, nums[j], nums[k]});
-                    j++; k--;
+                    j++;
+                    k--;
                 }
-                else if (sm < 0) j++;
-                else k--;
+                else if (sm < 0)
+                    j++;
+                else
+                    k--;
             }
         }
         return res;
@@ -66,11 +72,13 @@ public:
 int main()
 {
     Solution s;
-    auto print = [](vector<vector<int>> &v) {
+    auto print = [](vector<vector<int>> &v)
+    {
         cout << "[";
         for (int i = 0; i < (int)v.size(); i++)
         {
-            if (i) cout << ",";
+            if (i)
+                cout << ",";
             cout << "[" << v[i][0] << "," << v[i][1] << "," << v[i][2] << "]";
         }
         cout << "]" << endl;

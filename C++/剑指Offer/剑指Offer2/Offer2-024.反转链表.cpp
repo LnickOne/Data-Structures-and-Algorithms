@@ -52,7 +52,8 @@ public:
     // 方案2: 递归
     ListNode *reverseList2(ListNode *head)
     {
-        if (!head || !head->next) return head;
+        if (!head || !head->next)
+            return head;
         ListNode *newHead = reverseList2(head->next);
         head->next->next = head;
         head->next = nullptr;
