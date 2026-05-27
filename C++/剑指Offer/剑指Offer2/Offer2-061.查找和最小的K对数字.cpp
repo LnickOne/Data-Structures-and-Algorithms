@@ -25,6 +25,7 @@
 #include <vector>
 #include <queue>
 #include <set>
+#include <tuple>
 using namespace std;
 
 class Solution
@@ -35,19 +36,19 @@ public:
         using T = tuple<int, int, int>;
         priority_queue<T, vector<T>, greater<T>> pq;
         set<pair<int, int>> visited;
-        pq.push({nums1[0] + nums2[0], 0, 0});
-        visited.insert({0, 0});
+        pq.emplace(nums1[0] + nums2[0], 0, 0);
+        visited.emplace(0, 0);
         vector<vector<int>> res;
         while (res.size() < (size_t)k && !pq.empty())
         {
             auto [sm, i, j] = pq.top(); pq.pop();
-            res.push_back({nums1[i], nums2[j]});
-            for (auto [ni, nj] : vector<pair<int,int>>{{i + 1, j}, {i, j + 1}})
+            res.push_back(vector<int>{nums1[i], nums2[j]});
+            for (auto [ni, nj] : vector<pair<int,int>>{make_pair(i+1,j), make_pair(i,j+1)})
             {
-                if (ni < (int)nums1.size() && nj < (int)nums2.size() && !visited.count({ni, nj}))
+                if (ni < (int)nums1.size() && nj < (int)nums2.size() && !visited.count(make_pair(ni, nj)))
                 {
-                    visited.insert({ni, nj});
-                    pq.push({nums1[ni] + nums2[nj], ni, nj});
+                    visited.emplace(ni, nj);
+                    pq.emplace(nums1[ni] + nums2[nj], ni, nj);
                 }
             }
         }

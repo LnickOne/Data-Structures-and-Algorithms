@@ -24,6 +24,7 @@
  */
 #include "BinaryTree.h"
 #include <climits>
+#include <algorithm>
 
 class Solution
 {

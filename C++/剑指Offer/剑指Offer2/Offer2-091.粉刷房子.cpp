@@ -22,6 +22,7 @@ n 个房子可粉刷成红/蓝/绿三色, 相邻房子不能同色, 给定 n×3 
  */
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 class Solution
@@ -35,7 +36,9 @@ public:
             int nr = min(b, g) + c[0];
             int nb = min(r, g) + c[1];
             int ng = min(r, b) + c[2];
-            r = nr; b = nb; g = ng;
+            r = nr;
+            b = nb;
+            g = ng;
         }
         return min({r, b, g});
     }

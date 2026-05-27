@@ -22,6 +22,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <algorithm>
 using namespace std;
 
 class Solution
@@ -37,7 +38,7 @@ public:
             for (int i = 0; i < (int)pdp.size(); ++i)
             {
                 dp[i] = min(dp[i], triangle[r][i] + pdp[i]);
-                dp[i+1] = min(dp[i+1], triangle[r][i+1] + pdp[i]);
+                dp[i + 1] = min(dp[i + 1], triangle[r][i + 1] + pdp[i]);
             }
             pdp = dp;
         }
@@ -48,7 +49,7 @@ public:
 int main()
 {
     Solution sol;
-    vector<vector<int>> t1 = {{2},{3,4},{6,5,7},{4,1,8,3}};
+    vector<vector<int>> t1 = {{2}, {3, 4}, {6, 5, 7}, {4, 1, 8, 3}};
     cout << sol.minimumTotal(t1) << endl; // 11
     vector<vector<int>> t2 = {{-10}};
     cout << sol.minimumTotal(t2) << endl; // -10
