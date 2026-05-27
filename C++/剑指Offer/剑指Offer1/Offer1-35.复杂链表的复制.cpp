@@ -5,34 +5,21 @@
 - -10000 <= Node.val <= 10000
 - Node.random 为空（null）或指向链表中的节点。
 - 节点数目不超过 1000 。
-
 题目样例
-
 示例
-
 输入
-
 head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
-
 输出
-
 [[7,null],[13,0],[11,4],[10,2],[1,0]]
-
 题目思考
-
 1. 如何处理 random 指针?
-
 解决方案
-
 思路
-
 - 如果只有 next 指针的话很简单, 我们只需要对每个节点新建一个相同值的节点, 并保持指向关系, 逐个遍历过去即可
 - 现在多了个 random 指针, 想要定位新的指向的节点, 一个比较自然的想法就是额外维护一个老节点到新节点的映射关系, 可以用字典来实现
 - 第一遍遍历, 就只关注 next 部分, 并建立好映射关系
 - 第二遍遍历, 考虑 random 部分, 找到对应的新链表的节点, 然后当前节点的 random 指针指向它即可
-
 复杂度
-
 - 时间复杂度 `O(N)`
   - 每个节点只需要遍历两次
 - 空间复杂度 `O(N)`
@@ -57,9 +44,7 @@ public:
     {
         if (!head)
             return nullptr;
-
         unordered_map<Node *, Node *> maps;
-
         // 第一遍遍历, 建立新的链表, 以及老节点到新节点的映射关系
         Node *copyHead = new Node(head->val);
         Node *origin = head;
@@ -73,7 +58,6 @@ public:
             copy = copy->next;
             maps[origin] = copy;
         }
-
         // 第二遍遍历, 处理 random 指针部分
         origin = head;
         copy = copyHead;

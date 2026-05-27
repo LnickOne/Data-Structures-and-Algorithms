@@ -33,16 +33,16 @@ using namespace std;
 class Solution
 {
 public:
-    vector<double> twoSum(int n)
+    vector<double> statisticsProbability(int num)
     {
         // dp[s] = probability that sum is s with current number of dice
-        vector<double> dp(6 * n + 1, 0);
+        vector<double> dp(6 * num + 1, 0);
         // init: 1 die
         for (int v = 1; v <= 6; v++)
             dp[v] = 1.0 / 6;
-        for (int i = 2; i <= n; i++)
+        for (int i = 2; i <= num; i++)
         {
-            vector<double> ndp(6 * n + 1, 0);
+            vector<double> ndp(6 * num + 1, 0);
             for (int s = i - 1; s <= 6 * (i - 1); s++)
             {
                 if (dp[s] == 0)
@@ -53,7 +53,7 @@ public:
             dp = ndp;
         }
         vector<double> res;
-        for (int s = n; s <= 6 * n; s++)
+        for (int s = num; s <= 6 * num; s++)
             res.push_back(dp[s]);
         return res;
     }
@@ -62,11 +62,11 @@ public:
 int main()
 {
     Solution s;
-    auto res = s.twoSum(1);
+    auto res = s.statisticsProbability(1);
     for (double x : res)
         cout << x << " ";
     cout << endl;
-    res = s.twoSum(2);
+    res = s.statisticsProbability(2);
     for (double x : res)
         cout << x << " ";
     cout << endl;
